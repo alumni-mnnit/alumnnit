@@ -1,0 +1,12 @@
+<h1> HOME </h1>
+<p>
+<% if current_user %>
+	<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+<% else %>
+	<ul>
+		<li><%= link_to "LogIn", new_user_session_path %></li>
+		<li><%= link_to "SignUp", new_user_registration_path %></li>
+	</ul>	
+
+<% end %>		
+</p>

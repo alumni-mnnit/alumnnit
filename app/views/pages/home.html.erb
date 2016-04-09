@@ -2,6 +2,7 @@
 <p>
 <% if current_user %>
 	<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+	<%= link_to "Edit User", edit_user_registration_path %>
 <% else %>
 	<ul>
 		<li><%= link_to "LogIn", new_user_session_path %></li>

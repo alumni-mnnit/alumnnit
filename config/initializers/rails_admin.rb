@@ -19,11 +19,9 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.authorize_with do
-    unless warden.user
-      redirect_to main_app.root_path 
-    else
-      redirect_to main_app.root_path unless warden.user.is_admin == true
-    end   
+    
+      redirect_to main_app.root_path unless warden.user 
+      redirect_to main_app.root_path unless warden.user.is_admin == true   
   end
 
   config.actions do

@@ -19,6 +19,9 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'rails_admin', '~> 0.8.1'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'bootstrap-datepicker-rails'
 group :development do
   gem 'web-console', '~> 2.0'
 

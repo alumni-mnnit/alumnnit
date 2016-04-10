@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -22,5 +24,6 @@ $(document).ready(function() {
 			$(this).remove();
 		});
 	}, 3500);
+
 
 });

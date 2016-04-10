@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408143516) do
+ActiveRecord::Schema.define(version: 20160410090342) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -30,8 +30,26 @@ ActiveRecord::Schema.define(version: 20160408143516) do
     t.string   "unconfirmed_email"
     t.boolean  "is_admin",               default: false
     t.boolean  "is_active",              default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "nick_name"
+    t.string   "gender"
+    t.string   "reg_no"
+    t.float    "phn_no"
+    t.date     "date_of_birth"
+    t.string   "degree"
+    t.string   "branch"
+    t.date     "year_of_passing"
+    t.text     "curr_address"
+    t.float    "pincode"
+    t.string   "h_town"
+    t.string   "city"
+    t.string   "country",                default: "India"
+    t.string   "company"
+    t.string   "designation"
+    t.text     "achievements"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

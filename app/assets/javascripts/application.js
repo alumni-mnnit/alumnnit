@@ -23,7 +23,7 @@ $(document).ready(function() {
 		$('.notice_wrapper').fadeOut("slow", function() {
 			$(this).remove();
 		});
-	}, 3500);
+	}, 3000);
 
 	$('.carousel').carousel({
         interval: 2000 //changes the speed

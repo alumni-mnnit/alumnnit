@@ -25,5 +25,8 @@ $(document).ready(function() {
 		});
 	}, 3500);
 
-
+	$('.carousel').carousel({
+        interval: 2000 //changes the speed
+	});
 });
+

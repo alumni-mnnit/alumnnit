@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :require_user , except: [:home]
+  before_filter :require_user , except: [:home, :about, :contact]
   def home
   end
 

@@ -1,30 +1,40 @@
-<h2>Sign up</h2>
+<div class= "container">
+  <div class="row" style="margin-top: 25px;">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 style="text-align: center;">Sign up</h2>
+        </div>
+        <div class="panel-body">  
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
+            
+              <%= f.error_notification %>
+              
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  
+            <div class="form-inputs">
+              <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' } %>
+              <br>
+              <%= f.input :password, required: true, input_html: { minlength: 6, class: 'form-control' } %>
+              <br>
+              <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control' } %>
+            </div>
+            <br>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up", class: "btn btn-lg btn-info col-md-offset-5" %>
+            </div>
+            <br>
+          <% end %>
+        </div>
+        <div class="panel-footer panel-info">  
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control", required: true %>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>    
+
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Sign up" , class: "btn btn-lg btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <br>  
+  <hr>
+  <%= render 'pages/footer'%>    
+</div>    

@@ -23,19 +23,21 @@
 .notice_wrapper{
 	position: absolute;
 	top: 0;
-	width: 100%;
+	width: 50%;
+    margin-left: 35rem;
 	z-index: 999;
-	background-color: rgba(135, 216, 211, 0.85);
+	background-color: white;
+    border-radius: 5rem;
 	.alert {
 		padding: 0.6rem;
 	}
 	p {
 		text-align: center;
-		padding: 2.5rem, 0;
-		margin: 0;
-		font-size: 1.25rem;
+		padding: 3.5rem, 2rem;
+		margin: 2px, 3px;
+		font-size: 1.4rem;
 		font-weight: 100;
-		color: #fff;
+		color: black;
 		letter-spacing: 1px; 
 	}
 }
@@ -43,6 +45,7 @@
 html,
 body {
     height: 100%;
+    background-color: silver;
 }
 
 
@@ -58,7 +61,7 @@ body {
 /* Home Page Carousel */
 
 header.carousel {
-    height: 60%;
+    height: 80%;
     margin-top: -20px;
 
 }

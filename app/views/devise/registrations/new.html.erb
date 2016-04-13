@@ -1,40 +1,63 @@
-<div class= "container">
-  <div class="row" style="margin-top: 25px;">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h2 style="text-align: center;">Sign up</h2>
-        </div>
-        <div class="panel-body">  
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            
-              <%= f.error_notification %>
-              
-
-            <div class="form-inputs">
-              <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' } %>
-              <br>
-              <%= f.input :password, required: true, input_html: { minlength: 6, class: 'form-control' } %>
-              <br>
-              <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control' } %>
+<div class="container" style="margin-top: 80px;">  
+  <div class="modal-dialog login animated">
+    <div class="modal-content">
+      <div class="modal-header">
+              <h4 class="modal-title">Register with</h4>
+      </div>
+      <div class="modal-body">  
+        <div class="box">
+          <div class="content"> 
+            <div class="social">
+                <a class="circle github" href="/auth/github">
+                    <i class="fa fa-github fa-fw"></i>
+                </a>
+                <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                    <i class="fa fa-google-plus fa-fw"></i>
+                </a>
+                <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                    <i class="fa fa-facebook fa-fw"></i>
+                </a>
             </div>
-            <br>
-            <div class="form-actions">
-              <%= f.button :submit, "Sign up", class: "btn btn-lg btn-info col-md-offset-5" %>
+            <div class="division">
+                <div class="line l"></div>
+                  <span>or</span>
+                <div class="line r"></div>
             </div>
-            <br>
-          <% end %>
-        </div>
-        <div class="panel-footer" style="background-color: #BCE8F1;">  
+            <div class="error"></div>
+            <div class="box">
+              <div class="content registerBox">
+               <div class="form">                         
+                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
+                    <%= f.error_notification %>
+                     <div class="form-inputs">
+                        <%= f.input :email, label: false, placeholder: "Email", required: true, autofocus: true, error: 'Email is mandatory, please specify one', input_html: { class: 'form-control' } %>
+                        <br>
+                        <%= f.input :password, label: false, placeholder: "Password", required: true, input_html: { minlength: 6, class: 'form-control' } %>
+                        <br>
+                        <%= f.input :password_confirmation, label: false, placeholder: "Password Confirmation", required: true, input_html: { class: 'form-control' } %>
+                     </div>
+                      <br>
+                      <div class="form-actions">
+                        <%= f.button :submit, "Sign up", class: "btn btn-register btn-info" %>
+                      </div>
+                <% end %>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="forgot register-footer">
+                 <span>Already have an account?</span>
+                 <%= link_to 'Login', new_user_session_path %><br />
+                 <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 
-          <%= render "devise/shared/links" %>
+            </div>
+          </div>
         </div>
-      </div>    
-
+      </div>
     </div>
   </div>
+</div>
 
-  <br>  
-  <hr>
-  <%= render 'pages/footer'%>    
-</div>    
+
+              

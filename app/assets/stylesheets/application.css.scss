@@ -22,19 +22,20 @@
 
 .notice_wrapper{
 	position: absolute;
-	top: 0;
+	top: 0px;
 	width: 50%;
     margin-left: 35rem;
 	z-index: 999;
-	background-color: white;
+	background-color: rgba(255,255,255,0.9);
     border-radius: 5rem;
 	.alert {
 		padding: 0.6rem;
 	}
 	p {
 		text-align: center;
-		padding: 3.5rem, 2rem;
-		margin: 2px, 3px;
+		padding: auto;
+		margin: auto;
+        margin-top: 20px;
 		font-size: 1.4rem;
 		font-weight: 100;
 		color: black;
@@ -57,6 +58,35 @@ body {
 .img-hover:hover {
     opacity: 0.8;
 }
+
+.panel-heading{
+    .request_image {
+        img {
+            max-width: 100%;
+            width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
+            
+        }
+    }
+}
+.panel-body{    
+    .description {
+        color: #868686;
+        line-height: 1.75;
+        margin: 0;
+    }
+}    
+.modal-body{
+    .current_image {
+        img {
+            display: block;
+            margin: 20px 0;
+        }
+    }
+}
+
 
 /* Home Page Carousel */
 

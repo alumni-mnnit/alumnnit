@@ -23,6 +23,7 @@ gem 'rails_admin', '~> 0.8.1'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'bootstrap-datepicker-rails'
+gem "paperclip", "~> 5.0.0.beta1"
 group :development do
   gem 'web-console', '~> 2.0'
 

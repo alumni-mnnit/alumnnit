@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :require_user , except: [:home, :about]
+  before_filter :confirm_user, only:[:home, :about, :contact]
   def home
   end
 
@@ -16,4 +17,11 @@ class PagesController < ApplicationController
 	    redirect_to "/" and return
 	  end
 	end
+
+      def confirm_user
+        if user_signed_in? and current_user.is_active == false and current_user.request.nil?
+            flash[:notice] = "Please request for Account Activation!"
+            return 
+        end
+      end
 end

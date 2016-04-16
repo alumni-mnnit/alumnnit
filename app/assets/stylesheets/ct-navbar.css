@@ -143,7 +143,7 @@ h1 .subtitle{
     font-size: 18px;
 }
 .navbar-brand{
-    padding: 20px 15px;
+    padding: 10px 15px;
 }
 .navbar .navbar-nav [class^="pe"]{
     font-size: 32px;
@@ -292,6 +292,10 @@ h1 .subtitle{
     background-color: #FF4C40;
     background-color: rgba(255, 76, 64, 0.98);
 }
+.navbar:not(.navbar-transparent).navbar-ct-black{
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.75);
+}
 
 .dropdown-menu > li > a {
     padding: 8px 20px;
@@ -342,7 +346,8 @@ h1 .subtitle{
     font-weight: 400;
     line-height: 20px;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: -5px;
+    margin-right: 20px;
     width: 60px;
 }
 .navbar-default .navbar-brand-logo .brand{

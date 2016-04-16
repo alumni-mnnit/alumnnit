@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_filter :require_user , except: [:home, :about]
-  before_filter :confirm_user, only:[:home, :about, :contact]
+  before_filter :confirm_user, only:[:home, :about, :contact, :fund]
   def home
   end
 
@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def fund
   end
 
   protected

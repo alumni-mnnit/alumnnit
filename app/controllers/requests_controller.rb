@@ -3,7 +3,10 @@ class RequestsController < ApplicationController
 	before_action :check_user
 	before_action :authenticate_user!
 	
-	
+	def index
+		@requests = current_user.request
+	end
+
 	def show 
 	end
 

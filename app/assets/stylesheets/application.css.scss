@@ -59,33 +59,7 @@ body {
     opacity: 0.8;
 }
 
-.panel-heading{
-    .request_image {
-        img {
-            max-width: 100%;
-            width: 100%;
-            max-height: 100%;
-            display: block;
-            margin: 0 auto;
-            
-        }
-    }
-}
-.panel-body{    
-    .description {
-        color: #868686;
-        line-height: 1.75;
-        margin: 0;
-    }
-}    
-.modal-body{
-    .current_image {
-        img {
-            display: block;
-            margin: 20px 0;
-        }
-    }
-}
+
 
 
 /* Home Page Carousel */
@@ -116,6 +90,33 @@ header.carousel .fill {
     font-size: 100px;
 }
 
+.panel-heading{
+    .request_image {
+        img {
+            max-width: 100%;
+            width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
+            
+        }
+    }
+}
+.panel-body{    
+    .description {
+        color: #868686;
+        line-height: 1.75;
+        margin: 0;
+    }
+}    
+.modal-body{
+    .current_image {
+        img {
+            display: block;
+            margin: 20px 0;
+        }
+    }
+}
 /* Pricing Page Styles */
 
 .price {
@@ -139,6 +140,26 @@ header.carousel .fill {
 
 footer {
     margin: 50px 0;
+}
+.footer-class {
+    background-color: rgba(0,0,0,0.75);
+    padding-bottom: 50px;
+    margin-bottom: 0px;
+    .row{
+        .col-lg-12{
+            margin-top: 20px;
+            color: #fff;
+            
+            .previous{
+                margin-left: 10rem;
+                display: inline;
+            }
+            .next {
+                margin-left: 50rem;
+                display: inline;
+            }
+        }
+    }    
 }
 
 /* Responsive Styles */

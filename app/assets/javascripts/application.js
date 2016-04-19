@@ -28,5 +28,5 @@ $(document).ready(function() {
 	
 });
 $('.carousel').carousel({
-    interval: 1000 //changes the speed
+    interval: 800 //changes the speed
 });

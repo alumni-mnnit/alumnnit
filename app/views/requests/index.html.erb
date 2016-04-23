@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row" style="margin-top: 10px;">
+	    <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+		    <div class="modal-dialog login animated">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			              
+			            <h4 class="modal-title">Your Activation Request.</h4>
+			      </div>
+			      <div class="modal-body">  
+			        <div class="box">
+			          <div class="content">
+			          	<div class="division">
+			                <div class="line l"></div>
+			                <div class="line r"></div>
+			            </div>
+			            <div class="error"></div>
+			            <div>
+				            <h3><%= @requests.title %></h3>
+				            <hr>
+				            <P><%= @requests.description %></P>
+				            <hr>
+				            <%= image_tag @requests.image.url(:medium) %>
+			            </div>
+			            <hr>
+			            <div>
+			            	<%= link_to "Edit", edit_request_path(@requests), class: "btn btn-lg btn-info", style: "dislpay: inline;" %>
+			            	<%= link_to "Delete", @request, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-lg btn-success", style: "display: inline;" %>
+			            </div>
+			          </div>
+			        </div>
+			      </div>  
+			    </div>
+			</div>        
+	    </div>    
+	</div>
+</div>

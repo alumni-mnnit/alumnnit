@@ -1,0 +1,26 @@
+<%= simple_form_for @request, html: { multipart: true } do |f| %>
+	<%- if @request.errors.any? %>
+		<div id="errors">
+			<h2>
+				<%= pluralize(@request.errors.count, "Error") %>
+				Prevented this request from saving.
+			</h2>	
+				<ul>
+					<%  @request.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>	
+				</ul>				
+		</div>
+	<% end %>			
+	<div class="form-group">
+		<%= f.input :title,  placeholder: "Title", input_html: { class: "form-control", style: "color: black;"} %>
+	</div>	
+	<div class="form-group">
+		<%= f.input :description, placeholder: "Description", input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.input :image,required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	<%= f.button	:submit, class: "btn btn-login btn-info" %>
+<% end %>	

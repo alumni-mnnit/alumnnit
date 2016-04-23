@@ -1,0 +1,64 @@
+<div class="container" style="background-color: rgba(0,0,0,0.09);">
+  <div class="modal-dialog login animated">
+    <div class="modal-content">
+      <div class="modal-header">
+              
+              <h4 class="modal-title">Login with</h4>
+      </div>
+      <div class="modal-body">  
+        <div class="box">
+          <div class="content">
+            <div class="social">
+                <a class="circle github" href="/auth/github">
+                    <i class="fa fa-github fa-fw"></i>
+                </a>
+                <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                    <i class="fa fa-google-plus fa-fw"></i>
+                </a>
+                <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                    <i class="fa fa-facebook fa-fw"></i>
+                </a>
+            </div>
+            <div class="division">
+                <div class="line l"></div>
+                  <span>or</span>
+                <div class="line r"></div>
+            </div>
+            <div class="error"></div>
+            <div class="form loginBox">
+              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <br>
+                <div class="form-group">
+                  <%= f.input :email, label: false, placeholder: "Email",required: false, autofocus: true, error: 'Email is mandatory, please specify one', input_html: { class: 'form-control' } %>
+                </div>  
+                  <br>
+                <div class="form-group">  
+                  <%= f.input :password, label: false, placeholder: "Password", required: false, input_html: { class: 'form-control' } %>
+                </div>  
+                  <br>
+                <div class="checkbox">  
+                  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                </div>  
+                  <br>
+                <div class="form-actions">
+                  <%= f.button :submit, "LogIn", class: 'btn btn-login btn-info' %>
+                </div>
+              <% end %> 
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="forgot login-footer">
+            <%= link_to "Forgot Password", new_password_path(resource_name) %><br />                              
+            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+
+            <span>Looking to 
+                 <%= link_to 'create an account', new_user_registration_path %>
+            ?</span>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>  
+                              

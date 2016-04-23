@@ -1,0 +1,40 @@
+#login {}
+
+#signup {}
+
+.no-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+
+@media all and (max-width: 755px) {
+    .languageswitcherload {
+        margin-left: auto;
+    }
+}
+.main-container {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+}
+
+#a {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+}
+
+#carimg {
+    max-height: 500px;
+}
+.fill{
+    height: 450px;
+}
+.notice_wrapper{
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 40%;
+    z-index: 999999;
+}

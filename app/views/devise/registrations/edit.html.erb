@@ -1,0 +1,170 @@
+<div class="container" style="background-color: rgba(0,0,0,0.09);">  
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+
+          <h2 style="text-align: center;">Edit <%= resource_name.to_s.humanize %></h2>
+        </div>  
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+            <%= devise_error_messages! %>
+              
+          
+          <div class="panel-body">
+
+            <div class="form-inputs">
+              <div class="form-group">
+                <%= f.label :fname, "First Name" %><br />
+                <%= f.text_field :fname, class: "form-control", :autofocus => true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :lname, "Last Name" %><br />
+                <%= f.text_field :lname, class: "form-control", :autofocus => true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :nick_name%><br />
+                <%= f.text_field :nick_name, class: "form-control", :autofocus => true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :gender %><br />
+                <%= f.label :gender, "Male", value: "Male" %>
+                <%= f.radio_button(:gender, "Male") %> 
+                <%= f.label :gender, "Female", value: "Female" %>
+                <%= f.radio_button(:gender, "Female") %> 
+              </div>
+
+              <div class="form-group">
+                <%= f.label :reg_no, "Registraion No." %><br /><i>(Please enter your college registration number if you remember.)</i>
+                <%= f.text_field :reg_no, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :phn_no , "Phone No."%><br />
+                <%= f.text_field :phn_no, class: "form-control", :autofocus => true %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class=" form-group">
+                <%= f.label :date_of_birth, "Date of Birth" %><br />
+                <div class='input-group date' id='datetimepicker1'>
+                  <%= f.text_field :date_of_birth, class: "form-control"%>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :degree %><br />
+                <%= f.text_field :degree, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :branch %><br />
+                <%= f.text_field :branch, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class=" form-group">
+                <%= f.label :year_of_passing, "Year of Passing" %><br />
+                <div class='input-group date' id='datetimepicker2'>
+                  <%= f.text_field :year_of_passing, class: "form-control"%>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+                <i>(Note that if you are from batch 1961-1965, then 1965 is your batch i.e. the last year you were in MNNIT.)</i>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :curr_address, "Corresponding Address" %><br />
+                <%= f.text_area :curr_address, class: "form-control", :autofocus => true %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :pincode , "Pin-Code"%><br />
+                <%= f.text_field :pincode, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :h_town, "Home Town" %><br />
+                <%= f.text_field :h_town, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :city, "City" %><br />
+                <%= f.text_field :city, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :country, "Country" %><br />
+                <%= f.text_field :country, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :company, "Working Organisation" %><br />
+                <%= f.text_field :company, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :designation, "Designation" %><br />
+                <%= f.text_field :designation, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :achievements, "Achievements" %><br />
+                <%= f.text_area :achievements, class: "form-control", :autofocus => true %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Update", class: "btn btn-lg btn-info col-md-offset-5" %>
+            </div>
+          </div>  
+        <% end %>
+        <div class="panel-footer" style="background-color: #BCE8F1;">
+          <h3>Cancel my account</h3>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-warning" %></p>
+        </div>
+      </div>  
+    </div> 
+  </div>
+  <hr>
+  
+   
+</div>    
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+
+    $(function () {
+            $('#datetimepicker2').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY'
+            });
+        });
+</script>

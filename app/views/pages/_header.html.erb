@@ -1,0 +1,90 @@
+<header id="t3-header" class="t3-header">
+            <div class="container">
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-xs-12 col-sm-6 logo">
+                        <div class="logo-image">
+                            <a href="#" title="">
+                                <img class="logo-img" src="../images/logo.png" alt="MNNIT Allahabad" style="height: 50%;width:50%" />
+                                <span></span>
+                            </a>
+                            <small class="site-slogan">Ja University Teamplate</small>
+                        </div>
+                    </div>
+
+                    <!-- LOGIN SIGNUP 
+                    <div class="col-sm-5 col-sm-push-0">
+                        <div class="languageswitcherload">
+                            <div class="mod-languages">
+                               
+                            </div>
+                        </div>
+                    </div>
+                     END OF LOGIN SIGNUP -->
+
+                    <ul class="nav navbar-nav navbar-right" id="lol">
+              <% if user_signed_in? %>
+                      <li class="dropdown" style="margin-top: 0px;">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <% if current_user.nick_name? %>      
+                            <font style="color: white"><%= current_user.nick_name %><font>
+                          <% else %>
+                            <font style="color: white"><%= current_user.email %></font>
+                          <% end %> 
+                          <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><%= link_to '<i class="fa fa-user fa-fw" aria-hidden="true"></i> Profile'.html_safe, '#' %></li>
+                          <li><%= link_to '<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Settings'.html_safe, edit_user_registration_path %></li>
+                          <li class="divider"></li>
+                          <li><%= link_to '<i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Log out'.html_safe, destroy_user_session_path, method: :delete %></li>
+                        </ul>
+
+                      </li>
+                      
+                        <li> 
+                            <% if current_user.is_active == false and current_user.request.nil? %>
+                                <%= link_to 'Activate', new_request_path, style: "margin-top: 5px;color:white;" %>
+                    <% elsif current_user.is_active == false  %>
+                      <%= link_to 'Show Request', requests_path, style: "margin-top: 5px;" %>
+                            <% end %>   
+                        </li>
+                    <% else %>
+                      <li style="margin-top: 0px; background-color: rgba(250,250,0,0.85); height: 5rem; margin-right: 10px; border-radius: 5px;"><%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", style: "margin: auto;"%></li>
+                      <li style="margin-top: 0px; background-color: rgba(250,250,0,0.85); height: 5rem; border-radius: 5px;"><%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();",style: "margin: auto;" %></li>
+                    <% end %>
+                </ul>
+
+
+                </div>
+            </div>
+    </div>
+    </header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-ct-black" role="navigation" style="margin-bottom:0;border-radius:0">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            	
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="height:10px;">
+            	<ul class="nav navbar-nav">
+    			        <li style="margin-top: 0px;"><%= link_to '<i class="fa fa-home fa-fw" aria-hidden="true"></i> Home'.html_safe, root_path %></li>
+    			        <li style="margin-top: 0px;"><%= link_to '<i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i> About'.html_safe, about_path %></li>
+    			        <li style="margin-top: 0px;"><%= link_to '<i class="fa fa-phone fa-fw" aria-hidden="true"></i> Contact Us'.html_safe, contact_path %></li>
+                  <li style="margin-top: 0px;"><%= link_to '<i class="fa fa-gift fa-fw" aria-hidden="true"></i> Give Back'.html_safe, fund_path %></li>
+    			    </ul>
+            
+            </div>
+            <!-- /.navbar-collapse -->
+             </div>
+        <!-- /.container -->
+
+    </nav>

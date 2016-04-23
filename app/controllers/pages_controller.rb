@@ -13,6 +13,9 @@ class PagesController < ApplicationController
   def fund
   end
 
+  def activate
+  end
+  
   protected
 	def require_user
 	  unless current_user

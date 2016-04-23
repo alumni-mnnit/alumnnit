@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about' 
   get '/contact' => 'pages#contact' 
   get '/fund'	=> 'pages#fund'
+  get '/activate' => 'pages#activate'
   
-  	resources :requests
+  	resources :requests 
  
 end

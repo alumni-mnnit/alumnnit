@@ -41,7 +41,8 @@
                 </button>
                 <a class="navbar-brand navbar-brand-logo" href="/">
                 <div class="logo">
-                    <img src="assets/logo2.jpeg">
+                    <%= image_tag "logo2.jpeg" %>
+                    
                 </div>
                 <div class="brand"> 
                   <span style="font-size: 25px;">MNNIT</span> Alumni 
@@ -79,7 +80,7 @@
 			          
 			          	<li> 
 			          		<% if current_user.is_active == false and current_user.request.nil? %>
-			          			<%= link_to 'Activate', new_request_path, style: "margin-top: 20px;" %>
+			          			<%= link_to 'Activate', activate_path, style: "margin-top: 20px;" %>
                     <% elsif current_user.is_active == false  %>
                       <%= link_to 'Show Request', requests_path, style: "margin-top: 20px;" %>
 			          		<% end %>	

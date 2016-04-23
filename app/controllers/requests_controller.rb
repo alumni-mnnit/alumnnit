@@ -1,10 +1,13 @@
 class RequestsController < ApplicationController
-	before_action :find_request, only: [:show, :edit, :update, :destroy]
+	before_action :find_request, only: [:edit, :update, :destroy]
 	before_action :check_user
 	before_action :authenticate_user!
 	
 	def index
 		@requests = current_user.request
+		if @requests.nil?
+			redirect_to root_path
+		end
 	end
 
 	def show 
@@ -28,7 +31,8 @@ class RequestsController < ApplicationController
 
 	def update
 		if @request.update(request_params)
-			redirect_to @request, notice: "Request was successfully Updated."
+			flash[:notice] = "Request was successfully Updated."
+			redirect_to root_path
 		else
 			render 'edit'
 		end
@@ -36,7 +40,7 @@ class RequestsController < ApplicationController
 
 	def destroy
 		@request.destroy
-		redirect_to :back
+		redirect_to root_path
 	end
 
 	private

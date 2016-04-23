@@ -336,8 +336,9 @@ h1 .subtitle{
     border-radius: 50%;
     float: left;
     overflow: hidden;
-    width: 60px;
-    margin-top: -20px;
+    width: 70px;
+    margin-top: -25px;
+    
 }
 .navbar .navbar-brand-logo .brand{
     color: #FFFFFF;

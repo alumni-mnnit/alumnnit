@@ -1,4 +1,4 @@
-<header id="myCarousel" class="carousel slide">
+<header id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     
     <ol class="carousel-indicators">
@@ -39,7 +39,7 @@
     </a>
 
     <div class= "header-one" >
-        <h1 class="other"><span>MNNIT Alumni Association</span></h1>
+        <h1><span>MNNIT Alumni Association</span></h1>
         <p class="subtext">Welcomes You!</p>
     </div>
 </header>
@@ -167,3 +167,11 @@
             </div>
         </div>
     </div>    
+
+<script type="text/javascript">
+    
+    $('.carousel').carousel({
+        interval: 1000 //changes the speed
+    });
+</script>
+

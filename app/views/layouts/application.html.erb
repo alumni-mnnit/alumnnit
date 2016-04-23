@@ -10,8 +10,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        $("#notice_wrapper").fadeOut("slow", function() {
+          $(this).remove();
+        }); 
+      }, 3000);
+    });
+  </script> 
 	<% if notice or alert %>
-		<div class="notice_wrapper">
+		<div id="notice_wrapper">
 	  		<% flash.each do |key, value| %>
 	    		<div class="alert alert-<%= key %>">
 	      			<p><%= value %></p>
@@ -32,7 +41,7 @@
                 </button>
                 <a class="navbar-brand navbar-brand-logo" href="/">
                 <div class="logo">
-                    <img src="https://s3.amazonaws.com/creativetim_bucket/new_logo.png">
+                    <img src="assets/logo2.jpeg">
                 </div>
                 <div class="brand"> 
                   <span style="font-size: 25px;">MNNIT</span> Alumni 
@@ -150,5 +159,8 @@
 	<%= yield %>
   <hr>
 	<%= render 'pages/footer' %>
+  
+
 </body>
+
 </html>

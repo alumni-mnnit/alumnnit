@@ -20,7 +20,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.notice_wrapper{
+#notice_wrapper{
 	position: absolute;
 	top: 0px;
 	width: 100%;
@@ -72,7 +72,7 @@ header.carousel {
       position: absolute;
       top: -20%;
       left: 22%;      
-      z-index: 20;
+      
       height: 30%;
       margin-top: 150px;
       h1 {      

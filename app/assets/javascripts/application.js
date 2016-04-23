@@ -18,15 +18,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-	setTimeout(function() {
-		$('.notice_wrapper').fadeOut("slow", function() {
-			$(this).remove();
-		});
-	}, 3000);
-
-	
-});
-$('.carousel').carousel({
-    interval: 800 //changes the speed
-});

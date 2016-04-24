@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about' 
   get '/fund'	=> 'pages#fund'
   get '/activate' => 'pages#activate'
+  get '/coming_soon' => 'pages#coming_soon'
   	resources :requests 
 
   	resources :contacts

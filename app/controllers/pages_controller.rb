@@ -7,7 +7,8 @@ class PagesController < ApplicationController
   def about
   end
 
-  
+  def comming_soon
+  end
 
   def fund
   end

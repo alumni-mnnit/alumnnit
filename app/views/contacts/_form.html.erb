@@ -1,0 +1,34 @@
+<div class="col-md-8">
+    <h3>Send us a Message Or any Query</h3>
+    <hr>
+    <%= simple_form_for @contact, html: { multipart: true, id: "contactForm"} do |f| %>
+		<%- if @contact.errors.any? %>
+			<div id="errors">
+				<h2>
+					<%= pluralize(@contact.errors.count, "Error") %>
+					Prevented this query from saving.
+				</h2>	
+					<ul>
+						<%  @contact.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>	
+					</ul>				
+			</div>
+		<% end %>			
+		<div class="form-group">
+			<%= f.input :name,  placeholder: "Full Name", input_html: { class: "form-control", style: "color: black;"} %>
+		</div>	
+		<div class="form-group">
+			<%= f.input :phn_no, placeholder: "Phone No.", input_html: { class: "form-control", style: "color: black;"} %>
+		</div>
+
+		<div class="form-group">
+			<%= f.input :email, placeholder: "Email Address",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+		</div>
+		<div class="form-group">
+			<%= f.input :message, placeholder: "Message",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+		</div>
+		<%= f.button :submit, "Send Message", class: "btn btn-login btn-info" %>
+	<% end %>	
+    
+</div>

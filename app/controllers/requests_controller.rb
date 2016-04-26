@@ -1,3 +1,4 @@
+require 'rest-client'
 class RequestsController < ApplicationController
 	before_action :find_request, only: [:edit, :update, :destroy]
 	before_action :check_user
@@ -41,6 +42,30 @@ class RequestsController < ApplicationController
 	def destroy
 		@request.destroy
 		redirect_to root_path
+	end
+
+	def academics
+
+	end
+
+	def send_activate
+		regno = params[:regno]
+		password = params[:password]
+		res = RestClient.post "http://172.31.100.19/alumniapi/validateapi.php", { 'regno' => regno, 'password' => password }.to_json, :content_type => :json, :accept => :json
+		if res.code == 200
+			h = JSON.parse(res.to_s)
+			if h["response"] == "true"
+				current_user.update(is_active: "true")
+				flash[:notice] = "Your account have been activated successfully."
+				redirect_to root_path
+			else
+				flash[:notice] = "Invalid Registration Number or Password."
+				redirect_to :back
+			end
+		else
+			flash[:notice] = "Please try again later. There may be a problem with Server."
+			redirect_to :back
+		end
 	end
 
 	private

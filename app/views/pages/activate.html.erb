@@ -1,56 +1,62 @@
 <div class="container">
 
-	
-	<div class="col-lg-12 text-center">
-		<h1 class="page-header">
-			Activate Your Account.
-        </h1>
-		
-	</div>
-	<div class="col-md-4 col-md-offset-1">
-		<div class="modal-dialog login animated" style="width: 100%">
-		    <div class="modal-content">
-			    <div class="modal-header">
-			        <h4 class="modal-title text-center">Request with Photo Proof.</h4>
-			    </div>
-			    <hr>
-			    <div class="modal-body">  
-			        <div class="box">
-				        <div class="content">
-				        	<div class="text-center">
-				        		You can send us Activation Request using any Photo Proof (may be your ID card or Degree). The Photo will be verified and may take a while.
-				        	</div>
-				        	<hr>
-				            <div>
-				            	<%= link_to "Photo Proof", new_request_path, class: "btn btn-info btn-login" %>
-				            </div>
-				        </div>
-			    	</div>
-		    	</div>	
-			</div>
-		</div>	            
-	</div>
-	<div class="col-md-4 col-md-offset-2" >
-		<div class="modal-dialog login animated" style="width: 100%;">
-		    <div class="modal-content">
-			    <div class="modal-header">
-			        <h4 class="modal-title text-center">Request with Photo Proof.</h4>
-			    </div>
-			    <hr>
-			    <div class="modal-body">  
-			        <div class="box">
-				        <div class="content">
-				        	<div class="text-center">
-				        		You can Activate your Account through Administration Login (using your Academic Registration no. and password).
-				        	</div>
-				        	<hr>
-				            <div>
-				            	<%= link_to "Academic Login", '#', class: "btn btn-info btn-login" %>
-				            </div>
-				        </div>
-			    	</div>
-		    	</div>	
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h1 class="page-header">
+				Activate Your Account.
+	        </h1>
+			
+		</div>
+		<div class="col-md-4 col-md-offset-1" >
+			<div class="modal-dialog login animated" style="width: 100%;">
+			    <div class="modal-content">
+				    <div class="modal-header">
+				        <h4 class="modal-title text-center">Activate through Academics.</h4>
+				    </div>
+				    <hr>
+				    <div class="modal-body">  
+				        <div class="box">
+					        <div class="content">
+					        	<div class="text-center">
+					        		You can Activate your Account through Administration Login (using your Academic Registration no. and password).
+					        	</div>
+					        	<hr>
+					            <div>
+					            	<%= link_to "Academic Login", academics_path, class: "btn btn-info btn-login" %>
+					            </div>
+					        </div>
+				    	</div>
+			    	</div>	
+				</div>
 			</div>
 		</div>
+		<div class="col-md-4 col-md-offset-2">
+			<div class="modal-dialog login animated" style="width: 100%">
+			    <div class="modal-content">
+				    <div class="modal-header">
+				        <h4 class="modal-title text-center">Request with Photo Proof.</h4>
+				    </div>
+				    <hr>
+				    <div class="modal-body">  
+				        <div class="box">
+					        <div class="content">
+					        	<div class="text-center">
+					        		You can send us Activation Request using any Photo Proof (may be your ID card or Degree). The Photo will be verified and may take a while.
+					        	</div>
+					        	<hr>
+					            <div>
+					            	<%= link_to "Photo Proof", new_request_path, class: "btn btn-info btn-login" %>
+					            </div>
+					        </div>
+				    	</div>
+			    	</div>	
+				</div>
+			</div>	            
+		</div>
 	</div>
+	<br>
+	<hr>
+	<div class="text-center">
+		If you donot have any Photo Proof or donot remember your Registration No. and Password, then please <%= link_to "Contact Us", new_contact_path %> and Submit the Query with Title = "No Photo Proof or Academics Details". In the Message provide with whatever Information you can give about your relation with the Institute.<br> Further contact: <br> P: +91-0532-2080077<br>P: +91-0532-2271161.
+	</div>	
 </div>

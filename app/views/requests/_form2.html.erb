@@ -1,0 +1,12 @@
+<%= form_tag '/send_activate', method: 'post' do %>
+	<div class="form-group">
+		<%= label_tag(:regno, "Registration No.") %>
+		<%= text_field_tag :regno %>
+	</div>	
+	<div class="form-group">
+		<%= label_tag(:password, "Password") %>
+		<%= password_field_tag :password %>
+	</div>
+
+	<%= submit_tag "Submit", class: "btn btn-login btn-info" %>
+<% end %>	

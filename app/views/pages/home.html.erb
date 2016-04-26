@@ -8,7 +8,7 @@
         <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="opacity: 0.9;">
         
         <div class="item active">
             <div class="fill" style="background-image:url('assets/1.jpg');"></div>
@@ -38,7 +38,7 @@
         <span class="icon-next"></span>
     </a>
 
-    <div class= "header-one" >
+    <div class= " col-md-8 col-md-offset-2 header-one" >
         <h1><span>MNNIT Alumni Association</span></h1>
         <p class="subtext">Welcomes You!</p>
     </div>
@@ -49,8 +49,34 @@
     <hr>
         <!-- Marketing Icons Section -->
         <div class="row">
-
             <div class="row">
+                
+                <div id="t3-department">
+                    <div class="container department">
+                        <div class="main">
+                            <div class="custom">
+                                <div class="department-list">
+                                    <center>
+                                        <div class="col-lg-12" style="margin-top: -50px;">
+                                            <h2 class="page-header" > Features </h2>                
+                                        </div>
+                                        <ul class="department-list">
+                                            <li class="icon-8"><%= link_to "News", coming_soon_path %>  <span class="department-name">News & Events</span></li>
+                                            <li class="icon-6"> <%= link_to "Forums", coming_soon_path %> <span class="department-name">Forums</span></li>
+                                            <li class="icon-1"><%= link_to "Jobs", coming_soon_path %>  <span class="department-name"><br>Jobs</span></li>
+                                            <li class="icon-2"><%= link_to "Give Back", fund_path %>  <span class="department-name">Give Back</span></li>
+                                            <!--<li class="icon-2"><a href="accounting" title="Sample">Accounting</a> <span class="department-name">Accounting</span></li>
+                                           <li class="icon-3"><a href="economics" title="Sample">Economics</a> <span class="department-name">Economics</span></li>-->
+                                           <li class="icon-4"><%= link_to "Profile", coming_soon_path %>  <span class="department-name">Profile</span></li>
+                                           <li class="icon-7"><%= link_to "Search Alumni", coming_soon_path %>  <span class="department-name">Search Alumni</span></li>
+                                            
+                                        </ul>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 	            <div class="col-lg-12">
 	                <h2 class="page-header">News</h2>
 	            </div>

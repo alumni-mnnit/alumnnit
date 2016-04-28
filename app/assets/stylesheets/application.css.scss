@@ -19,6 +19,10 @@
 @import 'bootstrap-datetimepicker';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+
 body{
     background: #F5F5F5 none repeat scroll 0% 0%;
 }
@@ -73,11 +77,11 @@ header.carousel {
     position: relative;
     .header-one {
       position: absolute;
-      top: -20%;
+      top: 0%;
             
       
       height: 30%;
-      margin-top: 150px;
+      margin-top: 90px;
       h1 {      
             text-align: center;
             font-size: 50px;
@@ -138,7 +142,30 @@ header.carousel .fill {
     background: #10151c;
     border-bottom: 1px solid #000000;
     padding-top: 10px;
-    padding-bottom: 10px
+    padding-bottom: 0px;
+    a{  
+        text-decoration: none;
+
+        .title {
+            padding-left: 50px;
+            font-size: 20px;
+            font-family: 'Sans', cursive;
+            font-weight: 500;
+            margin-top: -8px;
+            color: #fff;
+            
+        }
+    }
+    .quote{
+        .quote_style{
+            margin-top: 20px;
+            margin-left: -50px;
+            p {
+                font-family: 'Pacifico', cursive;
+                font-size: 25px;
+            }
+        }
+    }
 }
 
 .logo {

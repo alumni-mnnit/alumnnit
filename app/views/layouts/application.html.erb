@@ -28,6 +28,37 @@
 	  		<% end %>
 		</div>
 	<% end %>	
+  <header id="t3-header" class="t3-header">
+            <div class="container">
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-4 logo">
+                        <div class="logo-image">
+                            <a href="#" title="">
+                                <img class="logo-img" src="../images/logo.png" alt="MNNIT Allahabad" style="height: 50%;width:50%" />
+                                <span></span>
+                            </a>
+                            <small class="site-slogan">MNNIT Alumni Association</small>
+                        </div>
+                    </div>
+
+                    <!-- LOGIN SIGNUP -->
+                    <div class="col-sm-5 col-sm-push-0">
+                        <div class="languageswitcherload">
+                            <div class="mod-languages">
+                                <!--<p id="a">Alumni Association</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END OF LOGIN SIGNUP -->
+
+
+
+
+                </div>
+            </div>
+    </div>
+  </header>
 	    <!-- Navigation -->
     <nav class="navbar navbar-ct-black" role="navigation">
         <div class="container">
@@ -39,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand navbar-brand-logo" href="/">
+              <!--<a class="navbar-brand navbar-brand-logo" href="/">
                 <div class="logo">
                     <%= image_tag "logo2.jpeg" %>
                     
@@ -48,6 +79,7 @@
                   <span style="font-size: 25px;">MNNIT</span> Alumni 
                 </div>
               </a>
+              -->
             	
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -87,8 +119,8 @@
 			          		<% end %>	
 			            </li>
 			        <% else %>
-			          <li style="margin-top: 10px; background-color: rgba(250,250,0,0.85); height: 5rem; margin-right: 10px; border-radius: 5px;"><%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", style: "margin: auto;"%></li>
-			          <li style="margin-top: 10px; background-color: rgba(250,250,0,0.85); height: 5rem; border-radius: 5px;"><%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();",style: "margin: auto;" %></li>
+			          <li style="margin-top: 10px; background-color: rgba(250,250,0,0.85); height: 5rem; margin-left: 5px; margin-right: 5px; border-radius: 5px;"><%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", style: "margin: auto;"%></li>
+			          <li style="margin-top: 10px; margin-left: 10px: margin-right: 10px; background-color: rgba(250,250,0,0.85); height: 5rem; border-radius: 5px;"><%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();",style: "margin: auto;" %></li>
 			        <% end %>
                 </ul>
             </div>
@@ -104,7 +136,7 @@
 		    <div class="modal-content">
 		        <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Login with</h4>
+                    <h4 class="modal-title text-center">Login </h4>
                 </div>
                 <div class="modal-body">  
                     <div class="box">

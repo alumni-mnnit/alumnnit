@@ -293,8 +293,10 @@ h1 .subtitle{
     background-color: rgba(255, 76, 64, 0.98);
 }
 .navbar:not(.navbar-transparent).navbar-ct-black{
-    background-color: black;
-    background-color: rgba(0, 0, 0, 0.75);
+    background:  #10151C none repeat scroll 0% 0%;
+    border-radius: 0px;
+    border-bottom: 1px solid #000;
+    color: #666;
 }
 
 .dropdown-menu > li > a {

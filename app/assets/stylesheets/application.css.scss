@@ -22,35 +22,35 @@
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
-#notice_wrapper{
-	position: absolute;
-	top: 0px;
-	width: 100%;
-    
-	z-index: 999;
-	background-color: rgba(255,255,255,0.9);
-    
-	.alert {
-		padding: 0.6rem;
-	}
-	p {
-		text-align: center;
-		padding: auto;
-		margin: auto;
-        margin-top: 20px;
-		font-size: 1.4rem;
-		font-weight: 100;
-		color: black;
-		letter-spacing: 1px; 
-	}
-}
+
 
 html,
 body {
     height: 100%;
     background-color: white;
 }
-
+#notice_wrapper{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    
+    z-index: 999;
+    background-color: rgba(255,255,255,0.9);
+    
+    .alert {
+        padding: 0.6rem;
+    }
+    p {
+        text-align: center;
+        padding: auto;
+        margin: auto;
+        margin-top: 20px;
+        font-size: 1.4rem;
+        font-weight: 100;
+        color: black;
+        letter-spacing: 1px; 
+    }
+}
 
 
 .img-portfolio {
@@ -65,6 +65,21 @@ body {
 
 
 /* Home Page Carousel */
+@media screen and (max-device-width: 400px) {
+    .header-one {
+        h1 {
+            font-size: 1.5em;
+            span {
+                padding: 0.05em 0.5em;
+                border: #CCCC00 solid 0.3rem;
+
+            }
+        }
+        .subtext{
+            font-size: 1em;
+        }
+    }
+}
 
 header.carousel {
     height: 70%;
@@ -76,21 +91,21 @@ header.carousel {
             
       
       height: 30%;
-      margin-top: 90px;
+      margin-top: 8%;
       h1 {      
             text-align: center;
-            font-size: 50px;
+            font-size: 5rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
             letter-spacing: 0.05em;
-            margin-top: -80px;
+            margin-top: -8rem;
 
             span {
 
                 deisplay: inline-block;
                 padding: 0.05em 0.5em;
-                border: #CCCC00 solid 10px;
+                border: #CCCC00 solid 1rem;
                 text-shadow: 2px 2px black;
                 -moz-box-shadow: 0 0 2px black;
                 -webkit-box-shadow: 0 0 2px black;
@@ -98,7 +113,7 @@ header.carousel {
             }
         }
         .subtext {
-            font-size: 30px;
+            font-size: 3rem;
             text-align: center;
             font-weight: 700;
             text-shadow: 1px 1px black;
@@ -158,6 +173,7 @@ header.carousel .fill {
             p {
                 font-family: 'Pacifico', cursive;
                 font-size: 25px;
+                color: rgba(255,255,255,0.3);
             }
         }
     }
@@ -172,6 +188,7 @@ header.carousel .fill {
         text-align: left
     }
 }
+
 
 .logo a {
     display: inline-block;

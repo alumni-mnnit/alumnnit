@@ -28,6 +28,11 @@ class PagesController < ApplicationController
         if user_signed_in? and current_user.is_active == false and current_user.request.nil?
             flash[:notice] = "Please request for Account Activation!"
             return 
+        elsif user_signed_in? and current_user.is_active == true
+          if current_user.fname.nil? or current_user.degree.nil? or current_user.branch.nil? or current_user.year_of_passing.nil?
+            flash[:notice] = "Please update your Profile !!"
+          end
+          
         end
       end
 end

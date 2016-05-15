@@ -1,16 +1,16 @@
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD'
-        });
+      $('#datetimepicker1').datetimepicker({
+          format: 'YYYY-MM-DD'
+      });
     });
 
     $(function () {
-            $('#datetimepicker2').datetimepicker({
-                viewMode: 'years',
-                format: 'YYYY'
-            });
-        });
+      $('#datetimepicker2').datetimepicker({
+          viewMode: 'years',
+          format: 'YYYY'
+      });
+    });
 </script>
 <div class="container" style="background-color: rgba(0,0,0,0.09);">  
   <div class="row" style="margin-top: 10px;">
@@ -20,11 +20,10 @@
 
           <h2 style="text-align: center;">Edit <%= resource_name.to_s.humanize %></h2>
         </div>  
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,  name: "profiles" }) do |f| %>
 
             <%= devise_error_messages! %>
               
-          
           <div class="panel-body">
 
             <div class="form-inputs">
@@ -75,12 +74,12 @@
 
               <div class="form-group">
                 <%= f.label :degree %><br />
-                <%= f.text_field :degree, class: "form-control", :autofocus => true %>
+                <%= f.select :degree, options_for_select([['NULL',0],['BT',1], ['MT',2], ['MCA',3], ['MBA',4], ['MSW',5], ['PHD',6], ['MSC',7]]), onChange: "updatebranches(this.selectedIndex)", class: "form-control", :autofocus => true %>
               </div>
 
               <div class="form-group">
                 <%= f.label :branch %><br />
-                <%= f.text_field :branch, class: "form-control", :autofocus => true %>
+                <%= f.select :branch,options_for_select([['NULL',0],['Bio-Tech.',1], ['Civil Engg.',2], ['Chemical Engg.',3], ['Computer Science',4], ['Mechanical Engg.',5], ['Production and Industrial Engg.',6], ['Electrical Engg.',7], ['Electronics and Communication Engg.',8], ['Information Tech.',9], ['Applied Mechanics',10], ['Bio Med. Engg.',11], ['Communication Sys.',12], ['Computer Aided Design and Manufacturing',13], ['Control and Instrumentation/Power Sys.',14], ['Control and Instrumentation (Part time)',15], ['Design(ME)',16], ['Digital Sys.',17], ['Environmental Engg.',18], ['Fluids Engg.',19], ['Geotechnical Engg.',20], ['GIS and Remote Sensing',21], ['Information Security',22], ['Material Sci. and Engg.',23], ['Micro-electronics and VLSI Design',24], ['Power Electronics and ASIC Design (Part time)',25], ['Power Electronics and ASIC Design',26], ['Product Design and Development',27], ['Bio-Tech. Dept.',28], ['Chemistry Dept.',29], ['Electrical Engg. Dept.',30], ['Electronics and Communication Dept.',31], ['Humanities and Social Sci.',32], ['Management Studies',33], ['Mathematics Dept.',34], ['Mechanical Engg. Dept.',35], ['Civil Engg. Dept.',36], ['Computer Sci. and Engg. Dept.',37], ['Applied Mechanics Dept.',38]]), class: "form-control", :autofocus => true %>
               </div>
 
               <div class=" form-group">
@@ -163,6 +162,5 @@
     </div> 
   </div>
   <hr>
-</div>    
-
+</div>
 

@@ -13,8 +13,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require moment
-//= require jquery_ujs
 //= require bootstrap-datetimepicker
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 

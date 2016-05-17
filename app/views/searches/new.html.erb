@@ -1,0 +1,51 @@
+<script type="text/javascript">
+	$(function () {
+	  $('#datetimepicker2').datetimepicker({
+	      viewMode: 'years',
+	      format: 'YYYY'
+	  });
+	});
+</script>>
+
+<div class="container">	
+	<h1> Search Alumni </h1>
+	<%= form_for @search do |f| %> 
+		<div class="form-inputs">
+          <div class="form-group">
+            <%= f.label :fname, "First Name" %><br />
+            <%= f.text_field :fname, class: "form-control", :autofocus => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :lname, "Last Name" %><br />
+            <%= f.text_field :lname, class: "form-control", :autofocus => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :degree %><br />
+            <%= f.select :degree, options_for_select(@degrees),include_blank: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :branch %><br />
+            <%= f.select :branch,options_for_select(@branches),include_blank: true, class: "form-control" %>
+          </div>
+          <div class=" form-group">
+            <%= f.label :year_of_passing, "Year of Passing" %><br />
+            <div class='input-group date' id='datetimepicker2'>
+              <%= f.text_field :year_of_passing, class: "form-control"%>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div> 
+          <div class="form-group">
+            <%= f.label :city, "City" %><br />
+            <%= f.text_field :city, class: "form-control", :autofocus => true %>
+          </div>
+		  <div class="form-group">
+            <%= f.label :company, "Working Organisation" %><br />
+            <%= f.text_field :company, class: "form-control", :autofocus => true %>
+          </div>   
+	
+	      <p> <%= f.submit "Search", class: "btn btn-md btn-danger" %> </p>
+		</div>      
+	<% end %>	
+</div>		  

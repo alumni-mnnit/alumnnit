@@ -1,11 +1,10 @@
 <script type="text/javascript">
-    $(function () {
+  $(function () {
       $('#datetimepicker1').datetimepicker({
           format: 'YYYY-MM-DD'
       });
-    });
-
-    $(function () {
+  });    
+  $(function(){
       $('#datetimepicker2').datetimepicker({
           viewMode: 'years',
           format: 'YYYY'
@@ -74,12 +73,12 @@
 
               <div class="form-group">
                 <%= f.label :degree %><br />
-                <%= f.select :degree, options_for_select([['NULL',0],['BT',1], ['MT',2], ['MCA',3], ['MBA',4], ['MSW',5], ['PHD',6], ['MSC',7]]), onChange: "updatebranches(this.selectedIndex)", class: "form-control", :autofocus => true %>
+                <%= f.select :degree, options_for_select([['NULL','null'],['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MCA'], ['MBA','MBA'], ['MSW','MSW'], ['PHD','PHD'], ['MSc.','MSC']]),  class: "form-control", :autofocus => true %>
               </div>
 
               <div class="form-group">
                 <%= f.label :branch %><br />
-                <%= f.select :branch,options_for_select([['NULL',0],['Bio-Tech.',1], ['Civil Engg.',2], ['Chemical Engg.',3], ['Computer Science',4], ['Mechanical Engg.',5], ['Production and Industrial Engg.',6], ['Electrical Engg.',7], ['Electronics and Communication Engg.',8], ['Information Tech.',9], ['Applied Mechanics',10], ['Bio Med. Engg.',11], ['Communication Sys.',12], ['Computer Aided Design and Manufacturing',13], ['Control and Instrumentation/Power Sys.',14], ['Control and Instrumentation (Part time)',15], ['Design(ME)',16], ['Digital Sys.',17], ['Environmental Engg.',18], ['Fluids Engg.',19], ['Geotechnical Engg.',20], ['GIS and Remote Sensing',21], ['Information Security',22], ['Material Sci. and Engg.',23], ['Micro-electronics and VLSI Design',24], ['Power Electronics and ASIC Design (Part time)',25], ['Power Electronics and ASIC Design',26], ['Product Design and Development',27], ['Bio-Tech. Dept.',28], ['Chemistry Dept.',29], ['Electrical Engg. Dept.',30], ['Electronics and Communication Dept.',31], ['Humanities and Social Sci.',32], ['Management Studies',33], ['Mathematics Dept.',34], ['Mechanical Engg. Dept.',35], ['Civil Engg. Dept.',36], ['Computer Sci. and Engg. Dept.',37], ['Applied Mechanics Dept.',38]]), class: "form-control", :autofocus => true %>
+                <%= f.select :branch,options_for_select([['NULL','null'],['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']]), class: "form-control", :autofocus => true %>
               </div>
 
               <div class=" form-group">
@@ -150,7 +149,8 @@
             </div>
 
             <div class="form-group">
-              <%= f.submit "Update", class: "btn btn-lg btn-info col-md-offset-5" %>
+              <%= f.submit "Update", class: "btn btn-lg btn-info col-md-offset-4" %>
+              &nbsp; <button class="btn btn-lg btn-success"> Back </button>
             </div>
           </div>  
         <% end %>

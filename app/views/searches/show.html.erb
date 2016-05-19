@@ -1,24 +1,31 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-lg-12">
-            <h2 class="page-header"> Alumni </h2>
+            <h2 class="page-header"> Result <%= @search.search_users.count %> Alumni </h2>
         </div>
-        <% @search.search_users.each do |user| %>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3><%= user.fname + " " + user.lname %><br>
-                            <small><%= user.degree %><br>
-                            <%= user.branch %><br>
-                            <%- if user.year_of_passing %>
-                                Passed out : <%= user.year_of_passing %>
-                            <% end %>
-                            </small>
-                        </h3>
-                        <p> City: <%= user.city if user.city %></p>
+        <% if @search.search_users.empty? %>
+            <p> Sorry!! No Alumni found. </p>
+        <% else %>    
+            <% @search.search_users.each do |user| %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3><%= user.fname + " " + user.lname %><br>
+                                <small><%= user.degree %><br>
+                                <%= user.branch %><br>
+                                <%- if user.year_of_passing %>
+                                    Passed out : <%= user.year_of_passing %>
+                                <% end %>
+                                </small>
+                            </h3>
+                            <p> City: <%= user.city if user.city %></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% end %>    
         <% end %>    
+    </div>
+    <div class="text-center">
+        <%= link_to "Back", :back , class: "btn btn-lg btn-success" %>
     </div>
 </div>        

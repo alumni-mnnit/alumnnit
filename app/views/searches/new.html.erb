@@ -20,6 +20,10 @@
             <%= f.text_field :lname, class: "form-control" %>
           </div>
           <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.select :email, class: "form-control" %>
+          </div>
+          <div class="form-group">
             <%= f.label :degree %><br />
             <%= f.select :degree, options_for_select(@degrees),include_blank: true, class: "form-control" %>
           </div>

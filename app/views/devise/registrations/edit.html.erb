@@ -60,6 +60,10 @@
                 <%= f.label :email %><br />
                 <%= f.email_field :email, class: "form-control", :autofocus => true %>
               </div>
+              <div class="form-group">
+                <%= f.label :pic %><br />
+                <%= f.file_field :pic,required: true, input_html: { class: "form-control", style: "color: black;"} %>
+              </div>
 
               <div class=" form-group">
                 <%= f.label :date_of_birth, "Date of Birth" %><br />

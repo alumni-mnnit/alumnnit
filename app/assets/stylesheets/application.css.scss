@@ -81,6 +81,21 @@ body {
     }
 }
 
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+
+
 header.carousel {
     height: 70%;
     margin-top: -20px;

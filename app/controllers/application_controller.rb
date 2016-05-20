@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def configure_devise_permitted_parameters
   	devise_parameter_sanitizer.for(:account_update) { 
-        |u| u.permit(:fname,:lname,:nick_name,:gender,:reg_no,:phn_no,:date_of_birth,:degree,:branch,:year_of_passing,:curr_address,:pincode,:h_town,:city,:country,:company,:designation,:achievements, :current_password)
+        |u| u.permit(:fname,:lname,:nick_name,:gender,:reg_no,:phn_no,:date_of_birth,:degree,:branch,:year_of_passing,:curr_address,:pincode,:h_town,:city,:country,:company,:designation,:achievements, :pic, :current_password)
   	}	
   end
 

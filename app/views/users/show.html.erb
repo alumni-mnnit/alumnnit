@@ -1,0 +1,72 @@
+<div class="container ">
+	<h1>
+		<span  style= "weight: 700;">
+		<% if @user.fname and @user.lname %>
+			<%= "#{@user.fname} #{@user.lname}"  %>
+		<% else %>
+			<%= @user.email %>	 
+		<% end %>
+		</span>		
+		<span style="color: rgba(0,0,0,0.7); font-size: 20px;">
+			<% if @user.nick_name %>
+				<%= "(#{@user.nick_name})"%>
+			<% end %>
+		</span>	
+	<div style="float: right; font-size: 20px; margin-top: 20px;"> <%= link_to "Edit Profile", edit_user_registration_path %></div>	
+	</h1>
+	<hr style="border: solid 1px black;">
+	<div class="col-md-4">
+		<%= image_tag(@user.pic.url(:medium)) if !@user.pic_file_name.nil? %>
+		<% if @user.pic_file_name.nil? %>
+			<p style="font-size: 50px;">No Image.</p>
+		<% end %>
+	</div>
+	<div class="col-md-6" >
+		<h3 style="text-decoration: underline;">Personal Details</h3>
+		<p style="font-size: 20px;">
+			<% if @user.fname  %>
+				<% if @user.lname %>
+					Name : <%= "#{@user.fname} #{@user.lname}"  %>
+				<% else %>
+					Name : <%= @user.fname %>
+				<% end %>		
+			<% else %>
+				Name not set.	 
+			<% end %>
+		</p>
+		<p style="font-size: 20px;">
+			Email : <%= @user.email %>  
+		</p>
+		<p style="font-size: 20px;">
+		 	<% if @user.date_of_birth %>
+				Date of Birth : <%= @user.date_of_birth %>
+			<% end %>	 
+		</p>
+		<p style="font-size: 20px;">
+			<%= "Address : #{@user.city}, " if @user.city %>
+			<%=  "#{@user.country}" if @user.country %>
+		</p>
+		<hr>
+		<h3 style="text-decoration: underline">Academics Details</h3>
+		<p style="font-size: 20px;">
+			MNNIT Allahabad, U.P., India
+		</p>
+		<p style="font-size: 20px;">
+			<% if @user.reg_no %>
+				Registration No. : <%= @user.reg_no %>
+			<% end %>	
+		</p>
+		<p style="font-size: 20px;">
+			<%= "Degree : #{@user.degree}" if @user.degree %>
+		</p>
+		<p style="font-size: 20px;">
+			<%= "Branch : #{@user.branch}" if @user.branch %>
+		</p>
+		<p style="font-size: 20px;">
+			<%= "Year of Passing : #{@user.year_of_passing}" if @user.year_of_passing %>
+		</p>
+
+	</div>
+
+	
+</div>

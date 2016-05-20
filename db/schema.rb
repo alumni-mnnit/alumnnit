@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160516122148) do
   create_table "searches", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
+    t.string   "email"
     t.string   "degree"
     t.string   "branch"
     t.string   "year_of_passing"

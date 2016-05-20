@@ -3,6 +3,7 @@ class CreateSearches < ActiveRecord::Migration
     create_table :searches do |t|
       t.string :fname
       t.string :lname
+      t.string :email
       t.string :degree
       t.string :branch
       t.string :year_of_passing

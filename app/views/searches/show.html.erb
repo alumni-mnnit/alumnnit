@@ -7,10 +7,16 @@
             <p> Sorry!! No Alumni found. </p>
         <% else %>    
             <% @search.search_users.each do |user| %>
-                <div class="col-md-4 text-center">
-                    <div class="thumbnail">
+                <div class="col-md-4 text-center" >
+                    <div class="thumbnail" style="margin-top: 30px;">
                         <div class="caption">
-                            <h3><%= user.fname + " " + user.lname %><br>
+                            <h3>
+                                <% if user.fname and user.lname %>
+                                    <%= user.fname + " " + user.lname  %>
+                                <% else %>
+                                    <%= user.email %>
+                                <% end %>
+                                <br>
                                 <small><%= user.degree %><br>
                                 <%= user.branch %><br>
                                 <%- if user.year_of_passing %>
@@ -18,7 +24,7 @@
                                 <% end %>
                                 </small>
                             </h3>
-                            <p> City: <%= user.city if user.city %></p>
+                            <p> <%= "City: " + user.city if user.city %></p>
                         </div>
                     </div>
                 </div>

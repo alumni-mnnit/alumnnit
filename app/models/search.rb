@@ -5,6 +5,7 @@ class Search < ActiveRecord::Base
 
 		users = users.where(["fname LIKE ?","%#{fname}%"]) if fname.present?
 		users = users.where(["lname LIKE ?","%#{lname}%"]) if lname.present?
+		users = users.where(["email LIKE ?","%#{email}%"]) if email.present?
 		users = users.where(["degree LIKE ?",degree]) if degree.present? 
 		users = users.where(["branch LIKE ?",branch]) if branch.present?
 		users = users.where(["year_of_passing LIKE ?","%#{year_of_passing}%"]) if year_of_passing.present?

@@ -20,9 +20,9 @@
           <h2 style="text-align: center;">Edit <%= resource_name.to_s.humanize %></h2>
         </div>  
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,  name: "profiles" }) do |f| %>
-
+          <div class="alert-danger ">
             <%= devise_error_messages! %>
-              
+          </div>   
           <div class="panel-body">
 
             <div class="form-inputs">
@@ -62,13 +62,13 @@
               </div>
               <div class="form-group">
                 <%= f.label :pic %><br />
-                <%= f.file_field :pic,required: true, input_html: { class: "form-control", style: "color: black;"} %>
+                <%= f.file_field :pic, input_html: { class: "form-control", style: "color: black;"} %>
               </div>
 
               <div class=" form-group">
                 <%= f.label :date_of_birth, "Date of Birth" %><br />
                 <div class='input-group date' id='datetimepicker1'>
-                  <%= f.text_field :date_of_birth, class: "form-control"%>
+                  <%= f.text_field :date_of_birth, placeholder: "YYYY-MM-DD", class: "form-control"%>
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -77,21 +77,18 @@
 
               <div class="form-group">
                 <%= f.label :degree %><br />
-                <%= f.select :degree, options_for_select([['NULL','null'],['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MCA'], ['MBA','MBA'], ['MSW','MSW'], ['PHD','PHD'], ['MSc.','MSC']]),  class: "form-control", :autofocus => true %>
+                <%= f.select :degree, [['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MCA'], ['MBA','MBA'], ['MSW','MSW'], ['PHD','PHD'], ['MSc.','MSC']], include_blank: true, class: "form-control", :autofocus => true %>
               </div>
 
               <div class="form-group">
                 <%= f.label :branch %><br />
-                <%= f.select :branch,options_for_select([['NULL','null'],['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']]), class: "form-control", :autofocus => true %>
+                <%= f.select :branch,[['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']], include_blank: true, class: "form-control", :autofocus => true %>
               </div>
 
               <div class=" form-group">
                 <%= f.label :year_of_passing, "Year of Passing" %><br />
-                <div class='input-group date' id='datetimepicker2'>
-                  <%= f.text_field :year_of_passing, class: "form-control"%>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                <div class='input-group date'>
+                  <%= f.date_select :year_of_passing, {:start_year => Time.now.year + 4, :end_year => Time.now.year - 95, :discard_day => true, :discard_month => true} %>
                 </div>
                 <i>(Note that if you are from batch 1961-1965, then 1965 is your batch i.e. the last year you were in MNNIT.)</i>
               </div>

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/coming_soon' => 'pages#coming_soon'
   get '/academics' => 'requests#academics'
   post '/send_activate' => 'requests#send_activate'
+  get '/chapters' => 'pages#chapters'
+  get '/downloads' => 'pages#downloads'
   	resources :requests 
 
   	resources :contacts

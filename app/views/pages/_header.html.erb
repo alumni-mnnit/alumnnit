@@ -52,7 +52,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	<ul class="nav navbar-nav">
     			        <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-home fa-fw" aria-hidden="true"></i> Home'.html_safe, root_path %></li>
-                  <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-book fa-fw" aria-hidden="true"></i> Forum'.html_safe, coming_soon_path %></li>
+                  <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-download fa-fw" aria-hidden="true"></i> Downloads'.html_safe, downloads_path %></li>
+                  <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-book fa-fw" aria-hidden="true"></i> Chapters'.html_safe, chapters_path %></li>
+                  <!-- <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-book fa-fw" aria-hidden="true"></i> Forum'.html_safe, coming_soon_path %></li> -->
     			        <li class="dropdown" style="margin-top: 10px;">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                       <i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i> About
@@ -63,8 +65,9 @@
                       <li><%= link_to 'About MNNIT', 'http://www.mnnit.ac.in'%></li>
                     </ul>
                   </li>
-    			        <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-phone fa-fw" aria-hidden="true"></i> Contact Us'.html_safe, new_contact_path %></li>
                   <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-gift fa-fw" aria-hidden="true"></i> Give Back'.html_safe, fund_path %></li>
+    			        <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-phone fa-fw" aria-hidden="true"></i> Contact Us'.html_safe, new_contact_path %></li>
+                  
     			    </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>

@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h1 class="page-header">
+				Register for an ID Card
+	    </h1>
+		</div>
+    <hr>
+    <br>
+
+	<div class="col-md-offset-3 col-md-6 text-center">
+    Information about ID Card
+    <hr>
+    <br>
+    <div>
+      <% if current_user.id_card.nil? %>
+        <%= link_to "Register for ID Card now", idcard_register_path, class: "btn btn-info btn-login" %>
+      <% else %>
+          You have already registered for an ID card.
+      <% end %>
+    </div>
+  </div>
+
+	</div>
+</div>

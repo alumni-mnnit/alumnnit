@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/send_activate' => 'requests#send_activate'
   get '/chapters' => 'pages#chapters'
   get '/downloads' => 'pages#downloads'
+  get '/idcard' => 'id_card#index'
+  get '/idcard/register' => 'id_card#register'
   	resources :requests 
 
   	resources :contacts

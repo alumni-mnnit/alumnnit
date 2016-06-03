@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   	resources :requests 
 
   	resources :contacts
+    resources :feedbacks
  
 end

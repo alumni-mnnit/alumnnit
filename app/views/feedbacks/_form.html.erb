@@ -1,0 +1,31 @@
+<div class="col-md-6">
+    <h3>Send us Feedback!</h3>
+    <hr>
+    <%= simple_form_for @feedback, html: { multipart: true} do |f| %>
+		<%- if @feedback.errors.any? %>
+			<div id="errors">
+				<h2>
+					<%= pluralize(@feedback.errors.count, "Error") %>
+					Prevented this feedback from submission.
+				</h2>	
+					<ul>
+						<%  @feedback.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>	
+					</ul>				
+			</div>
+		<% end %>			
+		<div class="form-group">
+			<%= f.input :name,  placeholder: "Full Name", autofocus: true, input_html: { class: "form-control", style: "color: black;"} %>
+		</div>	
+		
+		<div class="form-group">
+			<%= f.input :email, placeholder: "Email Address",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+		</div>
+		<div class="form-group">
+			<%= f.input :feedback, placeholder: "Feedback",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+		</div>
+		<%= f.button :submit, "Send Feedback", class: "btn btn-login btn-info" %>
+	<% end %>	
+    
+</div>

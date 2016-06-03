@@ -1,5 +1,4 @@
-<header id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+<!--<header id="myCarousel" class="carousel slide" data-ride="carousel">
     
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -7,7 +6,6 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
         <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" style="opacity: 0.9;">
         
         <div class="item active">
@@ -30,7 +28,6 @@
         
     </div>
 
-    <!-- Controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="icon-prev"></span>
     </a>
@@ -43,14 +40,131 @@
         <p class="subtext">Welcomes You!</p>
     </div>
 </header>
-<hr>
+-->
+<% if !user_signed_in? %>
+    <div class="container-fluid" style="margin-top: -20px;">
+            <!-- Start: Header -->
+            <div class="row hero-header fill" style="background-image:url(<%= asset_path 'alumni.jpg' %>);">
+              <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
+                <h1 style="color: black;"><span>MNNIT <span style="color: #DD5138">Alumni</span> Association</span></h1>
+                <h3 style="color: black;">Because We love to be Connected with our Family!</h3>
+                <% if !user_signed_in? %>
+                    <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-red" %>
+                    <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-red" %>
+                <% else %>
+                    <h3 style="color: black;">Welcome Back!</h3>    
+                <% end %>    
+
+              </div>
+              
+            </div>
+            <div class="modal fade login" id="loginModal">
+                <div class="modal-dialog login animated">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title text-center">Login </h4>
+                        </div>
+                        <div class="modal-body">  
+                            <div class="box">
+                                 <div class="content">
+                                   <!-- <div class="social">
+                                        <a class="circle github" href="/auth/github">
+                                            <i class="fa fa-github fa-fw"></i>
+                                        </a>
+                                        <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                                            <i class="fa fa-google-plus fa-fw"></i>
+                                        </a>
+                                        <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                                            <i class="fa fa-facebook fa-fw"></i>
+                                        </a>
+                                    </div>
+                                    <div class="division">
+                                        <div class="line l"></div>
+                                          <span>or</span>
+                                        <div class="line r"></div>
+                                    </div>-->
+                                    <div class="error"></div>
+                                    <div class="form loginBox">
+                                        <%= render 'partial/login' %>
+                                    </div>
+                                 </div>
+                            </div>
+                            <div class="box">
+                                <div class="content registerBox" style="display:none;">
+                                 <div class="form">
+                                    <%= render 'partial/register' %>   
+                                 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="forgot login-footer">
+                                <%= link_to "Forgot Password", new_password_path(resource_name) %><br />                                
+                                <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+
+                                <span>Looking to 
+                                     <a href="javascript: showRegisterForm();">create an account</a>
+                                ?</span>
+                            </div>
+                            <div class="forgot register-footer" style="display:none">
+                                 <span>Already have an account?</span>
+                                 <a href="javascript: showLoginForm();">Login</a><br />
+                                 <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+            <!-- End: Header -->
+          </div>
+          <div class="container">
+            <!-- Start: Desc -->
+            <div class="row me-row content-ct">
+              <h2 class="row-title">Why <span style="color: #DD5138">MAA</span> Is Super Cool?</h2>
+              <div class="col-md-2 feature">
+                <span class="ti-world"></span>
+                <h3>Alumni around the globe!</h3>
+                <p>The best opportunity to meet and greet alumni from our institute.</p>
+              </div>
+              <div class="col-md-2 feature">
+                <span class="ti-gift"></span>
+                <h3>Give back to College</h3>
+                <p>Help your college and juniors to develop.</p>
+              </div>
+              <div class="col-md-2 feature">
+                <span class="ti-id-badge"></span>
+                <h3>Profiles</h3>
+                <p>View the profiles of best alumni who have extensive knowledge and experience.</p>
+              </div>
+              <div class="col-md-2 feature">
+                <span class="ti-announcement"></span>
+                <h3>News</h3>
+                <p>View the latest news and announcements.</p>
+              </div>
+              
+              <div class="col-md-2 feature">
+                <span class="ti-comment"></span>
+                <h3>Feedback</h3>
+                <p>Users can provide Feedback to us.</p>
+              </div>
+
+              <div class="col-md-2 feature">
+                <span class="ti-more"></span>
+                <h3>More..</h3>
+                <p>More features yet to come.</p>
+              </div>
+              
+            </div>
+        </div>  
+<% end %>          
 <!-- Page Content -->
     <div class="container" style="margin-top: -10px;">
     
-        <!-- Marketing Icons Section -->
 
         
-        <div id="t3-department">
+        <!--<div id="t3-department">
             <div class="container department">
                 <div class="main">
                     <div class="custom">
@@ -60,27 +174,32 @@
                                     <h2 class="page-header" > Features </h2>                
                                 </div>
                                 <ul class="department-list">
-                                    <li class="icon-8"><%= link_to "News", coming_soon_path %>  <span class="department-name">News</span></li>
-                                    <li class="icon-6"> <%= link_to "Forums", coming_soon_path %> <span class="department-name">Forums</span></li>
-                                    <li class="icon-1"><%= link_to "Jobs", coming_soon_path %>  <span class="department-name"><br>Jobs</span></li>
-                                    <li class="icon-2"><%= link_to "Give Back", fund_path %>  <span class="department-name">Give Back</span></li>
+                                    
+                                    <li class="icon-7"><%= link_to "Search Alumni", "#" %>  <span class="department-name">Search Alumni</span></li>
+                                    <li class="icon-2"><%= link_to "Give Back", '#' %>  <span class="department-name">Give Back</span></li>
+                                    <li class="icon-8"><%= link_to "News", '#' %>  <span class="department-name">News</span></li>
+                                    <li class="icon-4"><%= link_to "Profile", '#' %>  <span class="department-name">Profile</span></li>
+                                    <li class="icon-6"> <%= link_to "Forums", '#' %> <span class="department-name">Forums</span></li>
+                                    <li class="icon-1"><%= link_to "Jobs", '#' %>  <span class="department-name"><br>Jobs</span></li>-->
+                                    
                                     <!--<li class="icon-2"><a href="accounting" title="Sample">Accounting</a> <span class="department-name">Accounting</span></li>
                                    <li class="icon-3"><a href="economics" title="Sample">Economics</a> <span class="department-name">Economics</span></li>-->
-                                   <li class="icon-4"><%= link_to "Profile", coming_soon_path %>  <span class="department-name">Profile</span></li>
-                                   <li class="icon-7"><%= link_to "Search Alumni", new_search_path %>  <span class="department-name">Search Alumni</span></li>
+                                   
+                                  
                                     
-                                </ul>
+                                <!--</ul>
                             </center>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
+
         <div id="t3-mainbody" class="container t3-mainbody">
         <div class="main-container">
             <div class="row">
                 <!-- MAIN CONTENT -->
-                <div id="t3-content" class="t3-content col-xs-12 col-md-6" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                <div id="t3-content" class="t3-content col-xs-12 col-md-3 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
                     <!-- CONTENT MASS TOP -->
                     <div class="content-mass-top ">
                         <div class="t3-module module " id="Mod98">
@@ -109,7 +228,8 @@
 
                 </div>
                 <!-- //MAIN CONTENT -->
-                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                <div class="col-sm-1"></div>
+                <div class="t3-sidebar col-xs-12 col-sm-4 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
                     <div class="t3-module module search-course " id="Mod119">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
@@ -139,8 +259,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                <div class="col-sm-1"></div>
+                <div class="t3-sidebar col-xs-12 col-sm-3 " style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
                     <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
@@ -150,15 +270,15 @@
                                 <div class="col-sm-4" style="border-right: 1px solid #efece1;">
                                     <center>
                                         <div class="col-sm-12">
-                                            <p style="font-size: 4.5rem;line-height: 3.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">13</p>
+                                            <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">13</p>
                                         </div>
                                     </center>
                                     <center>
-                                        <div class="col-sm-12">June, 2016</div>
+                                        <div class="col-sm-12">Oct, 2016</div>
                                     </center>
                                 </div>
                                 <div class="col-sm-8">
-                                    <p style="color: #1E7896;font-size: 16px">International Conference on web development</p>
+                                    <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
                                 </div>
                             </div>
                         </div>
@@ -167,11 +287,11 @@
                             <div class="col-sm-4" style="border-right: 1px solid #efece1;">
                                 <center>
                                     <div class="col-sm-12">
-                                        <p style="font-size: 4.5rem;line-height: 3.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">15</p>
+                                        <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">15</p>
                                     </div>
                                 </center>
                                 <center>
-                                    <div class="col-sm-12">December, 2016</div>
+                                    <div class="col-sm-12">Dec, 2016</div>
                                 </center>
                             </div>
                             <div class="col-sm-8">
@@ -186,7 +306,6 @@
 
         </div>
     </div>
-
 
     <!--    <div class="col-lg-12">
             <h2 class="page-header">News</h2>
@@ -305,11 +424,11 @@
         </div>
         -->
     </div>    
-
+<!--
 <script type="text/javascript">
     
     $('.carousel').carousel({
         interval: 1000 //changes the speed
     });
 </script>
-
+-->

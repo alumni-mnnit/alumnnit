@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-	before_action :authenticate_user!
+	before_filter :require_user
   	def new
 		@search = Search.new
 		@degrees = ("BT, MT, MCA, MBA, MSW, PHD, MSC").split(', ')
@@ -19,5 +19,11 @@ class SearchesController < ApplicationController
 	private 
 		def search_params
 			params.require(:search).permit(:fname, :lname, :email, :degree, :branch, :year_of_passing, :city, :company)
+		end
+		def require_user
+		  unless current_user
+	      flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+		    redirect_to "/" and return
+		  end
 		end
 end

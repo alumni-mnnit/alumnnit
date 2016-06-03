@@ -24,12 +24,12 @@ class PagesController < ApplicationController
   end
   
   protected
-	def require_user
-	  unless current_user
-      flash[:alert] = "You need to Login/Signup to enjoy all facilities."
-	    redirect_to "/" and return
-	  end
-	end
+  	def require_user
+  	  unless current_user
+        flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+  	    redirect_to "/" and return
+  	  end
+  	end
 
       def confirm_user
         if user_signed_in? and current_user.is_active == false and current_user.request.nil?

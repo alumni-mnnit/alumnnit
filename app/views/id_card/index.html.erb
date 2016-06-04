@@ -13,10 +13,12 @@
     <hr>
     <br>
     <div>
-      <% if current_user.id_card.nil? %>
+      <% if current_user.nil? or current_user.id_card_request.nil? %>
         <%= link_to "Register for ID Card now", idcard_register_path, class: "btn btn-info btn-login" %>
+      <% elsif current_user.id_card.nil? %>
+        <strong>Your request for an ID card is under process.</strong>
       <% else %>
-          You have already registered for an ID card.
+        <strong>Your ID is: <%= current_user.id_card.id_number %></strong>
       <% end %>
     </div>
   </div>

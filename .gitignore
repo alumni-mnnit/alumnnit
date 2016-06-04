@@ -18,6 +18,7 @@
 
 logs/
 public/assets
+public/system
 
 *.swp
 tags

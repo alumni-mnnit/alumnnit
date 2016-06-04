@@ -1,5 +1,6 @@
 class IdCardController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_filter :require_user
 
   def index
   end
@@ -12,4 +13,16 @@ class IdCardController < ApplicationController
       redirect_to root_path, notice: "Successfully registered for ID Card"
     end
   end
+
+  private 
+    def require_user
+      if current_user.is_active == false and current_user.request.nil? 
+        flash[:notice] = "Please! request for Account Activation."
+        redirect_to root_path
+      elsif current_user.is_active == false and !current_user.request.nil?
+        flash[:notice] = "Your Account is not activated yet!"
+        redirect_to root_path
+      end
+    end
+
 end

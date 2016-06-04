@@ -1,0 +1,2 @@
+module IdCardHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603060008) do
+ActiveRecord::Schema.define(version: 20160603235303) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,31 @@ ActiveRecord::Schema.define(version: 20160603060008) do
   end
 
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+
+  create_table "id_card_counts", force: :cascade do |t|
+    t.integer  "batch"
+    t.integer  "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "id_card_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "id_card_requests", ["user_id"], name: "index_id_card_requests_on_user_id"
+
+  create_table "id_cards", force: :cascade do |t|
+    t.string   "id_number"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "id_card_request_id"
+  end
+
+  add_index "id_cards", ["id_card_request_id"], name: "index_id_cards_on_id_card_request_id"
 
   create_table "requests", force: :cascade do |t|
     t.string   "title"

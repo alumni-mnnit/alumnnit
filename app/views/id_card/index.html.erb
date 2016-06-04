@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h1 class="page-header">
+				Register for an ID Card
+	    </h1>
+		</div>
+    <hr>
+    <br>
+
+	<div class="col-md-offset-3 col-md-6 text-center">
+    Information about ID Card
+    <hr>
+    <br>
+    <div>
+      <% if current_user.nil? or current_user.id_card_request.nil? %>
+        <%= link_to "Register for ID Card now", idcard_register_path, class: "btn btn-info btn-login" %>
+      <% elsif current_user.id_card.nil? %>
+        <strong>Your request for an ID card is under process.</strong>
+      <% else %>
+        <strong>Your ID is: <%= current_user.id_card.id_number %></strong>
+      <% end %>
+    </div>
+  </div>
+
+	</div>
+</div>

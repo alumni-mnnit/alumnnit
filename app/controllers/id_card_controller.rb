@@ -16,12 +16,17 @@ class IdCardController < ApplicationController
 
   private 
     def require_user
-      if current_user.is_active == false and current_user.request.nil? 
-        flash[:notice] = "Please! request for Account Activation."
+      if !user_signed_in?
+        flash[:notice] = "You need to Login/Signup to use all the facilities!"
         redirect_to root_path
-      elsif current_user.is_active == false and !current_user.request.nil?
-        flash[:notice] = "Your Account is not activated yet!"
-        redirect_to root_path
+      else
+        if current_user.is_active == false and current_user.request.nil? 
+          flash[:notice] = "Please! request for Account Activation."
+          redirect_to root_path
+        elsif current_user.is_active == false and !current_user.request.nil?
+          flash[:notice] = "Your Account is not activated yet!"
+          redirect_to root_path
+        end
       end
     end
 

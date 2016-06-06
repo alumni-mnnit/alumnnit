@@ -22,5 +22,8 @@ Rails.application.routes.draw do
 
   	resources :contacts
     resources :feedbacks
- 
+    resources :conventions do
+      resources :convention_requests
+    end
+
 end

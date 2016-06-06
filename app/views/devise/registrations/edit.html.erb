@@ -35,7 +35,7 @@
                 <%= f.text_field :lname, class: "form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :nick_name%><br />
+                <%= f.label :nick_name, "Username" %><br />
                 <%= f.text_field :nick_name, class: "form-control"%>
               </div>
               <div class="form-group">
@@ -129,7 +129,7 @@
               </div>
 
               <div class="form-group">
-                <%= f.label :achievements, "Achievements" %><br />
+                <%= f.label :achievements, "Achievements, Expertise, Interests " %><br />
                 <%= f.text_area :achievements, class: "form-control" %>
               </div>
 
@@ -151,7 +151,7 @@
 
             <div class="form-group">
               <%= f.submit "Update", class: "btn btn-lg btn-info col-md-offset-4" %>
-              &nbsp; <button class="btn btn-lg btn-success"> Back </button>
+              &nbsp; <%= link_to "Back", :back, class: "btn btn-lg btn-red" %>
             </div>
           </div>  
         <% end %>

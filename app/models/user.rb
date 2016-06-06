@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :id_card_request, dependent: :destroy
   has_one :id_card, through: :id_card_request, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+  has_one :convention_request, dependent: :destroy 
   has_attached_file :pic, styles: { medium: "300x300>" , thumb: "100x100"}
     validates_attachment :pic, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
     validates_attachment_size :pic, less_than: 3.megabytes

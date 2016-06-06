@@ -1,0 +1,256 @@
+<nav class="side-menu">
+        <ul>
+          <li class="hidden active">
+              <a class="page-scroll" href="#page-top"></a>
+          </li>
+          <li>
+              <a href="#home" class="page-scroll">
+                <span class="menu-title">Home</span>
+                <span class="dot"></span>
+              </a>
+          </li>
+          <li>
+              <a href="#speakers" class="page-scroll">
+                <span class="menu-title">Speakers</span>
+                <span class="dot"></span>
+              </a>
+          </li>
+           
+          <li>
+              <a href="#schedule" class="page-scroll">
+                <span class="menu-title">Schedule</span>
+                <span class="dot"></span>
+              </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fluid">
+        <!-- Start: Header -->
+        <div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
+          <div class="col-md-7 text-center">
+            <h1>Attend the most awaited Convention of <%= Date.today.year %></h1>
+            <h3>Get connected back to your batch-mates and college.</h3>
+            <h4> 22<sup>nd</sup>  November, 2016</h4>
+            <% if user_signed_in? and current_user.is_admin == true %>
+              <%= link_to 'Create Convention', new_convention_path, class: "btn btn-lg btn-red" %>
+            <% end %>
+            <% if !@convention.nil? %>
+              <%= link_to "Register Now", new_convention_convention_request_path(Convention.last), class: "btn btn-lg btn-red" %>
+            <% end %>
+          </div>
+          <div class="col-md-5 hidden-xs">
+            <img src="/assets/rocket.png" class="rocket animated bounce">
+          </div>
+        </div>
+        <!-- End: Header -->
+      </div>
+      <div class="container">
+        <!-- Start: Desc -->
+        <div class="row me-row content-ct speaker" id="speakers">
+          <h2 class="row-title">Meet the Speakers</h2>
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="/assets/speaker-1.png" class="speaker-img">
+            <h3>Simon Collins</h3>
+            <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things...</p>
+            <ul class="speaker-social">
+              <li><a href="#"><span class="ti-facebook"></span></a></li>
+              <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+              <li><a href="#"><span class="ti-linkedin"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="/assets/speaker-2.png" class="speaker-img">
+            <h3>Stephanie Troeth</h3>
+            <p>Stephie is a user experience researcher and designer. In over 15 years of working on the web, she has worn many hats, including a product lead for a tech startup in publishing...</p>
+            <ul class="speaker-social">
+              <li><a href="#"><span class="ti-facebook"></span></a></li>
+              <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+              <li><a href="#"><span class="ti-linkedin"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="/assets/speaker-3.png" class="speaker-img">
+            <h3>Harry Roberts</h3>
+            <p>Harry is a freelance designer, developer, writer, speaker and front-end architect from the UK, previously working as Senior UI Developer for Sky. He Tweets at...</p>
+            <ul class="speaker-social">
+              <li><a href="#"><span class="ti-facebook"></span></a></li>
+              <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+              <li><a href="#"><span class="ti-linkedin"></span></a></li>
+            </ul>
+          </div>
+          
+        </div>
+        <!-- End: Speakers -->
+      </div>
+
+     
+      <!-- Start: Schedule -->
+      <div class="container">
+        <div class="row me-row schedule" id="schedule">
+          <h2 class="row-title content-ct">Event Schedule</h2>
+          <div class="col-md-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#day-1" aria-controls="home" role="tab" data-toggle="tab">Day 01 <small class="hidden-xs">(20<sup>th</sup>, November)</small></a></li>
+              <li role="presentation"><a href="#day-2" aria-controls="profile" role="tab" data-toggle="tab">Day 02 <small class="hidden-xs">(21<sup>st</sup>, November)</small></a></li>
+              <li role="presentation"><a href="#day-3" aria-controls="messages" role="tab" data-toggle="tab">Day 03 <small class="hidden-xs">(22<sup>nd</sup>, November)</small></a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="day-1">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-1.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10am to 10:30am</h4>
+                        <h5>THE DESIGNER’S GUIDE TO BEING ESSENTIAL</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-2.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10:45am to 11:30am</h4>
+                        <h5>MODULAR DESIGN AT WORK</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-3.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">12:00pm to 01:30pm</h4>
+                        <h5>AN INTRODUCTION TO TOUCH AND POINTER EVENTS</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="day-2">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-1.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10am to 10:30am</h4>
+                        <h5>MAKING DOG FOOD PART OF A BALANCED DIET</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-3.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10:45am to 11:30am</h4>
+                        <h5>HANDS-ON WEB AUDIO</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-2.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">12:00pm to 01:30pm</h4>
+                        <h5>CONVERSION RATE OPTIMIZATION TECHNIQUES IN ECOMMERCE</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-1.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">02:00pm to 03.30pm</h4>
+                        <h5>PAPER PROTOTYPING APPLICATIONS</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="day-3">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-2.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10am to 10:30am</h4>
+                        <h5>THE DESIGNER’S GUIDE TO BEING ESSENTIAL</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-3.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">10:45am to 11:30am</h4>
+                        <h5>THE DESIGNER’S GUIDE TO BEING ESSENTIAL</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="/assets/speaker-1.png" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">12:00pm to 01:30pm</h4>
+                        <h5>THE DESIGNER’S GUIDE TO BEING ESSENTIAL</h5>
+                        <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things. </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

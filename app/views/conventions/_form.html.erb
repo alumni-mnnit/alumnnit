@@ -1,0 +1,41 @@
+<script type="text/javascript">
+  $(function () {
+      $('#datetimepicker3').datetimepicker({
+          format: 'YYYY-MM-DD'
+      });
+  });
+</script>  
+
+<div class="col-md-4 col-md-offset-4 text-center">
+    <h3>Create Convention</h3>
+    <hr>
+    <%= form_for @convention, html: { multipart: true, id: "conventionForm", method: :post} do |f| %>
+		<%- if @convention.errors.any? %>
+			<div id="errors">
+				<h2>
+					<%= pluralize(@convention.errors.count, "Error") %>
+					Prevented this query from saving.
+				</h2>	
+					<ul>
+						<%  @convention.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>	
+					</ul>				
+			</div>
+		<% end %>			
+		<div class="form-group">
+			<%= f.date_select :year, {:start_year => Time.now.year , :end_year => Time.now.year + 10, :discard_day => true, :discard_month => true} %>
+		</div>
+		<div class=" form-group">
+            <%= f.label :start_date, "Start Date" %><br />
+			<div class='input-group date' id='datetimepicker3'>
+              <%= f.text_field :start_date, label: false, placeholder: "YYYY-MM-DD", class: "form-control" %>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+        </div>
+		<%= f.submit "Create", class: "btn btn-lg btn-red" %>
+	<% end %>	
+    
+</div>

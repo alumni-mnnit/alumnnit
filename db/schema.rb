@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160605032835) do
 
   create_table "conventions", force: :cascade do |t|
     t.date     "year"
-    t.string   "start_date"
+    t.date     "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

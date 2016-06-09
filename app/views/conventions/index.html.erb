@@ -220,24 +220,51 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="col-sm-4 col-sm-offset-1" style="margin-left: -7%;">
-                             <!--<div class="type-wrap">
-                                    <div class="col-sm-12" style="margin: 0;padding: 0;"> 
-                                        <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
-                                            <div id="typed-strings1">
-                                            <p>Connect <strong>Today</strong> Transform <strong>Tommorrow</strong></p>
+                        <% if user_signed_in? and current_user.is_admin == true %>
+                            <div class="col-sm-4 col-sm-offset-1" style="margin-left: -1%;">
+                                 
+                                <div id="typed-strings1">
+                                                <p>Create Convention</span></p>
+                                                </div>
+                                <center><a href="<%= new_convention_path %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
+                            </div>
+                            <% if Convention.any? %>
+                                <div class="col-sm-4 col-sm-offset-4 ">
+                                     
+                                    <div id="typed-strings2">
+                                                    <p>Convention <%= Convention.last.year.year %></span></p>
+                                                    </div>
+                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed2" style="white-space:pre;"></span></a></center>
+                                </div>
+                            <% else %>
+                                <div class="col-sm-2 col-sm-offset-4">
+                                    <div class="type-wrap">
+                                        <div class="col-sm-12" style="margin: 0;padding: 0;"> 
+                                            <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
+                                                <div id="typed-strings2">
+                                                <p>Never Forget Your <strong>Roots</strong></p>
+                                                <!--<p><strong>CONVENTION</strong></p>-->
+                                                </div>
+                                                <span id="typed2" class="quotes" style="white-space:pre;"></span>
                                             </div>
-                                            <span id="typed1" class="quotes" style="white-space:pre;"></span>
                                         </div>
                                     </div>
-                            </div>-->
-                            <div id="typed-strings1">
-                                            <p>Convention 2016 <span class="glyphicon glyphicon-menu-right"></span></p>
-                                            </div>
-                            <center><a href="#" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
-                        </div>
-                        <div class="col-sm-2 col-sm-offset-6">
-                            <div class="type-wrap">
+                                </div>
+                                    
+                            <% end %>    
+                        <% else %>
+                            <% if Convention.any? %>
+                                <div class="col-sm-4 col-sm-offset-1" style="margin-left: -7%;">
+                                     
+                                    <div id="typed-strings1">
+                                                    <p>Convention <%= Convention.last.year.year %></span></p>
+                                                    </div>
+                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
+                                </div> 
+                            <% end %>     
+
+                            <div class="col-sm-2 col-sm-offset-6">
+                                <div class="type-wrap">
                                     <div class="col-sm-12" style="margin: 0;padding: 0;"> 
                                         <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
                                             <div id="typed-strings2">
@@ -247,8 +274,10 @@
                                             <span id="typed2" class="quotes" style="white-space:pre;"></span>
                                         </div>
                                     </div>
+                                </div>
                             </div>
-                        </div>
+                        <% end %>      
+                        
                     </div>
                 </div><!-- row 3-->
 
@@ -260,7 +289,7 @@
 
     <div class="col-sm-12 col-md-offset-3">
     <ul class="nav nav-pills ql" style="margin-left: auto;margin-right: auto;">
-      <li role="presentation" class="active qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="abt_link"><span class="glyphicon glyphicon-file b"></span></div><p class="qlp">About Convention</p></center></li>
+      <li role="presentation" class="active qlli" style="margin-left: -20px;margin-right: 20px;"><center><div class="a" id="abt_link"><span class="glyphicon glyphicon-file b"></span></div><p class="qlp">About Convention</p></center></li>
       <li role="presentation" class="qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="speaker_link"><span class="glyphicon glyphicon-user b"></span></div><p class="qlp">Past Speakers</p></center></li>
         <li role="presentation" class="qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="past_conv_link"><span class="glyphicon glyphicon-pushpin b"></span></div><p class="qlp">Past Convention</p></center></li>
 

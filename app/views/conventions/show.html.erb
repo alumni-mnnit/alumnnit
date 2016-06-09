@@ -5,7 +5,7 @@
           </li>
           <li>
               <a href="#home" class="page-scroll">
-                <span class="menu-title">Home</span>
+                <span class="menu-title">Convention <%= @convention.year.year %></span>
                 <span class="dot"></span>
               </a>
           </li>
@@ -28,14 +28,17 @@
         <!-- Start: Header -->
         <div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
           <div class="col-md-7 text-center">
-            <h1>Attend the most awaited Convention of <%= Date.today.year %></h1>
+            <h1>Attend the most awaited Convention of <%= @convention.year.year %></h1>
             <h3>Get connected back to your batch-mates and college.</h3>
-            <h4> 22<sup>nd</sup>  November, 2016</h4>
-            <% if user_signed_in? and current_user.is_admin == true %>
-              <%= link_to 'Create Convention', new_convention_path, class: "btn btn-lg btn-red" %>
-            <% end %>
-            <% if !@convention.nil? %>
-              <%= link_to "Register Now", new_convention_convention_request_path(Convention.last), class: "btn btn-lg btn-red" %>
+            <h4> <%= @convention.start_date.day %><sup>nd</sup> - <%= @convention.start_date.mon %>, <%= @convention.start_date.year %></h4>
+            <% if !current_user.convention_request.nil? %>
+              <% if !(current_user.convention_request.convention == Convention.last) %>
+                <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" %>
+              <% else %> 
+                <p>You have already Registered.</p> 
+              <% end %>
+            <% else %> 
+              <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" %>
             <% end %>
           </div>
           <div class="col-md-5 hidden-xs">

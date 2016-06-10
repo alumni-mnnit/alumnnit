@@ -166,13 +166,14 @@
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
                             <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
-
+                            <% if Convention.any? %>
                                 <div class="ja-slidenews-item">
 
-                                    <a class="ja-title" href="<%= convention_path(Convention.last) %>" style="color: #1E7896">
-                                        <b>Alumni Convention 2016</b>
+                                    <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
+                                        <b>Alumni Convention <%= Convention.last.year.year %></b>
                                     </a>
                                 </div>
+                            <% end %>    
                                 <div class="ja-slidenews-item">
 
                                   <a class="ja-title" href="<%= idcard_path %>" style="color: #1E7896">

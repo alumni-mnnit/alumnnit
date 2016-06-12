@@ -27,11 +27,14 @@
 html,
 body {
     height: 100%;
+    width: 100%;
     background-color: white;
     font-family: 'Dosis', sans-serif;
     color: #404142;
     font-size: 16px;
     letter-spacing: 0.8px;
+    overflow-x: hidden;
+    min-width: 600px;
 }
 
 #notice_wrapper{
@@ -1377,4 +1380,125 @@ ul.footer-menu li a:hover {
         width: 49%;
         margin-right: 9px;
     }
+}
+
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    font-size: 20px;
+    font-weight: 900;
+
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+.but{
+    background: #dd5138;
+    color:white;
+    font-family: 'Dosis', sans-serif;
+}
+.but:hover{
+    text-decoration: none;
+}
+#typed{
+    font-size: 80px;
+    color: #DD5138;
+    float: left;
+    font-weight: lighter;
+    font-family: 'Dosis', sans-serif;
+    /*font-family: 'Oswald', sans-serif;"*/
+
+}
+.head{
+    margin-bottom: 20px;
+}
+.quotes{
+    color:white;
+    font-size: 30px;
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Dosis', sans-serif;
+    font-weight: lighter;
+}
+
+#lightgallery .col-sm-3{
+    padding: 5px;
+}
+#sponsorcont .col-sm-3{
+    padding: 5px; 
+}
+.a{
+    width: 80px;
+    height: 80px;
+    
+    border-radius: 40px;
+    border-color: #25374f;
+    border-style: solid;
+}
+.a:hover{
+    cursor: pointer;
+}
+.b{
+   
+    margin-top: 36%;
+    margin-bottom: auto;
+    font-size: 24px;
+    color: #25374f;
+
+}
+.qlli{
+    padding: 5px;
+}
+.qlp{
+    font-family: 'PT Sans Narrow', sans-serif;
+    color:#666;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.speakermainmaincol{
+    margin-bottom: 10px;
+}
+.speakermaincol{
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 3px solid #f6f6f6;
+    padding: 20px;  
+}
+.speakermaincol:hover{
+    box-shadow: 3px 3px 10px #ccc;
+    transform: translateY(-10px);
+}
+.speakerrow{
+    text-align: center;
+}
+.speakerrow h3{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 200;
+    color: #404142;
+}
+.speakerrow p{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 200;
+    color: #404142;
+    font-size: 16px; 
+}
+.speakerimg{
+    max-width: 40%;
+    border: 4px solid #efefef;
+    border-radius: 50%;
 }

@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-
-
-  
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { confirmations: 'confirmations' }
   root 'pages#home'
   resources :searches
+  resources :news
   resources :users, only: [:show]
   get '/about' => 'pages#about' 
   get '/fund'	=> 'pages#fund'

@@ -25,6 +25,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem "paperclip", "~> 5.0.0.beta1"
 gem "rest-client"
 gem 'mysql2', '~> 0.3.18'
+gem 'kaminari'
 
 group :development do
   gem 'web-console', '~> 2.0'

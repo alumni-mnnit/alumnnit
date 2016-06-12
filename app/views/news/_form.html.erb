@@ -1,0 +1,26 @@
+<%= simple_form_for @news, html: { multipart: true} do |f| %>
+	<%- if @news.errors.any? %>
+		<div id="errors">
+			<h2>
+				<%= pluralize(@news.errors.count, "Error") %>
+				Prevented this news from submission.
+			</h2>	
+				<ul>
+					<%  @news.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>	
+				</ul>				
+		</div>
+	<% end %>			
+	<div class="form-group">
+		<%= f.input :title,  placeholder: "News Title", autofocus: true, required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>	
+	
+	<div class="form-group">
+		<%= f.input :description, placeholder: "Description",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	<div class="form-group">
+		<%= f.input :photo, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	<%= f.button :submit, "Create News", class: "btn btn-login btn-info" %>
+<% end %>	

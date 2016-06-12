@@ -1,0 +1,39 @@
+<div id="t3-content" class="t3-content col-xs-12 col-md-6 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                    <!-- CONTENT MASS TOP -->
+    <div class="content-mass-top ">
+        <div class="t3-module module " id="Mod98">
+            <div class="module-inner">
+                <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span> News and Announcements</span><hr></h3>
+                <div class="module-ct">
+                    <div class="ja-sidenews-list clearfix">
+                        <% if @newses.empty? %>
+                            <div class="ja-slidenews-item">
+                                <a class="ja-title" href="#">No News!!</a>
+                            </div>
+                        <% else %>    
+                            
+                            <% @newses.each do |news| %>
+                                <div class="ja-slidenews-item">
+                                    <%= link_to news.title, news, class: "ja-title" %>
+                                    <span class="ja-createdate"><%= news.created_at %> </span> 
+                                   <%= news.description.truncate_words(10) %>
+                                </div>
+                            <% end %>
+                            <%= paginate @newses, window: 2 %>
+                             
+                        <% end %>    
+
+                     <% if user_signed_in? and current_user.is_admin == true %>
+                        <div class="text-center">
+                            <%= link_to "Create News", new_news_path , class: "btn btn-lg btn-red" %>
+                        </div>  
+                     <% end %>  
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT MASS TOP -->
+
+</div>

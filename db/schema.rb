@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605032835) do
+ActiveRecord::Schema.define(version: 20160612132246) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20160605032835) do
   end
 
   add_index "id_cards", ["id_card_request_id"], name: "index_id_cards_on_id_card_request_id"
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
 
   create_table "requests", force: :cascade do |t|
     t.string   "title"

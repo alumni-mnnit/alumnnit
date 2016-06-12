@@ -124,102 +124,71 @@
 
 
         <div id="t3-mainbody" class="container t3-mainbody">
-        <div class="main-container">
-            <div class="row">
-                <!-- MAIN CONTENT -->
-                
-                <div id="t3-content" class="t3-content col-xs-12 col-md-6 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
-                    <!-- CONTENT MASS TOP -->
-                    <div class="content-mass-top ">
-                        <div class="t3-module module " id="Mod98">
+            <div class="main-container">
+                <div class="row">
+                    <!-- MAIN CONTENT -->
+                    
+                    <%= render 'news/index' %>
+                    <!-- //MAIN CONTENT -->
+                    <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                        <div class="t3-module module search-course " id="Mod119">
                             <div class="module-inner">
-                                <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span> News and Announcements</span><hr></h3>
-                                <div class="module-ct">
-                                    <div class="ja-sidenews-list clearfix">
-                                        <div class="ja-slidenews-item">
-                                            <a class="ja-title" href="#">Miss India 2016</a>
-                                            <span class="ja-createdate">10 June 2016 </span> We are very proud to announce that a student from our college MNNIT, <br><bold style="font-weight: 600">Miss Kanchan Vish</bold> has become Miss India 2016.. Cheers!
-                                        </div>
-                                        <div class="ja-slidenews-item">
-                                            <a class="ja-title" href="#">Alumni Convention 2016</a>
-                                            <span class="ja-createdate">22 May 2016 </span> The final date for the convention 2016 will be announced soon.. Stay tuned!
-                                        </div>
-                                        <div class="ja-slidenews-item">
-                                            <a class="ja-title" href="#">ID-cards for Alumni</a>
-                                            <span class="ja-createdate">22 May 2016 </span> New Alumni id cards are being distributed to everyone so that at any point of time any alumni can visit the institute and avail all facilities. Guest house book will also be made easier using this facility.
-                                        </div>
-                                        <div class="ja-slidenews-item">
-                                            <a class="ja-title" href="#">Facebook Groups.</a>
-                                            <span class="ja-createdate">Monday, 13 August 2012 </span> Go to the Moti ke lal and MNNITians and other reputed alumni Facebook groups and see latest alumni achievements, etc.
-                                        </div>
+                                <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
+                                <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
+                                <% if Convention.any? %>
+                                    <div class="ja-slidenews-item">
+
+                                        <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
+                                            <b>Alumni Convention <%= Convention.last.year.year %></b>
+                                        </a>
+                                    </div>
+                                <% end %>    
+                                    <div class="ja-slidenews-item">
+
+                                      <a class="ja-title" href="<%= idcard_path %>" style="color: #1E7896">
+                                            <b>Request for Id-cards</b>
+                                        </a>
+                                    </div>
+
+                                    <div class="ja-slidenews-item">
+
+                                        <a class="ja-title" href="<%= new_user_registration_path %>" style="color: #1E7896">
+                                            <b>Registration Link</b>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- CONTENT MASS TOP -->
+                    <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                        <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
+                            <div class="module-inner">
+                                <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
 
-                </div>
-                <!-- //MAIN CONTENT -->
-                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
-                    <div class="t3-module module search-course " id="Mod119">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
-                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
-                            <% if Convention.any? %>
-                                <div class="ja-slidenews-item">
 
-                                    <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
-                                        <b>Alumni Convention <%= Convention.last.year.year %></b>
-                                    </a>
-                                </div>
-                            <% end %>    
-                                <div class="ja-slidenews-item">
-
-                                  <a class="ja-title" href="<%= idcard_path %>" style="color: #1E7896">
-                                        <b>Request for Id-cards</b>
-                                    </a>
-                                </div>
-
-                                <div class="ja-slidenews-item">
-
-                                    <a class="ja-title" href="<%= new_user_registration_path %>" style="color: #1E7896">
-                                        <b>Registration Link</b>
-                                    </a>
-
+                                <div class="row">
+                                    <div class="col-sm-4" style="border-right: 1px solid #efece1;">
+                                        <center>
+                                            <div class="col-sm-12">
+                                                <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
+                                            </div>
+                                        </center>
+                                        <center>
+                                            <div class="col-sm-12">Nov, 2016</div>
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                    <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
 
-
-                            <div class="row">
-                                <div class="col-sm-4" style="border-right: 1px solid #efece1;">
-                                    <center>
-                                        <div class="col-sm-12">
-                                            <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
-                                        </div>
-                                    </center>
-                                    <center>
-                                        <div class="col-sm-12">Nov, 2016</div>
-                                    </center>
-                                </div>
-                                <div class="col-sm-8">
-                                    <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
         </div>
-    </div>
 
     <!--    <div class="col-lg-12">
             <h2 class="page-header">News</h2>

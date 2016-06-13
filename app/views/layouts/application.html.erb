@@ -6,11 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'login-register', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'login-register', 'data-turbolinks-track' => true %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="se-pre-con"></div>
   <script>
     $(document).ready(function() {
       setTimeout(function() {

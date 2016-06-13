@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   before_action :find_news , only: [:show, :edit, :update, :destroy]
 
   def index
-    @newses = News.order('created_at DESC').page params[:page]
+    @newses = News.order('created_at DESC').page params[:page].per(3)
   end
 
   def show

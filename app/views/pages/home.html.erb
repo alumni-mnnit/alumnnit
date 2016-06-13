@@ -119,199 +119,102 @@
         <hr>
 <% end %>          
 <!-- Page Content -->
-    <div class="container" style="margin-top: -10px;">
-    
-
-
-        <div id="t3-mainbody" class="container t3-mainbody">
-            <div class="main-container">
-                <div class="row">
-                    <!-- MAIN CONTENT -->
-                    
-                    <%= render 'news/index' %>
-                    <!-- //MAIN CONTENT -->
-                    <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
-                        <div class="t3-module module search-course " id="Mod119">
-                            <div class="module-inner">
-                                <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
-                                <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
-                                <% if Convention.any? %>
-                                    <div class="ja-slidenews-item">
-
-                                        <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
-                                            <b>Alumni Convention <%= Convention.last.year.year %></b>
-                                        </a>
-                                    </div>
-                                <% end %>    
-                                    <div class="ja-slidenews-item">
-
-                                      <a class="ja-title" href="<%= idcard_path %>" style="color: #1E7896">
-                                            <b>Request for Id-cards</b>
-                                        </a>
-                                    </div>
-
-                                    <div class="ja-slidenews-item">
-
-                                        <a class="ja-title" href="<%= new_user_registration_path %>" style="color: #1E7896">
-                                            <b>Registration Link</b>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                        <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
-                            <div class="module-inner">
-                                <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
-
-
-                                <div class="row">
-                                    <div class="col-sm-4" style="border-right: 1px solid #efece1;">
-                                        <center>
-                                            <div class="col-sm-12">
-                                                <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
-                                            </div>
-                                        </center>
-                                        <center>
-                                            <div class="col-sm-12">Nov, 2016</div>
-                                        </center>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    <!--    <div class="col-lg-12">
-            <h2 class="page-header">News</h2>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                    <a href="#" class="btn btn-info">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                    <a href="#" class="btn btn-success">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                    <a href="#" class="btn btn-warning">Learn More</a>
-                </div>
-            </div>
-        </div>
-	    -->
-        <!-- /.row -->
-
-        <!-- Portfolio Section -->
-       <!-- <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Gallery</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-        </div>
-        -->
-        <!-- /.row -->
-
-        <!-- Features Section -->
-        <!--<div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Modern Business Features</h2>
-            </div>
-            <div class="col-md-6">
-                <p>The Modern Business template by Start Bootstrap includes:</p>
-                <ul>
-                    <li><strong>Bootstrap v3.2.0</strong>
-                    </li>
-                    <li>jQuery v1.11.0</li>
-                    <li>Font Awesome v4.1.0</li>
-                    <li>Working PHP contact form with validation</li>
-                    <li>Unstyled page elements for easy customization</li>
-                    <li>17 HTML pages</li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-            </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
-            </div>
-        </div>-->
-        <!-- /.row -->
-
-        
-
-        <!-- Call to Action Section -->
-        <!-- <div class="well">
+<div class="container" style="margin-top: -10px;">
+    <div id="t3-mainbody" class="container t3-mainbody">
+        <div class="main-container">
             <div class="row">
-                <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                <!-- MAIN CONTENT -->
+                <div id="t3-content" class="t3-content col-xs-12 col-md-6 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                <!-- CONTENT MASS TOP -->
+                        <div class="content-mass-top ">
+                            <div class="t3-module module " id="Mod98">
+                                <div class="module-inner">
+                                    <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span> News and Announcements</span><hr></h3>
+                                    <div class="module-ct">
+                                        <div class="ja-sidenews-list clearfix">
+                                            <% if @newses.empty? %>
+                                                <div class="ja-slidenews-item">
+                                                    <a class="ja-title" href="#">No News!!</a>
+                                                </div>
+                                            <% else %>
+                                                <div id="newses">  
+                                                    <%= render 'news/index' %>
+                                                </div>
+                                            <% end %>    
+
+                                         <% if user_signed_in? and current_user.is_admin == true %>
+                                            <div class="text-center">
+                                                <%= link_to "Create News", new_news_path , class: "btn btn-lg btn-red" %>
+                                            </div>  
+                                         <% end %>  
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- CONTENT MASS TOP -->
+
                 </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+                
+                <!-- //MAIN CONTENT -->
+                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                    <div class="t3-module module search-course " id="Mod119">
+                        <div class="module-inner">
+                            <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
+                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
+                            <% if Convention.any? %>
+                                <div class="ja-slidenews-item">
+
+                                    <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
+                                        <b>Alumni Convention <%= Convention.last.year.year %></b>
+                                    </a>
+                                </div>
+                            <% end %>    
+                                <div class="ja-slidenews-item">
+
+                                  <a class="ja-title" href="<%= idcard_path %>" style="color: #1E7896">
+                                        <b>Request for Id-cards</b>
+                                    </a>
+                                </div>
+
+                                <div class="ja-slidenews-item">
+
+                                    <a class="ja-title" href="<%= new_user_registration_path %>" style="color: #1E7896">
+                                        <b>Registration Link</b>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t3-sidebar col-xs-12 col-sm-5 col-sm-push-1" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                    <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
+                        <div class="module-inner">
+                            <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
+
+
+                            <div class="row">
+                                <div class="col-sm-4" style="border-right: 1px solid #efece1;">
+                                    <center>
+                                        <div class="col-sm-12">
+                                            <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
+                                        </div>
+                                    </center>
+                                    <center>
+                                        <div class="col-sm-12">Nov, 2016</div>
+                                    </center>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-        -->
-    </div>    
-<!--
-<script type="text/javascript">
-    
-    $('.carousel').carousel({
-        interval: 1000 //changes the speed
-    });
-</script>
--->
+    </div>
+</div>    

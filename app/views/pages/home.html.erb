@@ -5,14 +5,10 @@
             <div class="row hero-header fill" style="background-image:url(<%= asset_path 'alumni.jpg' %>);">
               <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
                 <h1 style="color: black;"><span>MNNIT <span style="color: #DD5138">Alumni</span> Association</span></h1>
-                <h3 style="color: black;">Welcomes You!</h3>
-                <% if !user_signed_in? %>
+                <h3 style="color: black;">पूरा छात्र संगठन</h3>
                     <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-red" %>
                     <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-red" %>
-                <% else %>
-                    <h3 style="color: black;">Welcome Back!</h3>    
-                <% end %>    
-
+                
               </div>
               
             </div>
@@ -80,7 +76,7 @@
           <div class="container">
             <!-- Start: Desc -->
             <div class="row me-row content-ct">
-              <h2 class="row-title">Why <span style="color: #DD5138">MAA</span> Is Super Cool?</h2>
+              <h1 class="row-title" style="color: #DD5138">Features...</h1>
               <div class="col-md-2 feature">
                 <span class="ti-world"></span>
                 <h3>Alumni around the globe!</h3>
@@ -94,12 +90,12 @@
               <div class="col-md-2 feature">
                 <span class="ti-id-badge"></span>
                 <h3>Profiles</h3>
-                <p>View the profiles of all students and alumni, most of whom have extensive knowledge and experience.</p>
+                <p>View the profiles of all students and alumni.</p>
               </div>
               <div class="col-md-2 feature">
                 <span class="ti-announcement"></span>
                 <h3>News</h3>
-                <p>View the latest news and announcements related to the institute, students and alumni. To submit a news, simply email us.</p>
+                <p>View the latest news and announcements related to the institute, students and alumni. To submit a news, simply <a href="mailto:mnnitalumni@mnnit.ac.in">email us</a>.</p>
               </div>
               
               <div class="col-md-2 feature">
@@ -110,7 +106,7 @@
 
               <div class="col-md-2 feature">
                 <span class="ti-more"></span>
-                <h3>More..</h3>
+                <h3>More to explore..</h3>
                 <p>More features yet to come.</p>
               </div>
               

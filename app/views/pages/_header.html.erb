@@ -44,17 +44,28 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand navbar-brand-logo" href="/">
-                    <div class="logo" >
-                    <%= image_tag "logo2.jpeg", class: "logo-img", alt: "MNNIT Alumni Association" %>
+                    <div class="row" style="margin: 0;padding: 0">
+                      <div class="col-sm-6" style="margin: 0;padding: 0">
+                        <div class="logo" >
+                          <%= image_tag "logo.png", class: "logo-img", alt: "MNNIT Alumni Association" %>
+                        </div>
+                      </div>
+                      <div class="col-sm-6" style="margin: 0;padding: 0">
+                        <div class="brand" style= "margin-top: 0px;">
+                          <div class="row"><font size="5">MAA</font></div>
+                          <div class="row" style="width: 250%;"><font size="2">MNNIT Alumni Association</font></div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="brand" style= "margin-top: 5px;"> MAA </div>
+                    
+                    
                 </a>
                 
             	
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            	<ul class="nav navbar-nav">
+            	<ul class="nav navbar-nav" style="margin-left: 4%">
     			        <li style="margin-top: 10px;"><%= link_to '<i class="fa fa-home fa-fw" aria-hidden="true"></i> Home'.html_safe, root_path %></li>
                   <li class="dropdown" style="margin-top: 10px;">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">

@@ -2,12 +2,12 @@
 <% if !user_signed_in? %>
     <div class="container-fluid" style="margin-top: -20px;">
             <!-- Start: Header -->
-            <div class="row hero-header fill" style="background-image:url(<%= asset_path 'alumni.jpg' %>);">
+            <div class="row hero-header fill" style="background-image:url(<%= asset_path 'institute.jpg' %>);">
               <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
-                <h1 style="color: black;"><span>MNNIT <span style="color: #DD5138">Alumni</span> Association</span></h1>
-                <h3 style="color: black;">पूरा छात्र संगठन</h3>
+                <h1 ><span>MNNIT <span style="color: #DD5138">Alumni</span> Association</span></h1>
+                <h3 >पूरा छात्र संगठन</h3>
                     <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-red" %>
-                    <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-red" %>
+                    <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-yellow" %>
                 
               </div>
               
@@ -73,10 +73,10 @@
             </div>
             <!-- End: Header -->
           </div>
-          <div class="container">
+          <div class="container-fluid" style="background-color: rgba(252, 242, 59, 0.25)" >
             <!-- Start: Desc -->
             <div class="row me-row content-ct">
-              <h1 class="row-title" style="color: #DD5138">Features...</h1>
+              <h1 class="row-title"><span style="color: #DD5138; font-size: 60px;">Features...</span></h1>
               <div class="col-md-2 feature">
                 <span class="ti-world"></span>
                 <h3>Alumni around the globe!</h3>
@@ -112,10 +112,9 @@
               
             </div>
         </div>  
-        <hr>
 <% end %>          
 <!-- Page Content -->
-<div class="container-fluid" style="margin-top: -20px; padding-bottom: 50px; background-image: url('assets/background1.png'); background-color: rgba(255,255,255,0.9); background-repeat: no-repeat; background-size: cover; ">
+<div class="container-fluid" style="margin-top: -20px; padding-bottom: 50px; ">
     <div id="t3-mainbody" class="container t3-mainbody" style="opacity: 1">
         <div class="main-container">
             <div class="row">

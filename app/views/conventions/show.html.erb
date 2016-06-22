@@ -28,7 +28,7 @@
         <!-- Start: Header -->
         <div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
           <div class="col-md-7 text-center">
-            <h1>Attend the most awaited Convention of <%= @convention.year.year %></h1>
+            <h1>Alumni Convention of <%= @convention.year.year %></h1>
             <h3>Get connected back to your batch-mates and college.</h3>
             <h4> <%= @convention.start_date.day %><sup>nd</sup> - <%= @convention.start_date.mon %>, <%= @convention.start_date.year %></h4>
             <% if !current_user.convention_request.nil? %>

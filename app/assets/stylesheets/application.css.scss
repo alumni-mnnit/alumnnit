@@ -1076,6 +1076,7 @@ a:hover, a:focus, a:active, a:visited {
 .btn-red {
     background-color: #dd5138;
     color: #fff;
+    opacity: 0.8;
 }
 .btn-yellow {
     background-color: #fcd93b;
@@ -1083,6 +1084,9 @@ a:hover, a:focus, a:active, a:visited {
     opacity: 0.8;
 }
 .btn-yellow:hover {
+    opacity: 1;
+}
+.btn-red:hover {
     opacity: 1;
 }
 .btn-yellow.disabled:hover,

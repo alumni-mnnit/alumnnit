@@ -27,6 +27,7 @@ gem "paperclip", "~> 5.0.0.beta1"
 gem "rest-client"
 gem 'mysql2', '~> 0.3.18'
 gem 'kaminari'
+gem "cancancan"
 
 group :development do
   gem 'web-console', '~> 2.0'

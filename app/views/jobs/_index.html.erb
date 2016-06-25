@@ -1,0 +1,10 @@
+<% @jobs.each do |job| %>	
+	<div class="ja-slidenews-item">
+	    <b><%= link_to job.title, job, class: "ja-title", style: "color : #1E7896" %></b>
+	    <span class="ja-createdate"><b><%= job.description.truncate_words(15) %></span>
+	    	<a href="http://<%= job.url %>"><button class="btn btn-info" style="background: #2d4360;float: right;border: none;margin-bottom: 10px;">APPLY</button></a>
+	</div>
+<% end %>	
+<div id="paginator">
+    <%= paginate @jobs, window: 2, :remote => true %>
+</div>    

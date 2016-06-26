@@ -1,13 +1,241 @@
+<style>
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+.board{
+    width: 80%;
+margin: 60px auto;
+height: 500px;
+background: #fff;
 
-<% if !user_signed_in? %>
+}
+.board .nav-tabs {
+    position: relative;
+    /* border-bottom: 0; */
+    /* width: 80%; */
+    margin-left:10%;
+    padding-left: 10%;
+    margin-bottom: 0;
+    box-sizing: border-box;
+
+}
+
+.board > div.board-inner{
+    background: #fafafa 
+    background-size: 30%;
+}
+
+p.narrow{
+    width: 60%;
+    margin: 10px auto;
+}
+
+.liner{
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    width: 60%;
+    margin: 0 auto;
+    left: 17%;
+  
+    top: 50%;
+    z-index: 1;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    /* background-color: #ffffff; */
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tabs{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: white;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+span.round-tabs.one{
+    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+    
+}
+
+li.active span.round-tabs.one{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: rgb(34, 194, 34);
+}
+
+span.round-tabs.two{
+    color: #febe29;border: 2px solid #febe29;
+}
+
+li.active span.round-tabs.two{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #febe29;
+}
+
+span.round-tabs.three{
+    color: #3e5e9a;border: 2px solid #3e5e9a;
+}
+
+li.active span.round-tabs.three{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #3e5e9a;
+}
+
+span.round-tabs.four{
+    color: #f1685e;border: 2px solid #f1685e;
+}
+
+li.active span.round-tabs.four{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #f1685e;
+}
+
+
+
+
+.nav-tabs > li.active > a span.round-tabs{
+    background: #fafafa;
+}
+.nav-tabs > li {
+    width: 20%;
+}
+/*li.active:before {
+    content: " ";
+    position: absolute;
+    left: 45%;
+    opacity:0;
+    margin: 0 auto;
+    bottom: -2px;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    z-index: 1;
+    transition:0.2s ease-in-out;
+}*/
+.nav-tabs > li:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+   opacity:0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #ddd;
+    transition:0.1s ease-in-out;
+    
+}
+.nav-tabs > li.active:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+   opacity:1;
+    margin: 0 auto;
+    bottom: 0px;
+  border: 10px solid transparent;
+    border-bottom-color: #ddd;
+    
+}
+.nav-tabs > li a{
+   width: 70px;
+   height: 70px;
+   margin: 20px auto;
+   border-radius: 100%;
+   padding: 0;
+}
+
+.nav-tabs > li a:hover{
+    background: transparent;
+}
+
+.tab-content{
+}
+.tab-pane{
+   position: relative;
+padding-top: 50px;
+}
+.tab-content .head{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.btn-outline-rounded{
+    padding: 10px 40px;
+    margin: 20px 0;
+    border: 2px solid transparent;
+    border-radius: 25px;
+}
+
+.btn.green{
+    background-color:#5cb85c;
+    /*border: 2px solid #5cb85c;*/
+    color: #ffffff;
+}
+
+
+
+@media( max-width : 585px ){
+    
+    .board {
+width: 90%;
+height:auto !important;
+}
+    span.round-tabs {
+        font-size:16px;
+width: 50px;
+height: 50px;
+line-height: 50px;
+    }
+    .tab-content .head{
+        font-size:20px;
+        }
+    .nav-tabs > li a {
+width: 50px;
+height: 50px;
+line-height:50px;
+}
+
+.nav-tabs > li.active:after {
+content: " ";
+position: absolute;
+left: 35%;
+}
+
+.btn-outline-rounded {
+    padding:12px 20px;
+    }
+}
+
+</style>
+<script>
+$(function(){
+$('a[title]').tooltip();
+});
+
+</script>
+
     <div class="container-fluid" style="margin-top: -20px;">
             <!-- Start: Header -->
             <div class="row hero-header fill" style="background-image:url(<%= asset_path 'institute.jpg' %>);">
               <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
                 <h1 ><span>MNNIT <span style="color: #fcd93b">Alumni</span> Association</span></h1>
                 <h3 style="font-size: 35px ">पूरा छात्र संगठन</h3>
+                <% if !user_signed_in? %>
                     <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-yellow" %>
                     <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-yellow" %>
+                <% end %>
                 
               </div>
               
@@ -22,22 +250,7 @@
                         <div class="modal-body">  
                             <div class="box">
                                  <div class="content">
-                                   <!-- <div class="social">
-                                        <a class="circle github" href="/auth/github">
-                                            <i class="fa fa-github fa-fw"></i>
-                                        </a>
-                                        <a id="google_login" class="circle google" href="/auth/google_oauth2">
-                                            <i class="fa fa-google-plus fa-fw"></i>
-                                        </a>
-                                        <a id="facebook_login" class="circle facebook" href="/auth/facebook">
-                                            <i class="fa fa-facebook fa-fw"></i>
-                                        </a>
-                                    </div>
-                                    <div class="division">
-                                        <div class="line l"></div>
-                                          <span>or</span>
-                                        <div class="line r"></div>
-                                    </div>-->
+                                   
                                     <div class="error"></div>
                                     <div class="form loginBox">
                                         <%= render 'partial/login' %>
@@ -73,6 +286,7 @@
             </div>
             <!-- End: Header -->
           </div>
+          <% if !user_signed_in? %>
           <div class="container-fluid" style="background-color: rgba(252, 242, 59, 0.25)" >
             <!-- Start: Desc -->
             <div class="row me-row content-ct">
@@ -112,21 +326,89 @@
               
             </div>
         </div>  
-<% end %>          
-<!-- Page Content -->
-<div class="container-fluid" style="margin-top: -20px; padding-bottom: 50px; ">
-    <div id="t3-mainbody" class="container t3-mainbody" style="opacity: 1">
-        <div class="main-container">
+        <% end %>
+        
+
+<section style="border:solid 2px black;">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    <!-- MAIN CONTENT -->
-                
-                <div id="t3-content" class="t3-content col-xs-12 col-md-12 " style="margin-top: 20px; background: rgba(251, 206, 4, 0.28);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
-                <!-- CONTENT MASS TOP -->
+                <div class="board">
+                    
+                    <div class="board-inner" >
+                    <ul class="nav nav-tabs" id="myTab" >
+                    <div class="liner"></div>
+                     <li class="active">
+                     <a href="#home" data-toggle="tab" title="welcome">
+                      <span class="round-tabs one">
+                              <i class="glyphicon glyphicon-home"></i>
+                      </span> 
+                  </a></li>
+
+                  <li><a href="#profile" data-toggle="tab" title="Jobs And Internships">
+                     <span class="round-tabs two">
+                         <i class="glyphicon glyphicon-briefcase"></i>
+                     </span> 
+           </a>
+                 </li>
+                 <li><a href="#messages" data-toggle="tab" title="News And Announcements">
+                     <span class="round-tabs three">
+                          <i class="glyphicon glyphicon-comment"></i>
+                     </span> </a>
+                     </li>
+
+                     <li><a href="#settings" data-toggle="tab" title="Highlights">
+                         <span class="round-tabs four">
+                              <i class="glyphicon glyphicon-bell"></i>
+                         </span> 
+                     </a></li>
+
+                     
+                     </ul></div>
+
+                     <div class="tab-content">
+                      <div class="tab-pane fade in active" id="home">
+
+                          <b><h3 class="head text-center">Welcome to MNNIT Alumni Association</h3></b>
+                          <p class="narrow text-center">
+                              Hub For All Interaction Of You AlmaMater.
+                          </p>
+                          
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> Start Using MAA .<span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="profile">
+                          <div class="t3-module module search-course " id="Mod119">
+                        <div class="module-inner text-center">
+                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
+                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
+
+                                <% if @jobs.empty? %>
+                                    <div class="ja-slidenews-item">
+                                        <a class="ja-title" href="#">No Jobs!!</a>
+                                    </div>
+                                <% else %>
+                                    <div id="jobs">  
+                                        <%= render 'jobs/index' %>
+                                    </div>
+                                <% end %>    
+
+                                <% if user_signed_in? %>
+                                    <div class="text-center">
+                                        <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
+                                    </div>
+                                <% end %>       
+                            </div>
+                        </div>
+                    </div>
+                          
+                      </div>
+                      <div class="tab-pane fade" id="messages">
+                          <!-- CONTENT MASS TOP -->
                         <div class="content-mass-top ">
                             <div class="t3-module module " id="Mod98">
-                                <div class="module-inner">
-                                    <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span> News and Announcements</span><hr></h3>
+                                <div class="module-inner text-center">
+                                    <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span><b> News and Announcements</b></span><hr></h3>
                                     <div class="module-ct">
                                         <div class="ja-sidenews-list clearfix">
                                             <% if @newses.empty? %>
@@ -151,16 +433,9 @@
                             </div>
                         </div>
                     <!-- CONTENT MASS TOP -->
-
-                </div>
-                
-                
-                </div><!--left col end -->
-
-                <div class="col-sm-6">
-                         <!-- //MAIN CONTENT -->
-                <div class="t3-sidebar col-xs-12 col-sm-12  " style="margin-top: 20px; background: rgba(215, 189, 219, 0.63);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
-                    <div class="t3-module module search-course " id="Mod119">
+                      </div>
+                      <div class="tab-pane fade" id="settings">
+                          <div class="t3-module module search-course text-center" id="Mod119">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights </span><hr></h3>
                             <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
@@ -190,64 +465,20 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!--<div class="t3-sidebar col-xs-12 col-sm-12" style="background: rgba(4, 251, 12, 0.12);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                    <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
+                      </div>
+                      <div class="tab-pane fade" id="doner">
+  <div class="text-center">
+    <i class="img-intro icon-checkmark-circle"></i>
+</div>
+<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>
+<p class="narrow text-center">
+  Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+</p>
+</div>
+<div class="clearfix"></div>
+</div>
 
-
-                            <div class="row">
-                                <div class="col-sm-4" style="border-right: 1px solid #efece1;">
-                                    <center>
-                                        <div class="col-sm-12">
-                                            <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
-                                        </div>
-                                    </center>
-                                    <center>
-                                        <div class="col-sm-12">Nov, 2016</div>
-                                    </center>
-                                </div>
-                                <div class="col-sm-8">
-                                    <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-                <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                    <div class="t3-module module search-course " id="Mod119">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
-                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
-
-                                <% if @jobs.empty? %>
-                                    <div class="ja-slidenews-item">
-                                        <a class="ja-title" href="#">No Jobs!!</a>
-                                    </div>
-                                <% else %>
-                                    <div id="jobs">  
-                                        <%= render 'jobs/index' %>
-                                    </div>
-                                <% end %>    
-
-                                <% if user_signed_in? %>
-                                    <div class="text-center">
-                                        <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
-                                    </div>
-                                <% end %>       
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div><!--right col end -->
-                
-
-                
-           
-            </div>
-
-        </div>
-    </div>
-</div>    
+</div>
+</div>
+</div>
+</section>  

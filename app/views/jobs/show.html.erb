@@ -18,7 +18,7 @@
 	<hr>
 	<div class="text-center">
 		<% if user_signed_in? and @job.user == current_user %>
-			<%= link_to "Edit", edit_job_path , class: "btn btn-lg btn-red" %>
+			<%= link_to "Edit", edit_job_path , class: "btn btn-lg btn-success" %>
 			<%= link_to "Delete", @job,  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-red" %>
 		<% end %>
 	</div>	

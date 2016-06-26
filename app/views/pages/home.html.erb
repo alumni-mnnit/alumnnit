@@ -454,6 +454,7 @@ $('a[title]').tooltip();
 
                                 </div>
                                 
+<<<<<<< HEAD
                       
                       </div>
                       <div class="tab-pane fade" id="doner">
@@ -467,6 +468,68 @@ $('a[title]').tooltip();
 </div>
 <div class="clearfix"></div>
 </div>
+=======
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--<div class="t3-sidebar col-xs-12 col-sm-12" style="background: rgba(4, 251, 12, 0.12);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                    <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
+                        <div class="module-inner">
+                            <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
+
+
+                            <div class="row">
+                                <div class="col-sm-4" style="border-right: 1px solid #efece1;">
+                                    <center>
+                                        <div class="col-sm-12">
+                                            <p style="font-size: 3.5rem;line-height: 2.5rem;font-weight: bold;margin-bottom: 2px;color: #2d4360;">22</p>
+                                        </div>
+                                    </center>
+                                    <center>
+                                        <div class="col-sm-12">Nov, 2016</div>
+                                    </center>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                    <div class="t3-module module search-course " id="Mod119">
+                        <div class="module-inner">
+                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
+                            <div class="col-sm-12">
+
+                                <% if @jobs.empty? %>
+                                    <div class="ja-slidenews-item">
+                                        <a class="ja-title" href="#">No Jobs!!</a>
+                                    </div>
+                                <% else %>
+                                    <div id="jobs">  
+                                        <%= render 'jobs/index' %>
+                                    </div>
+                                <% end %>    
+
+                                <% if user_signed_in? %>
+                                    <div class="text-center">
+                                        <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
+                                    </div>
+                                <% end %>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div><!--right col end -->
+                
+
+                
+           
+            </div>
+>>>>>>> 59a281860d8f8d39dc4cd4d0cac1b12d2ae94701
 
 </div>
 </div>

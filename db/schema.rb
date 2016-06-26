@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612132246) do
+ActiveRecord::Schema.define(version: 20160625165346) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20160612132246) do
 
   add_index "id_cards", ["id_card_request_id"], name: "index_id_cards_on_id_card_request_id"
 
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
+
   create_table "news", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -115,12 +126,12 @@ ActiveRecord::Schema.define(version: 20160612132246) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",      null: false
-    t.string   "encrypted_password",     default: "",      null: false
+    t.string   "email",                  default: "",       null: false
+    t.string   "encrypted_password",     default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,       null: false
+    t.integer  "sign_in_count",          default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -131,8 +142,8 @@ ActiveRecord::Schema.define(version: 20160612132246) do
     t.string   "unconfirmed_email"
     t.boolean  "is_admin",               default: false
     t.boolean  "is_active",              default: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "fname"
     t.string   "lname"
     t.string   "nick_name"
@@ -155,6 +166,8 @@ ActiveRecord::Schema.define(version: 20160612132246) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "role",                   default: "alumni"
+    t.boolean  "is_super_admin",         default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

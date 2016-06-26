@@ -5,8 +5,8 @@
             <div class="row hero-header fill" style="background-image:url(<%= asset_path 'institute.jpg' %>);">
               <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
                 <h1 ><span>MNNIT <span style="color: #fcd93b">Alumni</span> Association</span></h1>
-                <h3 >पूरा छात्र संगठन</h3>
-                    <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-red" %>
+                <h3 style="font-size: 35px ">पूरा छात्र संगठन</h3>
+                    <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-yellow" %>
                     <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-yellow" %>
                 
               </div>
@@ -141,7 +141,7 @@
 
                                          <% if user_signed_in? and current_user.is_admin == true %>
                                             <div class="text-center">
-                                                <%= link_to "Create News", new_news_path , class: "btn btn-lg btn-red" %>
+                                                <%= link_to "Add News", new_news_path , class: "btn btn-lg btn-red" %>
                                             </div>  
                                          <% end %>  
                                         </div>
@@ -222,31 +222,21 @@
                             <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
                             <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
 
-                                <div class="ja-slidenews-item">
+                                <% if @jobs.empty? %>
+                                    <div class="ja-slidenews-item">
+                                        <a class="ja-title" href="#">No Jobs!!</a>
+                                    </div>
+                                <% else %>
+                                    <div id="jobs">  
+                                        <%= render 'jobs/index' %>
+                                    </div>
+                                <% end %>    
 
-                                    <a class="ja-title" href="#" style="color: #1E7896">
-                                        <b>Proponents say Everyday Math adds up, though some don't understand how</b></a>
-                                    <span class="ja-createdate"><b>APPLY BY:</b>  Monday, 13 August 2012 </span>
-
-                                    <button class="btn btn-info" style="background: #2d4360;float: right;border: none;margin-bottom: 10px;">APPLY</button>
-                                </div>
-
-                                <div class="ja-slidenews-item">
-
-                                    <a class="ja-title" href="#" style="color: #1E7896">
-                                        <b>Proponents say Everyday Math adds up, though some don't understand how</b></a>
-                                    <span class="ja-createdate"><b>APPLY BY:</b>  Monday, 13 August 2012 </span>
-
-
-                                    <button class="btn btn-info" style="background: #2d4360;float: right;border: none;margin-bottom: 10px;">APPLY</button>
-                                </div>
-                                 <% if user_signed_in? %>
-                                    <div class="text-center" style=" margin-bottom: 10px;">
-                                        <%= link_to "Submit Job", new_news_path , class: "btn btn-lg btn-red" %>
-                                    </div>  
-                                 <% end %>  
-                                        
-
+                                <% if user_signed_in? %>
+                                    <div class="text-center">
+                                        <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
+                                    </div>
+                                <% end %>       
                             </div>
                         </div>
                     </div>

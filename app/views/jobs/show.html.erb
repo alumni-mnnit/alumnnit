@@ -1,0 +1,27 @@
+<div class="container" style="height: 600px; margin-top: 30px;">
+	
+	<div class="text-center">	
+		<h1>
+			<%= @job.title %>
+		</h1>
+		<hr>
+		
+		<div>
+			<%= @job.description %>
+		</div>
+		<br>
+		<div>
+			<%= link_to "Apply", "http://#{@job.url}", class: "btn btn-lg btn-yellow" %>
+		</div>
+	</div>
+	<br>	
+	<hr>
+	<div class="text-center">
+		<% if user_signed_in? and @job.user == current_user %>
+			<%= link_to "Edit", edit_job_path , class: "btn btn-lg btn-red" %>
+			<%= link_to "Delete", @job,  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-red" %>
+		<% end %>
+	</div>	
+		
+	
+</div>

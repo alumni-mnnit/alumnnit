@@ -1,0 +1,26 @@
+<%= simple_form_for @job, html: { multipart: true} do |f| %>
+	<%- if @job.errors.any? %>
+		<div id="errors">
+			<h2>
+				<%= pluralize(@job.errors.count, "Error") %>
+				Prevented this job from submission.
+			</h2>	
+				<ul>
+					<%  @job.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>	
+				</ul>				
+		</div>
+	<% end %>			
+	<div class="form-group">
+		<%= f.input :title,  placeholder: "Job Title", autofocus: true, required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>	
+	
+	<div class="form-group">
+		<%= f.input :description, placeholder: "Description",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	<div class="form-group">
+		<%= f.input :url, required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	<%= f.button :submit, "Add Job", class: "btn btn-login btn-info" %>
+<% end %>	

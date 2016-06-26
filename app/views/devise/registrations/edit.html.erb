@@ -45,7 +45,10 @@
                 <%= f.label :reg_no, "Registraion No." %><br /><i>(Please enter your college registration number if you remember.)</i>
                 <%= f.text_field :reg_no, class: "form-control"  %>
               </div>
-
+              <div class="form-group">
+                <%= f.label :role, "Role" %><br />
+                <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
+              </div>
               <div class="form-group">
                 <%= f.label :phn_no , "Phone No."%><br />
                 <%= f.text_field :phn_no, class: "form-control"  %>

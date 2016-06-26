@@ -7,6 +7,6 @@
     </div>
 <% end %>
 <div id="paginator">
-    <%= paginate @newses, window: 2, :remote => true %>
+    <%= paginate @newses, :param_name =>'news', window: 2, :remote => true %>
 </div>    
 

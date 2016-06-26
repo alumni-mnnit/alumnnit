@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { confirmations: 'confirmations' }
   root 'pages#home'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     resources :feedbacks
     resources :conventions
       resources :convention_requests
+    resources :jobs
     
 
 end

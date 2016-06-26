@@ -642,6 +642,7 @@ ul.contact-list li a:focus {
 }
 
 .ja-slidenews-item .ja-title {
+    margin-top: 10px;
     display: block;
     font-weight: bold
 }
@@ -1076,6 +1077,7 @@ a:hover, a:focus, a:active, a:visited {
 .btn-red {
     background-color: #dd5138;
     color: #fff;
+    opacity: 0.8;
 }
 .btn-yellow {
     background-color: #fcd93b;
@@ -1083,6 +1085,9 @@ a:hover, a:focus, a:active, a:visited {
     opacity: 0.8;
 }
 .btn-yellow:hover {
+    opacity: 1;
+}
+.btn-red:hover {
     opacity: 1;
 }
 .btn-yellow.disabled:hover,
@@ -1159,6 +1164,7 @@ a:hover, a:focus, a:active, a:visited {
     margin: 1em 0 0 0;
     font-size: 80px;
     font-weight: 400;
+    text-shadow: 4px 4px 4px black;
 }
 .hero-header h3{
     font-weight: 700;

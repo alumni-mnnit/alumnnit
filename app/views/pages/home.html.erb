@@ -164,6 +164,7 @@ li.active span.round-tabs.four{
 .tab-pane{
    position: relative;
 padding-top: 50px;
+
 }
 .tab-content .head{
     font-family: 'Roboto Condensed', sans-serif;
@@ -377,11 +378,11 @@ $('a[title]').tooltip();
                     <a href="" class="btn btn-success btn-outline-rounded green"> Start Using MAA .<span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
                 </p>
                       </div>
-                      <div class="tab-pane fade" id="profile">
-                          <div class="t3-module module search-course " id="Mod119">
-                        <div class="module-inner text-center">
-                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> <b>Jobs and Internships<b><hr></span></h3>
-                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
+                      <div class="tab-pane fade text-center" id="profile">
+                          
+                               
+                                    <h3 class="module-title "><span><span class="fa fa-briefcase"></span><b> Jobs and Internships</b><hr></span></h3>
+                                   
 
                                 <% if @jobs.empty? %>
                                     <div class="ja-slidenews-item">
@@ -398,19 +399,15 @@ $('a[title]').tooltip();
                                         <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
                                     </div>
                                 <% end %>       
-                            </div>
+                            
+                      
                         </div>
-                    </div>
                           
-                      </div>
-                      <div class="tab-pane fade" id="messages">
-                          <!-- CONTENT MASS TOP -->
-                        <div class="content-mass-top ">
-                            <div class="t3-module module " id="Mod98">
-                                <div class="module-inner text-center">
-                                    <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span><b> News and Announcements</b></span><hr></h3>
-                                    <div class="module-ct">
-                                        <div class="ja-sidenews-list clearfix">
+                    
+                      <div class="tab-pane fade text-center" id="messages">
+                          
+                               <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span><b> News and Announcements</b><hr></span></h3>
+                                  
                                             <% if @newses.empty? %>
                                                 <div class="ja-slidenews-item">
                                                     <a class="ja-title" href="#">No News!!</a>
@@ -425,20 +422,15 @@ $('a[title]').tooltip();
                                             <div class="text-center">
                                                 <%= link_to "Add News", new_news_path , class: "btn btn-lg btn-red" %>
                                             </div>  
-                                         <% end %>  
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                                         <% end %>         
+                            
+                      
                         </div>
-                    <!-- CONTENT MASS TOP -->
-                      </div>
-                      <div class="tab-pane fade" id="settings">
-                          <div class="t3-module module search-course text-center" id="Mod119">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-star"></span><b> Highlights </b></span><hr></h3>
-                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
+                          
+                      <div class="tab-pane fade text-center" id="settings">
+                          
+                            <h3 class="module-title "><span><span class="fa fa-star"></span><b> Highlights</b> </span><hr></h3>
+                            
                             <% if Convention.any? %>
                                 <div class="ja-slidenews-item">
 
@@ -462,9 +454,7 @@ $('a[title]').tooltip();
 
                                 </div>
                                 
-                            </div>
-                        </div>
-                    </div>
+                      
                       </div>
                       <div class="tab-pane fade" id="doner">
   <div class="text-center">

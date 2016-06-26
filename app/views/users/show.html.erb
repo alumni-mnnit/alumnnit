@@ -1,81 +1,53 @@
-<div class="container ">
-	<h1>
-		<span  style="color: #016cc7;font-family: 'Dosis', sans-serif;font-weight: bolder">
-		<% if @user.fname and @user.lname %>
-			<%= "#{@user.fname} #{@user.lname}"  %>
-		<% else %>
-			<%= @user.email %>	 
-		<% end %>
-		</span>		
-		<span style="color: rgba(0,0,0,0.7); font-size: 20px;">
-			<% if @user.nick_name %>
-				<%= "(#{@user.nick_name})"%>
-			<% end %>
-		</span>	
-	<div style="float: right; font-size: 20px; margin-top: 20px;"> <%= link_to "Edit Profile", edit_user_registration_path %></div>	
-	</h1>
-	<hr style="border: solid 1px black;">
-
-
-
-	<div class="col-md-4">
-		<div class="col-md-12">
-			<center><%= image_tag(@user.pic.url(:medium)) if !@user.pic_file_name.nil? %>
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-3">
+        <a class=""><%= image_tag(@user.pic.url(:medium)) if !@user.pic_file_name.nil? %>
 			<% if @user.pic_file_name.nil? %>
-				<p style="font-size: 50px;">No Image.</p>
-			<% end %></center>
-		</div>
-		<div class="col-md-12">
-			<center><h3 style="text-decoration: underline;color: #DD5138;font-family: 'Dosis', sans-serif;">Personal Details</h3>
-			<p style="font-size: 20px;">
-				<% if @user.fname  %>
+				<img src='https://qph.ec.quoracdn.net/main-qimg-3b0b70b336bbae35853994ce0aa25013' style="border-radius:50%;">
+			<% end %>
+		</a>
+		<h1><%= @user.nick_name %></h1>
+        <%= link_to "Edit Profile", edit_user_registration_path,{class:'btn btn-info btn-sm '} %>
+      	</div>
+     <div class="col-sm-8">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false"><h1>Profile Info</h1></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span><% if @user.fname  %>
 					<% if @user.lname %>
-						Name : <%= "#{@user.fname} #{@user.lname}"  %>
+						 <%= "#{@user.fname} #{@user.lname}"  %>
 					<% else %>
-						Name : <%= @user.fname %>
+						 <%= @user.fname %>
 					<% end %>		
 				<% else %>
 					Name not set.	 
 				<% end %>
-			</p>
-			<p style="font-size: 20px;">
-				Email : <%= @user.email %>  
-			</p>
-			<p style="font-size: 20px;">
-			 	<% if @user.date_of_birth %>
-					Date of Birth : <%= @user.date_of_birth %>
-				<% end %>	 
-			</p>
-			<p style="font-size: 20px;">
-				<%= "Address : #{@user.city}, " if @user.city %>
+                        </li>
+                
+                    
+              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of passing: </strong></span> <%= @user.year_of_passing %>
+                      </li>
+                      
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email: </strong></span><%= @user.email %>
+                      </li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date of birth: </strong></span> <%= @user.date_of_birth %>
+                      </li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no %>
+                      </li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address: </strong></span><%= "#{@user.city}" if @user.city %>
 				<%=  "#{@user.country}" if @user.country %>
-			</p></center>
-			</div>
-	</div>
+                      </li>
+                    
+                      </li>
+
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= @user.created_at %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.last_sign_in_at %></li>
+            </ul>
+            
+           
+        </div>
 
 
-
-	<div class="col-md-4" >
-		<center><h3 style="text-decoration: underline;color: #DD5138;font-family: 'Dosis', sans-serif;">Academics Details</h3>
-		<p style="font-size: 20px;">
-			MNNIT Allahabad, U.P., India
-		</p>
-		<p style="font-size: 20px;">
-			<% if @user.reg_no %>
-				Registration No. : <%= @user.reg_no %>
-			<% end %>	
-		</p>
-		<p style="font-size: 20px;">
-			<%= "Degree : #{@user.degree}" if @user.degree %>
-		</p>
-		<p style="font-size: 20px;">
-			<%= "Branch : #{@user.branch}" if @user.branch %>
-		</p>
-		<p style="font-size: 20px;">
-			<%= "Year of Passing : #{@user.year_of_passing.year}" if @user.year_of_passing %>
-		</p></center>
-
-	</div>
-
-	
-</div>
+    </div>
+</div>    
+		

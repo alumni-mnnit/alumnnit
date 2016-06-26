@@ -1,47 +1,54 @@
 <div class="container target">
     <div class="row">
-        <div class="col-sm-3">
-        <a class=""><%= image_tag(@user.pic.url(:medium)) if !@user.pic_file_name.nil? %>
-			<% if @user.pic_file_name.nil? %>
-				<img src='https://qph.ec.quoracdn.net/main-qimg-3b0b70b336bbae35853994ce0aa25013' style="border-radius:50%;">
-			<% end %>
-		</a>
-		<h1><%= @user.nick_name %></h1>
-        <%= link_to "Edit Profile", edit_user_registration_path,{class:'btn btn-info btn-sm '} %>
-      	</div>
-     <div class="col-sm-8">
+      <div class="col-sm-3 text-center">
+          <% if !@user.pic_file_name.nil? %>
+            <img src='<%= @user.pic.url(:medium) %>' style="border-radius:50%;">
+            
+    			<% else %>
+    				<img src='../assets/speaker-1.png' style="border-radius:50%;">
+    			<% end %>
+    		<h1 ><%= @user.nick_name %></h1>
+        <%= link_to "Edit Profile", edit_user_registration_path, class:'btn btn-red btn-sm ' %>
+    	</div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
             <!--left col-->
             <ul class="list-group">
-                <li class="list-group-item text-muted" contenteditable="false"><h1>Profile Info</h1></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span><% if @user.fname  %>
-					<% if @user.lname %>
-						 <%= "#{@user.fname} #{@user.lname}"  %>
-					<% else %>
-						 <%= @user.fname %>
-					<% end %>		
-				<% else %>
-					Name not set.	 
-				<% end %>
-                        </li>
-                
-                    
-              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of passing: </strong></span> <%= @user.year_of_passing %>
-                      </li>
-                      
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email: </strong></span><%= @user.email %>
-                      </li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date of birth: </strong></span> <%= @user.date_of_birth %>
-                      </li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no %>
-                      </li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address: </strong></span><%= "#{@user.city}" if @user.city %>
-				<%=  "#{@user.country}" if @user.country %>
-                      </li>
-                    
-                      </li>
+                <li class="list-group-item text-muted" contenteditable="false"><h1 class="text-center">Profile Info</h1></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span>
+                  <% if @user.fname  %>
+          					<% if @user.lname %>
+          						 <%= "#{@user.fname} #{@user.lname}"  %>
+          					<% else %>
+          						 <%= @user.fname %>
+          					<% end %>		
+          				<% else %>
+          					Name not set.	 
+          				<% end %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email: </strong></span><%= @user.email %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date of birth: </strong></span> <%= @user.date_of_birth if @user.date_of_birth %>
+                <%= "Not Set" if !@user.date_of_birth %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no if @user.phn_no %>
+                  <%= "Not Set" if !@user.phn_no %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address: </strong></span><%= "#{@user.city} " if @user.city %> <%=  "#{@user.country}" if @user.country %>
+                  <%= "Not Set" if !@user.city and !@user.country %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= @user.created_at.to_date %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.last_sign_in_at.to_date %></li>
+                <li class="list-group-item text-muted" contenteditable="false"><h1 class="text-center">Academics Info</h1></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of passing: </strong></span> <%= @user.year_of_passing.year if @user.year_of_passing %>
+                  <%= "Not Set" if !@user.year_of_passing %>
+                </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Program</strong></span> <%= @user.degree if @user.degree %>
+                <%= "Not Set" if !@user.degree %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if !@user.branch %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role</strong></span> <%= @user.role.humanize if @user.role %>
 
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= @user.created_at %></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.last_sign_in_at %></li>
+
             </ul>
             
            

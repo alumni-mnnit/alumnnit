@@ -1,4 +1,5 @@
 $('#newses').html('<%= escape_javascript render("news/index") %>');
-+$('#paginator').html('<%= escape_javascript(paginate(@newses, :remote => true).to_s) %>');
++$('#paginator').html("<%= escape_javascript(paginate(@newses, :param_name =>'news', window: 2, :remote => true).to_s) %>");
+
 $('#jobs').html('<%= escape_javascript render("jobs/index") %>');
-+$('#paginator').html('<%= escape_javascript(paginate(@jobs, :remote => true).to_s) %>');
++$('#paginator2').html("<%= escape_javascript(paginate(@jobs, :param_name =>'jobs', window: 2, :remote => true).to_s) %>");

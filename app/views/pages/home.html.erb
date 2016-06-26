@@ -2,12 +2,12 @@
 <% if !user_signed_in? %>
     <div class="container-fluid" style="margin-top: -20px;">
             <!-- Start: Header -->
-            <div class="row hero-header fill" style="background-image:url(<%= asset_path 'alumni.jpg' %>);">
+            <div class="row hero-header fill" style="background-image:url(<%= asset_path 'institute.jpg' %>);">
               <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
-                <h1 style="color: black;"><span>MNNIT <span style="color: #DD5138">Alumni</span> Association</span></h1>
-                <h3 style="color: black;">पूरा छात्र संगठन</h3>
-                    <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-red" %>
-                    <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-red" %>
+                <h1 ><span>MNNIT <span style="color: #fcd93b">Alumni</span> Association</span></h1>
+                <h3 style="font-size: 35px ">पूरा छात्र संगठन</h3>
+                    <%= link_to '<i class="fa fa-lock fa-fw" aria-hidden="true"></i> Log In'.html_safe,"#loginModal","data-toggle" => "modal" , remote: true, onclick: "openLoginModal();", class: "btn btn-lg btn-yellow" %>
+                    <%= link_to '<i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Sign Up'.html_safe,"#loginModal","data-toggle" => "modal", remote: true, onclick: "openRegisterModal();", class: "btn btn-lg btn-yellow" %>
                 
               </div>
               
@@ -73,10 +73,10 @@
             </div>
             <!-- End: Header -->
           </div>
-          <div class="container">
+          <div class="container-fluid" style="background-color: rgba(252, 242, 59, 0.25)" >
             <!-- Start: Desc -->
             <div class="row me-row content-ct">
-              <h1 class="row-title" style="color: #DD5138">Features...</h1>
+              <h1 class="row-title"><span style="color: #DD5138; font-size: 60px;">Features...</span></h1>
               <div class="col-md-2 feature">
                 <span class="ti-world"></span>
                 <h3>Alumni around the globe!</h3>
@@ -112,16 +112,16 @@
               
             </div>
         </div>  
-        <hr>
 <% end %>          
 <!-- Page Content -->
-<div class="container-fluid" style="margin-top: -20px; padding-bottom: 50px; background-image: url('assets/background1.png'); background-color: rgba(255,255,255,0.9); background-repeat: no-repeat; background-size: cover; ">
+<div class="container-fluid" style="margin-top: -20px; padding-bottom: 50px; ">
     <div id="t3-mainbody" class="container t3-mainbody" style="opacity: 1">
         <div class="main-container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <!-- MAIN CONTENT -->
-                <div id="t3-content" class="t3-content col-xs-12 col-md-12 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                
+                <div id="t3-content" class="t3-content col-xs-12 col-md-12 " style="margin-top: 20px; background: rgba(251, 206, 4, 0.28);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
                 <!-- CONTENT MASS TOP -->
                         <div class="content-mass-top ">
                             <div class="t3-module module " id="Mod98">
@@ -141,7 +141,7 @@
 
                                          <% if user_signed_in? and current_user.is_admin == true %>
                                             <div class="text-center">
-                                                <%= link_to "Create News", new_news_path , class: "btn btn-lg btn-red" %>
+                                                <%= link_to "Add News", new_news_path , class: "btn btn-lg btn-red" %>
                                             </div>  
                                          <% end %>  
                                         </div>
@@ -153,49 +153,16 @@
                     <!-- CONTENT MASS TOP -->
 
                 </div>
-                <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                    <div class="t3-module module search-course " id="Mod119">
-                        <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
-                            <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
-
-                                <div class="ja-slidenews-item">
-
-                                    <a class="ja-title" href="#" style="color: #1E7896">
-                                        <b>Proponents say Everyday Math adds up, though some don't understand how</b></a>
-                                    <span class="ja-createdate"><b>APPLY BY:</b>  Monday, 13 August 2012 </span>
-
-                                    <button class="btn btn-info" style="background: #2d4360;float: right;border: none;margin-bottom: 10px;">APPLY</button>
-                                </div>
-
-                                <div class="ja-slidenews-item">
-
-                                    <a class="ja-title" href="#" style="color: #1E7896">
-                                        <b>Proponents say Everyday Math adds up, though some don't understand how</b></a>
-                                    <span class="ja-createdate"><b>APPLY BY:</b>  Monday, 13 August 2012 </span>
-
-
-                                    <button class="btn btn-info" style="background: #2d4360;float: right;border: none;margin-bottom: 10px;">APPLY</button>
-                                </div>
-                                 <% if user_signed_in? %>
-                                            <div class="text-center">
-                                                <%= link_to "Submit Job", new_news_path , class: "btn btn-lg btn-red" %>
-                                            </div>  
-                                         <% end %>  
-                                        
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                
                 </div><!--left col end -->
 
                 <div class="col-sm-12 col-md-6">
                          <!-- //MAIN CONTENT -->
-                <div class="t3-sidebar col-xs-12 col-sm-12  " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
+                <div class="t3-sidebar col-xs-12 col-sm-12  " style="margin-top: 20px; background: rgba(215, 189, 219, 0.63);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
                     <div class="t3-module module search-course " id="Mod119">
                         <div class="module-inner">
-                            <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights <hr></span></h3>
+                            <h3 class="module-title "><span><span class="fa fa-star"></span> Highlights </span><hr></h3>
                             <div class="col-sm-12" style="border-bottom: 1px solid #efece1;">
                             <% if Convention.any? %>
                                 <div class="ja-slidenews-item">
@@ -224,7 +191,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                
+                <!--<div class="t3-sidebar col-xs-12 col-sm-12" style="background: rgba(4, 251, 12, 0.12);box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
                     <div class="t3-module module search-course " id="Mod119" style="margin-bottom: 0">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-calendar"></span> Upcoming Events</span><hr></h3>
@@ -244,6 +212,31 @@
                                 <div class="col-sm-8">
                                     <p style="color: #1E7896;font-size: 16px">Alumni Convention </p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
+                    <div class="t3-module module search-course " id="Mod119">
+                        <div class="module-inner">
+                            <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
+                            <div class="col-sm-12">
+
+                                <% if @jobs.empty? %>
+                                    <div class="ja-slidenews-item">
+                                        <a class="ja-title" href="#">No Jobs!!</a>
+                                    </div>
+                                <% else %>
+                                    <div id="jobs">  
+                                        <%= render 'jobs/index' %>
+                                    </div>
+                                <% end %>    
+
+                                <% if user_signed_in? %>
+                                    <div class="text-center">
+                                        <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
+                                    </div>
+                                <% end %>       
                             </div>
                         </div>
                     </div>

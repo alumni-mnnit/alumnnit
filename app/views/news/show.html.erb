@@ -1,20 +1,39 @@
-<div class="container" style="height: 600px; margin-top: 30px;">
+<div class="container">
+<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">News
+            </h1>
+            <ol class="breadcrumb">
+                <li><%= link_to 'Home', root_path %>
+                </li>
+                <li class="active">News</li>
+            </ol>
+        </div>
+</div>
+</div>
+<div style="height: auto; margin-top: 30px; ">
 	
 	<div class="text-center">	
-		<h1>
+		<h1 style="font-family:Dosis;color:grey;">
 			<%= @news.title %>
 		</h1>
-		<hr>
+                <span><%= @news.created_at %></span>
+		<hr style="width:1100px">
 		
-		<div>
-			<%= @news.description %>
-		</div>
-		<% if !@news.photo.present? %>
-			<div >
-				<%= image_tag(@news.photo.url , alt: "No Photo Added") %>
-			</div>		
-		<% end %>
-	</div>
+		<div id="headline container" style="margin-left:40px;margin-right:40px;background-color: rgba(251, 206, 4, 0.28);box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7), -1px 0px 0px rgba(0, 0, 0, 0.09), 2px 0px 2px rgba(0, 0, 0, 0.09), 0px 2px 0px rgba(0, 0, 0, 0.12);padding-bottom:40px;position: relative;">
+<div style="position: absolute;z-index: 999;top: -8%;left: 48%;"><center><i class="fa-4x fa fa-paperclip" style="height:20px"></i></center></div> <!--<img src="images/headline.png" width="75" height="21" class="clearfloat" alt="" />-->
+      <div class="row">
+      <div class="col-md-3 col-sm-offset-2" style="">
+      <div id="news_image" style="margin-top:60px"> <%= image_tag("background.png", alt: "No Image Available", class: "img-responsive img-hover",style:"height:300px;width:550px") %>
+      </div>
+      </div>
+      <div class="col-sm-5 col-xs-offset-1 " style="margin-top:30px;">
+      
+      <center><p style="font-size: 17px;text-align:left;font-family:Dosis;color:grey;margin-top:30px"><%= @news.description %>
+      </p></center>
+      </div>
+      </div>
+     </div>
 	<br>	
 	<hr>
 	<div class="text-center">

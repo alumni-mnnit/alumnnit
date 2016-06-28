@@ -44,8 +44,8 @@
                   <%= "Not Set" if !@user.year_of_passing %>
                 </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Program</strong></span> <%= @user.degree if @user.degree %>
-                <%= "Not Set" if !@user.degree %></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if !@user.branch %></li>
+                <%= "Not Set" if @user.degree.empty? %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if @user.branch.empty? %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role</strong></span> <%= @user.role.humanize if @user.role %>
 
 

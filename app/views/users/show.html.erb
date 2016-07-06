@@ -5,7 +5,7 @@
             <img src='<%= @user.pic.url(:medium) %>' style="border-radius:50%;">
             
     			<% else %>
-    				<img src='../assets/speaker-1.png' style="border-radius:50%;">
+            <%= image_tag 'speaker-1.png', style: "border-radius: 50%;"%>
     			<% end %>
     		<h1 ><%= @user.nick_name %></h1>
         <%= link_to "Edit Profile", edit_user_registration_path, class:'btn btn-red btn-sm ' %>

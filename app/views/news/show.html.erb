@@ -17,17 +17,19 @@
 		<h1 style="font-family:Dosis;color:grey;">
 			<%= @news.title %>
 		</h1>
-                <span><%= @news.created_at %></span>
+                <span><%= @news.created_at.to_date %></span>
 		<hr style="width:1100px">
 		
 		<div id="headline container" style="margin-left:40px;margin-right:40px;background-color: rgba(251, 206, 4, 0.28);box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7), -1px 0px 0px rgba(0, 0, 0, 0.09), 2px 0px 2px rgba(0, 0, 0, 0.09), 0px 2px 0px rgba(0, 0, 0, 0.12);padding-bottom:40px;position: relative;">
 <div style="position: absolute;z-index: 999;top: -8%;left: 48%;"><center><i class="fa-4x fa fa-paperclip" style="height:20px"></i></center></div> <!--<img src="images/headline.png" width="75" height="21" class="clearfloat" alt="" />-->
       <div class="row">
+      <% if !@news.photo_file_name.nil? %>
       <div class="col-md-3 col-sm-offset-2" style="">
-      <div id="news_image" style="margin-top:60px"> <%= image_tag("background.png", alt: "No Image Available", class: "img-responsive img-hover",style:"height:300px;width:550px") %>
+      <div id="news_image" style="margin-top:60px"> <%= image_tag(@news.photo.url(:medium), alt: "No Image Available", class: "img-responsive img-hover",style:"height:300px;width:550px") %>
       </div>
       </div>
-      <div class="col-sm-5 col-xs-offset-1 " style="margin-top:30px;">
+      <% end %>
+      <div class="col-sm-5 col-xs-offset-1 text-center " style="margin-top:30px;">
       
       <center><p style="font-size: 17px;text-align:left;font-family:Dosis;color:grey;margin-top:30px"><%= @news.description %>
       </p></center>

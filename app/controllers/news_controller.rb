@@ -29,7 +29,7 @@ class NewsController < ApplicationController
 
   def update
     if @news.update(news_params)
-      redirect_to @news, notice: "Pin was Successfully updated!"
+      redirect_to @news, notice: "News was Successfully updated!"
     else
       render 'edit'
     end

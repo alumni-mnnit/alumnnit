@@ -17,8 +17,11 @@
         <%= link_to "Register for ID Card now", idcard_register_path, class: "btn btn-info btn-login" %>
       <% elsif current_user.id_card.nil? %>
         <strong>Your request for an ID card is under process.</strong>
+        <br>
+        <%= link_to "Payment", idcard_payment_path, class: "btn btn-red"%>
       <% else %>
         <strong>Your ID is: <%= current_user.id_card.id_number %></strong>
+
       <% end %>
     </div>
   </div>

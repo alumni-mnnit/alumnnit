@@ -10,8 +10,11 @@ class IdCardController < ApplicationController
       redirect_to idcard_path, notice: "Please fill in your year of passing, degree and branch first!"
     else
       current_user.id_card_request = IdCardRequest.new status: false
-      redirect_to root_path, notice: "Successfully registered for ID Card"
+      redirect_to idcard_payment_path, notice: "Successfully registered for ID Card"
     end
+  end
+
+  def id_payment
   end
 
   private 

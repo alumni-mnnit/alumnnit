@@ -28,7 +28,9 @@ class ConventionsController < ApplicationController
 	#def destroy
 
 	#end
-
+	def convention_payment
+	end
+	
 	private
 		def find_convention
 			@convention = Convention.find(params[:id])

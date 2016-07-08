@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/downloads' => 'pages#downloads'
   get '/idcard' => 'id_card#index'
   get '/idcard/register' => 'id_card#register'
+  get '/idcard/payment' => 'id_card#id_payment'
+  get '/conventions/payment' => 'conventions#convention_payment'
   	resources :requests 
 
   	resources :contacts

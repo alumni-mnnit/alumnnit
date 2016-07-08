@@ -8,7 +8,7 @@ class ConventionRequestsController < ApplicationController
 		if @convention_request.save
 			@convention_request.convention = Convention.last
 			flash[:notice] = "You are successfully registered for this Convention."
-			redirect_to conventions_path
+			redirect_to conventions_payment_path
 		end
 	end
 

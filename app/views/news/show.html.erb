@@ -17,7 +17,7 @@
 		<h1 style="font-family:Dosis;color:grey;">
 			<%= @news.title %>
 		</h1>
-                <span ><%= @news.created_at.to_date %></span>
+                <span ><%=  @news.created_at.strftime("%B %-d, %Y") %></span>
 		<hr style="width:1100px">
 	</div>	
 		<div id="headline container" style="margin-left:40px;margin-right:40px;background-color: rgba(251, 206, 4, 0.28);box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7), -1px 0px 0px rgba(0, 0, 0, 0.09), 2px 0px 2px rgba(0, 0, 0, 0.09), 0px 2px 0px rgba(0, 0, 0, 0.12);padding-bottom:40px;position: relative;">

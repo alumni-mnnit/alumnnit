@@ -1,7 +1,7 @@
 <% @jobs.each do |job| %>	
 	<div class="ja-slidenews-item">
 	    <b><%= link_to job.title, job, class: "ja-title", style: "color : #1E7896;" %></b>
-	    <span class="ja-createdate"><b><%= job.created_at.to_date %></span>
+	    <span class="ja-createdate"><b><%= job.created_at.strftime("%b %-d, %Y") %></span>
 	    <p ><%= job.description.truncate_words(15) %>
 	    	<a href="http://<%= job.url %>"><button class="btn btn-info" style="background: #2d4360;float: right;border: none;">APPLY</button></a>
 	    </p>	

@@ -30,7 +30,7 @@
           <div class="col-md-7 text-center">
             <h1>Alumni Convention of <%= @convention.year.year %></h1>
             <h3>Get connected back to your batch-mates and college.</h3>
-            <h4> <%= @convention.start_date.day %><sup>nd</sup> - <%= @convention.start_date.mon %>, <%= @convention.start_date.year %></h4>
+            <h4> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: #DD5138">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h4>
             <% if !current_user.convention_request.nil? %>
               <% if !(current_user.convention_request.convention == Convention.last) %>
                 <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" %>
@@ -64,34 +64,101 @@
             <p>Dean, Rg & IA</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
             
             <h3>Dr. Avinash Kumar Dubey</h3>
             <p>Vice President - I, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+	          <%= image_tag 'speaker-3.png', class: "speaker-img" %>
            
             <h3>Er. Anurag Srivastava </h3>
             <p>Vice President - II, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+	           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
            
             <h3>Dr. Praveen Kumar Agarwal</h3>
             <p>Treasurer, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+          
+            <h3>Ramesh Pandey</h3>
+            <p>Secretary, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+	           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
          
             <h3>Dr. Mohd. Siraj Alam, Faculty</h3>
             <p>Joint Secretary - I, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
           
             <h3>Rajesh Kumar Singh</h3>
             <p>Joint Secretary - II, Alumni Association</p>
+          </div>
+          
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+          
+            <h3>Er. H. P. Shukla</h3>
+            <p>Member - I, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+          
+            <h3>Er. G. P. Singh</h3>
+            <p>Member - II, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+          
+            <h3>Dr. Shailesh Kr Trivedi</h3>
+            <p>Member - III, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+          
+            <h3>Er. Rajendra Pratap Giri</h3>
+            <p>Member - IV, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+          
+            <h3>Prof. R.N. Sahi</h3>
+            <p>Member - V, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+          
+            <h3>Er. R. C. Maurya</h3>
+            <p>Member - VI, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+          
+            <h3>Er. Y. K. Gupta</h3>
+            <p>Member - VII, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+          
+            <h3>Er. J. P. Agarwal</h3>
+            <p>Member - VIII, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+          
+            <h3>Er. S. C. Chugh </h3>
+            <p>Member - IX, Alumni Association</p>
+          </div>
+          <div class="col-md-4 col-sm-6 feature">
+           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+          
+            <h3>Er. Ravindra Kr. Pandey</h3>
+            <p>Member - X, Alumni Association</p>
           </div>
         </div>
         <!-- End: Speakers -->

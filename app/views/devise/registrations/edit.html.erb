@@ -6,6 +6,23 @@
      
   
 </script>
+<style>
+  .datetime select:nth-child(1) {
+    width: 130px;
+    text-indent: 15px; 
+    display: inline-block;
+  }
+  .datetime select:nth-child(2) {
+    width: 130px;
+    text-indent: 15px; 
+    display: inline-block;
+  }
+  .datetime select:nth-child(3) {
+    width: 130px;
+    text-indent: 15px; 
+    display: inline-block;
+  }
+</style>
  
   <div class="row" style="margin-top: 10px;">
     <div class="col-md-8 col-md-offset-2">
@@ -47,7 +64,7 @@
               </div>
               <div class="form-group">
                 <%= f.label :role, "Role" %><br />
-                <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
+                <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}, {}, {class: "form-control", style: "width: 130px"}) %>
               </div>
               <div class="form-group">
                 <%= f.label :phn_no , "Phone No."%><br />
@@ -65,28 +82,25 @@
 
               <div class=" form-group">
                 <%= f.label :date_of_birth, "Date of Birth" %><br />
-                <div class='input-group date' id='datetimepicker1'>
-                  <%= f.text_field :date_of_birth, placeholder: "YYYY-MM-DD", class: "form-control"%>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                <div class='input-group date' >
+                  <span class="datetime"><%= f.date_select  :date_of_birth,{:start_year => Time.now.year - 100, :end_year => Time.now.year - 15 }, { class: "form-control" } %></span>
                 </div>
               </div>
 
               <div class="form-group">
                 <%= f.label :degree %><br />
-                <%= f.select :degree, [['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MC'], ['MBA','MB'], ['MSW','MW'], ['PHD','PD'], ['MSc.','MS']], include_blank: true, class: "form-control" %>
+                <%= f.select(:degree, [['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MC'], ['MBA','MB'], ['MSW','MW'], ['PHD','PD'], ['MSc.','MS']], {}, {include_blank: true, class: "form-control", style: "width: 130px;"}) %>
               </div>
 
               <div class="form-group">
                 <%= f.label :branch %><br />
-                <%= f.select :branch,[['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']], include_blank: true, class: "form-control"%>
+                <%= f.select(:branch,[['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']], {}, {include_blank: true, class: "form-control", style: "width: 330px;"})%>
               </div>
 
               <div class=" form-group">
                 <%= f.label :year_of_passing, "Year of Passing" %><br />
                 <div class='input-group date'>
-                  <%= f.date_select :year_of_passing, {:start_year => Time.now.year + 4, :end_year => Time.now.year - 95, :discard_day => true, :discard_month => true} %>
+                  <%= f.date_select :year_of_passing, {:start_year => Time.now.year + 4, :end_year => Time.now.year - 95, :discard_day => true, :discard_month => true}, { class: "form-control" } %>
                 </div>
                 <i>(Note that if you are from batch 1961-1965, then 1965 is your batch i.e. the last year you were in MNNIT.)</i>
               </div>

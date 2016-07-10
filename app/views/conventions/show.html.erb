@@ -33,13 +33,58 @@
             <h4> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: #DD5138">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h4>
             <% if !current_user.convention_request.nil? %>
               <% if !(current_user.convention_request.convention == Convention.last) %>
-                <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" %>
+                <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" , style: "margin-top: -20px" %> OR
+                <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow", style: "margin-top: -20px" %>
+                
               <% else %> 
                 <p>You have already Registered.</p> 
               <% end %>
             <% else %> 
-              <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" %>
+              <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red", style: "margin-top: -20px" %> OR
+              <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" , style: "margin-top: -20px"%>
+
             <% end %>
+          </div>
+          <div class="modal fade " id="forms">
+            <div class="modal-dialog login animated">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body text-center" >  
+                        <div class="box" >
+                             <div class="content">
+                                    <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif; margin-top: -30px;"><b>Registration Forms</b></h2>
+                              <div class="text-center">
+                                <table border="1" style="color: black;" height="300px" width="100%">
+                                  <tr>
+                                    <th class="text-center">S.No.</th>
+                                    <th class="text-center">Forms</th>
+                                    <th class="text-center">Link</th>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                          <td>Invitation Card</td>
+                                    <td><a href="http://alumni.mnnit.ac.in/files/bylaws.pdf">Download</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                          <td>Silver Jubilee Form</td>
+                                    <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for  Silver Jubilee batch only).pdf" %></td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                          <td>All Batches (except for Silver Jubilee)</td>
+                                    <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf" %></td>
+                                  </tr>
+                                    
+                                </table>
+                              </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
           <div class="col-md-5 hidden-xs">
  	    <%= image_tag 'rocket.png', class: "rocket animated bounce" %>
@@ -53,27 +98,26 @@
           <h2 class="row-title">Organising Committee</h2>
           <div class="col-md-4 col-sm-6 feature">
 	    <%= image_tag 'speaker-1.png', class: "speaker-img" %>
-            <h3>Prof. P. Chakrabarti</h3>
-            <p>President, Alumni Association</p>
-            
+            <h3>Prof. S.K. Duggal</h3>
+            <p>Patron (President, Alumni Association)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
             <%= image_tag 'speaker-2.png', class: "speaker-img" %>
 
             <h3>Professor N.D. Pandey</h3>
-            <p>Dean, Rg & IA</p>
+            <p>Advisor (Dean, Rg & IA)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
 	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
             
             <h3>Dr. Avinash Kumar Dubey</h3>
-            <p>Vice President - I, Alumni Association</p>
+            <p>Chairman (Vice President - I)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
 	          <%= image_tag 'speaker-3.png', class: "speaker-img" %>
            
             <h3>Er. Anurag Srivastava </h3>
-            <p>Vice President - II, Alumni Association</p>
+            <p>Co-Chairman (Vice President - II)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
 	           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
@@ -85,31 +129,31 @@
            <%= image_tag 'speaker-2.png', class: "speaker-img" %>
           
             <h3>Ramesh Pandey</h3>
-            <p>Secretary, Alumni Association</p>
+            <p>Org. Secretary, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
 	           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
          
             <h3>Dr. Mohd. Siraj Alam, Faculty</h3>
-            <p>Joint Secretary - I, Alumni Association</p>
+            <p>Joint Org. Secretary - I, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
 	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
           
             <h3>Rajesh Kumar Singh</h3>
-            <p>Joint Secretary - II, Alumni Association</p>
+            <p>Joint Org. Secretary - II, Alumni Association</p>
           </div>
           
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-1.png', class: "speaker-img" %>
           
-            <h3>Er. H. P. Shukla</h3>
+            <h3>Er. R.C. Maurya</h3>
             <p>Member - I, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-1.png', class: "speaker-img" %>
           
-            <h3>Er. G. P. Singh</h3>
+            <h3>Dr. Shailesh Kr Trivedi</h3>
             <p>Member - II, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
@@ -121,44 +165,20 @@
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-3.png', class: "speaker-img" %>
           
-            <h3>Er. Rajendra Pratap Giri</h3>
+            <h3>Prof. R.N. Sahi</h3>
             <p>Member - IV, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-3.png', class: "speaker-img" %>
           
-            <h3>Prof. R.N. Sahi</h3>
+            <h3>Er. Y. K. Gupta</h3>
             <p>Member - V, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-1.png', class: "speaker-img" %>
           
-            <h3>Er. R. C. Maurya</h3>
+            <h3>Er. S. C. Chugh</h3>
             <p>Member - VI, Alumni Association</p>
-          </div>
-          <div class="col-md-4 col-sm-6 feature">
-           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
-          
-            <h3>Er. Y. K. Gupta</h3>
-            <p>Member - VII, Alumni Association</p>
-          </div>
-          <div class="col-md-4 col-sm-6 feature">
-           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
-          
-            <h3>Er. J. P. Agarwal</h3>
-            <p>Member - VIII, Alumni Association</p>
-          </div>
-          <div class="col-md-4 col-sm-6 feature">
-           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
-          
-            <h3>Er. S. C. Chugh </h3>
-            <p>Member - IX, Alumni Association</p>
-          </div>
-          <div class="col-md-4 col-sm-6 feature">
-           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
-          
-            <h3>Er. Ravindra Kr. Pandey</h3>
-            <p>Member - X, Alumni Association</p>
           </div>
         </div>
         <!-- End: Speakers -->
@@ -187,7 +207,7 @@
                       
                       <div class="media-body">
                         <h4 class="media-heading">9:00 am to 10:00 am</h4>
-                        <h5>Registration</h5>
+                        <h5>Registration & Breakfast</h5>
                         <h5>Inaugural Function</h5>
                       </div>
                     </div>
@@ -197,10 +217,10 @@
                       
                       <div class="media-body">
                         <h4 class="media-heading">11:00 am to 12:00 pm</h4>
-                        <h5>Tea Break</h5>
                         <h5>Felicitation of Faculty members retired after 2015</h5>
                         <h5>Felicitation of '1966 Golden Jubilee' Batches</h5>
                         <h5>felicitation of 'Dosti ke Pachas Varsh' Batches</h5>
+                        <h5>Felicitation of '1991 silver Jubilee' Batches</h5>
                       </div>
                     </div>
                   </div>
@@ -208,10 +228,10 @@
                     <div class="media">
                       
                       <div class="media-body">
-                        <h4 class="media-heading">12:10pm to 02:30pm</h4>
-                        <h5>Felicitation of '1991 silver Jubilee' Batches</h5>
-                        <h5>Lunch (1 :00 pm)</h5>
-                        <h5>AGM & Election of new executives/ parallel session for spouse</h5>
+                        <h4 class="media-heading">12:30pm to 02:30pm</h4>
+                        <h5>Annual general meeting/ parallel session for spouse</h5>
+                        <h5>Alumni interaction with Heads/ Deans/ Key Office Bearers</h5>
+                        <h5>Lunch (1 :30 pm)</h5>
                       </div>
                     </div>
                   </div>
@@ -260,3 +280,17 @@
           </div>
         </div>
       </div>
+
+      <script >
+        function showForm(){
+          $('#forms').fadeOut('fast',function(){
+              $('.loginBox').fadeIn('fast');
+          });       
+      }
+
+      function openFormModal(){
+          showForm();
+          setTimeout(function(){
+              $('#forms').modal('show');    
+          }, 230);
+      </script>

@@ -30,6 +30,16 @@ class ConventionsController < ApplicationController
 	#end
 	def convention_payment
 	end
+
+	def pdf1
+	  pdf_filename = File.join(Rails.root, "assets/pdfs/REGISTRATION FORM (for  Silver Jubilee batch only).pdf")
+	  send_file(pdf_filename, :filename => "REGISTRATION FORM (for  Silver Jubilee batch only).pdf", :type => "application/pdf")
+	end
+
+	def pdf2
+	  pdf_filename = File.join(Rails.root, "assets/pdfs/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf")
+	  send_file(pdf_filename, :filename => "REGISTRATION FORM (for all batches except Silver Jubilee batch).pdfREGISTRATION FORM (for all batches except Silver Jubilee batch).pdf", :type => "application/pdf")
+	end
 	
 	private
 		def find_convention

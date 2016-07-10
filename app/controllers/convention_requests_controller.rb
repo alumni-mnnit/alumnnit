@@ -21,15 +21,15 @@ class ConventionRequestsController < ApplicationController
 				if current_user.is_active == false
 					flash[:notice] = "Your account is not activated yet."
 					redirect_to root_path
-				elsif current_user.is_active and current_user.year_of_passing.nil?
-            		flash[:notice] = "Please update your Year_Of_Passing !!"
+				elsif current_user.is_active and (current_user.year_of_passing.nil? or current_user.degree.nil? or current_user.branch.nil? )
+            		flash[:notice] = "Please update your Profile (year of passing/ degree/ branch/ current address ) !!"
             		redirect_to edit_user_registration_path
             	end
             end
         end
 
         def check_user
-        	if (current_user.year_of_passing.year + 25 == Convention.last.year.year) or (current_user.year_of_passing.year + 50 == Convention.last.year.year)
+        	if (current_user.year_of_passing.year <= Convention.last.year.year - 5)
         		return 
         	else
         		flash[:notice] = "Sorry! You cannot register for this Convention."

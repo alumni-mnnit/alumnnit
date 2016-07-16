@@ -167,7 +167,7 @@
                             <% if Convention.any? %>
                                 <div class="ja-slidenews-item">
 
-                                    <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896">
+                                    <a class="ja-title" href="<%= convention_path(Convention.last.id) %>" style="color: #1E7896; font-family: 'Dosis'; ">
                                         <b>Alumni Convention <%= Convention.last.year.year %></b>
                                     </a>
                                 </div>
@@ -232,12 +232,7 @@
                                     <div id="jobs">  
                                         <%= render 'jobs/index' %>
                                     </div>
-                                <% end %>    
-                                    <div class="ja-slidenews-item">
-                                        <b class="ja-title">Mayank Shah (Training & Placement Representative)</b>
-                                        <span class="ja-createdate"><b>Phone no. +91-8948778528</b></span>
-                                        <p>For Job related queries please contact him.</p>
-                                    </div>
+                                <% end %>   
                                 <% if user_signed_in? %>
                                     <div class="text-center">
                                         <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>

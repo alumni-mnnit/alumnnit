@@ -1,12 +1,3 @@
-<script type="text/javascript">
-	$(function () {
-	  $('#datetimepicker2').datetimepicker({
-	      viewMode: 'years',
-	      format: 'YYYY'
-	  });
-	});
-</script>
-
 <div class="container">	
 	<h1 style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b> Search Alumni </b></h1>
   <p>You can fill-up one or many fields to search the alumni. For the list of all alumni simply leave the fields blank and click the search button. </p>
@@ -35,10 +26,7 @@
           <div class=" form-group">
             <%= f.label :year_of_passing, "Year of Passing" %><br />
             <div class='input-group date' id='datetimepicker2'>
-              <%= f.text_field :year_of_passing, class: "form-control"%>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+              <%= f.select :year_of_passing, (1940..2106), include_blank: true,  class: "form-control"  %>
             </div>
           </div> 
           <div class="form-group">

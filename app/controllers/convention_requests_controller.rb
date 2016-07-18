@@ -29,7 +29,7 @@ class ConventionRequestsController < ApplicationController
         end
 
         def check_user
-        	if (current_user.year_of_passing.year <= Convention.last.year.year - 5)
+        	if (current_user.year_of_passing.year <= Convention.last.year.year - 1) and (current_user.role == 'alumni')
         		return 
         	else
         		flash[:notice] = "Sorry! You cannot register for this Convention."

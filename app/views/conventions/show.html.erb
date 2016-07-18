@@ -37,7 +37,8 @@
                 <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow", style: "margin-top: -20px" %>
                 
               <% else %> 
-                <p>You have already Registered.</p> 
+                <p style="margin-top: -10px;">You have already Registered.</p>
+                <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow ", style: "margin-top: -10px"%> 
               <% end %>
             <% else %> 
               <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red", style: "margin-top: -20px" %> OR
@@ -128,7 +129,7 @@
           <div class="col-md-4 col-sm-6 feature">
            <%= image_tag 'speaker-2.png', class: "speaker-img" %>
           
-            <h3>Ramesh Pandey</h3>
+            <h3>Dr. Ramesh Pandey</h3>
             <p>Org. Secretary, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">

@@ -1,6 +1,6 @@
 class ConventionsController < ApplicationController
 	before_filter :check_user
-	before_filter :require_user, except: [:index, :show]
+	before_filter :require_user, except: [:index, :show, :convention_payment]
 	before_action :find_convention, only: [:show]
 	
 	def index

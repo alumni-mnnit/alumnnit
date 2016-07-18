@@ -109,33 +109,7 @@
 
     });
 
- jQuery(function($)
- {
-  $('#abt_link').click(function() {
-                    $.scrollTo('#abt', 1000, { queue:false });
-                });
-  $('#past_conv_link').click(function() {
-                    $.scrollTo('#past', 1000, { queue:false });
-                });
-  $('#gallery_link').click(function() {
-                    $.scrollTo('#gallery', 1000, { queue:false });
-                });
-  $('#speaker_link').click(function() {
-                    $.scrollTo('#speakers', 1000, { queue:false });
-                });
-  $('.a').hover(function()
-  {
-    jQuery(this).children(".b").css('color','white');
-    $(this).css('background-color','#25374f');
-    $(this).css('border-color','white');
-  },function()
-  {
-    jQuery(this).children(".b").css('color','#25374f');
-    $(this).css('background-color','white');
-    $(this).css('border-color','#25374f');
-  })
- });
-
+ 
 
 
 
@@ -170,6 +144,32 @@
     margin-left: 15%;
 }
 </style>
+<nav class="side-menu">
+    <ul>
+      <li class="hidden active">
+          <a class="page-scroll" href="#page-top"></a>
+      </li>
+      <li>
+          <a href="#abt" class="page-scroll">
+            <span class="menu-title">About Convention </span>
+            <span class="dot"></span>
+          </a>
+      </li>
+      <li>
+          <a href="#past" class="page-scroll">
+            <span class="menu-title">Past Conventions</span>
+            <span class="dot"></span>
+          </a>
+      </li>
+       
+      <li>
+          <a href="#gallery" class="page-scroll">
+            <span class="menu-title">Gallery</span>
+            <span class="dot"></span>
+          </a>
+      </li>
+    </ul>
+</nav>
 
 <div class="container-fluid" style="padding-right:0;padding-left:0;">
     <div class="jumbotron" style="min-height: 300px;background-image: url(<%= asset_path 'map.jpg' %>);background-size: cover;background-repeat:no-repeat;background-position:center;border-radius:0;">
@@ -295,22 +295,7 @@
      
      <hr>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="col-md-10 col-md-offset-1" style="padding: 0">
-                <ul class="nav nav-pills ql" style="margin-left: auto;margin-right: auto;">
-                  <li role="presentation" class="active qlli" style="margin-left: 40px;margin-right: 20px;"><center><div class="a" id="abt_link"><span class="glyphicon glyphicon-file b"></span></div><p class="qlp">About Convention</p></center></li>
-                  <!--<li role="presentation" class="qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="speaker_link"><span class="glyphicon glyphicon-user b"></span></div><p class="qlp">Past Speakers</p></center></li>-->
-                    <li role="presentation" class="qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="past_conv_link"><span class="glyphicon glyphicon-pushpin b"></span></div><p class="qlp">Past Convention</p></center></li>
-
-                  <li role="presentation" class="qlli" style="margin-left: auto;margin-right: 20px;"><center><div class="a" id="gallery_link"><span class="glyphicon glyphicon-tags b"></span></div><p class="qlp">Gallery</p></center></li>
-                  <!--<li role="presentation" class="qlli"><center><div class="a" id="spon_link"><span class="glyphicon glyphicon-tasks b"></span></div><p class="qlp">Sponsors</p></center></li>-->
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
+    
     <div class="col-sm-12" style="margin-top: 5%;"></div>
 
 

@@ -144,7 +144,7 @@
     margin-left: 15%;
 }
 </style>
-<nav class="side-menu">
+<!--<nav class="side-menu">
     <ul>
       <li class="hidden active">
           <a class="page-scroll" href="#page-top"></a>
@@ -169,7 +169,7 @@
           </a>
       </li>
     </ul>
-</nav>
+</nav>-->
 
 <div class="container-fluid" style="padding-right:0;padding-left:0;">
     <div class="jumbotron" style="min-height: 300px;background-image: url(<%= asset_path 'map.jpg' %>);background-size: cover;background-repeat:no-repeat;background-position:center;border-radius:0;">
@@ -232,7 +232,7 @@
                             <div class="col-sm-4 col-sm-offset-1" style="margin-left: -1%;">
                                  
                                 <div id="typed-strings1">
-                                    <p>Create Convention</span></p>
+                                    <p><span>Create Convention</span></p>
                                 </div>
                                 <center><a href="<%= new_convention_path %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
                             </div>
@@ -240,8 +240,8 @@
                                 <div class="col-sm-4 col-sm-offset-4 ">
                                      
                                     <div id="typed-strings2">
-                                                    <p>Convention <%= Convention.last.year.year %></span></p>
-                                                    </div>
+                                        <p>Convention <span><%= Convention.last.year.year %></span></p>
+                                    </div>
                                     <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed2" style="white-space:pre;"></span></a></center>
                                 </div>
                             <% else %>
@@ -265,8 +265,8 @@
                                 <div class="col-sm-4 col-sm-offset-1" style="margin-left: -7%;">
                                      
                                     <div id="typed-strings1">
-                                                    <p>Convention <%= Convention.last.year.year %></span></p>
-                                                    </div>
+                                        <p><span>Convention <%= Convention.last.year.year %></span></p>
+                                    </div>
                                     <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
                                 </div> 
                             <% end %>     
@@ -291,31 +291,114 @@
 
         </div>
     </div>
-               
-     
-     <hr>
+    <div class="container" >
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home" style="color: #DD5138;font-family: 'Dosis', sans-serif;">About Convention</a></li>
+          <li><a data-toggle="tab" href="#menu2" style="color: #DD5138;font-family: 'Dosis', sans-serif;">Past Convention</a></li>
 
-    
-    <div class="col-sm-12"></div>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active" >
+                <div class="row" style="background-color: white ">
+                    <div class="col-lg-12">
+                        <h2 class="page-header text-center" style="color: #016cc7;font-family: 'Dosis', sans-serif;"><b>About Convention</b></h2>
+                    </div>
+                    <div class="col-sm-12">
+                        <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px">The Alumni Association was first constituted in the Silver Jubilee year (1986-87) of erstwhile Motilal Nehru Regional Engineering College (MNREC), Allahabad. It was possible due to the active leadership of the former principal, Dr. Y.V.N. Rao.<br>Alumni Convention is held every year probably in the second week of November. Alumni Convention-2016 is scheduled on November 12-13, 2016.<br> Celebrating participants are <b>Golden Jubilee Batch</b> (50 years of their passing out), <b>Silver Jubilee Batch</b> (25 years of their passing out) and <b>Dosti ke 50 Varsh</b>. All the alumni are invited to participate in the convention.<br>In the present Alumni Convention – 2016, 1991 batch celebrates its ‘Silver Jubilee’ while entrant batches 1963-66 will celebrate ‘Dosti Ke 50 Varsh’.<br><br>
+                        <ul>
+                            <li>
+                                <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>History of Alumni Convention.</i></u></b></font><br> The first Alumni Convention of MNREC Allahabad has held in April 1987. The next Alumni Convention took place after a long gap of 11 years, i.e., in the year 1998. In this convention a new executive committee of Alumni Association was elected as per the constitution framed in the year 1987.<br>Following these developments, Alumni Conventions were organized in subsequent years but not on a regular basis. The organization of regular Alumni Conventions started in the year 2006 in which Professor A. B. Samaddar, ex-Director of the Institute was quite instrumental.</p>
+                            </li>
+                            <li>
+                                <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>Why convention/importance of convention.</i></u></b></font><br>The association regularly organizes the global Alumni meet under the umbrella of ‘Alumni Convention’ in order to promote the institute-alumni interaction. The general body meeting takes place in order to identify the welfare activities for either of the stakeholders. The executive committee is also elected in this convention biennially.</p>
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                </div> 
+            </div>       
+            <div id="menu2" class="tab-pane fade">
+                <div class="row" style="background-color: white ">
+                    <div class="col-lg-12">
+                        <h2 class="page-header text-center" style="color: #016cc7;font-family: 'Dosis', sans-serif;"><b>Past Convention</b></h2>
+                    </div>
+                    <div class="col-sm-10 "> 
+                       <div class="col-sm-12" style="margin-top:1%">
+                              <ul class="cbp_tmtimeline">
+                                    <li>
+                                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                        <div class="cbp_tmlabel">
+                                            <h2 style="font-size: 20px" >&nbsp;&nbsp;Convention - 2015</h2>
+                                            <p>
+                                                <ul>
+                                                  <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
+                                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
+                                                    
+                                                    <li><p><b class="time_title">KEYNOTE SPEAKER :</b> Er. Kulbir Singh (Guest Of Honour), CMD, Roger Group, Roger Industries Ltd. Agra</p></li> 
+                                                    <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button style="color: #25374f;" class="btn timebutton" data-toggle="modal" data-target="#conv2015"  ><strong>View Sponsors</strong></button></strong></div></div>
+                                                </ul>
+
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                        <div class="cbp_tmlabel">
+                                            <h2 style="font-size: 20px" >&nbsp;&nbsp;Convention - 2014</h2>
+                                            <p>
+                                                <ul>
+                                                    <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
+                                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
+                                                   <li><p><b class="time_title">KEYNOTE SPEAKER :</b> Er. Pradeep Srivastava, (Chief Guest), Chancellor, Baddi University, Solan, Himachal Pradesh</p></li> 
+                                                   <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button data-toggle="modal" data-target="#conv2014" style="color: #25374f;" class="btn timebutton"><strong>View Sponsors</strong></button></strong></div></div>
+                                                </ul>
+                                                
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                        <div class="cbp_tmlabel">
+                                            <h2 style="font-size: 20px">&nbsp;&nbsp;Convention - 2013</h2>
+                                            <p>
+                                                <ul>
+                                                    <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
+                                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
+                                                    <li><p><b class="time_title">KEYNOTE SPEAKER : </b>Prof. Bharat Raj Singh, Director, School Of Management Services, Lucknow</p></li> 
+                                                   <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button style="color: #25374f;" class="btn timebutton" data-toggle="modal" data-target="#conv2013"><strong>View Sponsors</strong></button></strong></div></div>
+                                                </ul>
+                                                
+                                            </p>
+                                        </div>
+                                    </li>
+                              </ul>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+
+        </div>
+    </div>  
+         
 
 
-    <div class="col-sm-12"  id="abt">
-    <div class="col-sm-10 col-sm-offset-1" >
-         <div class="col-sm-12 head"><center><h1 style="font-family: 'Dosis', sans-serif;color:#333;font-size:40px;">About Convention</h1></center></div>
-         <div class="col-sm-12">
-            <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px">The Alumni Association was first constituted in the Silver Jubilee year (1986-87) of erstwhile Motilal Nehru Regional Engineering College (MNREC), Allahabad. It was possible due to the active leadership of the former principal, Dr. Y.V.N. Rao.<br>Alumni Convention is held every year probably in the second week of November. Alumni Convention-2016 is scheduled on November 12-13, 2016.<br> Celebrating participants are <b>Golden Jubilee Batch</b> (50 years of their passing out), <b>Silver Jubilee Batch</b> (25 years of their passing out) and <b>Dosti ke 50 Varsh</b>. All the alumni are invited to participate in the convention.<br>In the present Alumni Convention – 2016, 1991 batch celebrates its ‘Silver Jubilee’ while entrant batches 1963-66 will celebrate ‘Dosti Ke 50 Varsh’.<br><br>
-            <ul>
-                <li>
-                    <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>History of Alumni Convention.</i></u></b></font><br> The first Alumni Convention of MNREC Allahabad has held in April 1987. The next Alumni Convention took place after a long gap of 11 years, i.e., in the year 1998. In this convention a new executive committee of Alumni Association was elected as per the constitution framed in the year 1987.<br>Following these developments, Alumni Conventions were organized in subsequent years but not on a regular basis. The organization of regular Alumni Conventions started in the year 2006 in which Professor A. B. Samaddar, ex-Director of the Institute was quite instrumental.</p>
-                </li>
-                <li>
-                    <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>Why convention/importance of convention.</i></u></b></font><br>The association regularly organizes the global Alumni meet under the umbrella of ‘Alumni Convention’ in order to promote the institute-alumni interaction. The general body meeting takes place in order to identify the welfare activities for either of the stakeholders. The executive committee is also elected in this convention biennially.</p>
-                </li>
-            </ul>
-            </p>
-         </div>
-    </div>
-    </div>
+    <!--<div class="col-sm-12"  id="abt">
+        <div class="col-sm-10 col-sm-offset-1" >
+             <div class="col-sm-12 head"><center><h1 style="font-family: 'Dosis', sans-serif;color:#333;font-size:40px;">About Convention</h1></center></div>
+             <div class="col-sm-12">
+                <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px">The Alumni Association was first constituted in the Silver Jubilee year (1986-87) of erstwhile Motilal Nehru Regional Engineering College (MNREC), Allahabad. It was possible due to the active leadership of the former principal, Dr. Y.V.N. Rao.<br>Alumni Convention is held every year probably in the second week of November. Alumni Convention-2016 is scheduled on November 12-13, 2016.<br> Celebrating participants are <b>Golden Jubilee Batch</b> (50 years of their passing out), <b>Silver Jubilee Batch</b> (25 years of their passing out) and <b>Dosti ke 50 Varsh</b>. All the alumni are invited to participate in the convention.<br>In the present Alumni Convention – 2016, 1991 batch celebrates its ‘Silver Jubilee’ while entrant batches 1963-66 will celebrate ‘Dosti Ke 50 Varsh’.<br><br>
+                <ul>
+                    <li>
+                        <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>History of Alumni Convention.</i></u></b></font><br> The first Alumni Convention of MNREC Allahabad has held in April 1987. The next Alumni Convention took place after a long gap of 11 years, i.e., in the year 1998. In this convention a new executive committee of Alumni Association was elected as per the constitution framed in the year 1987.<br>Following these developments, Alumni Conventions were organized in subsequent years but not on a regular basis. The organization of regular Alumni Conventions started in the year 2006 in which Professor A. B. Samaddar, ex-Director of the Institute was quite instrumental.</p>
+                    </li>
+                    <li>
+                        <p style="font-family: 'PT Sans Narrow', sans-serif;color:#666;font-size: 18px"><font size="5.5"><b><u><i>Why convention/importance of convention.</i></u></b></font><br>The association regularly organizes the global Alumni meet under the umbrella of ‘Alumni Convention’ in order to promote the institute-alumni interaction. The general body meeting takes place in order to identify the welfare activities for either of the stakeholders. The executive committee is also elected in this convention biennially.</p>
+                    </li>
+                </ul>
+                </p>
+             </div>
+        </div>
+    </div>-->
 
 
     <!--
@@ -383,65 +466,7 @@
 
 
 
-    <div  class="col-sm-12" id="past">
-    <div class="col-sm-10 col-sm-offset-1"> 
-        <div class="col-sm-12 head"><center><h1 style="font-family: 'Dosis', sans-serif;color:#333;font-size:40px;">Past Convention</h1></center></div>
-
-
-       <div class="col-sm-12" style="margin-top:1%">
-              <ul class="cbp_tmtimeline">
-                    <li>
-                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
-                        <div class="cbp_tmlabel">
-                            <h2 style="font-size: 20px" >&nbsp;&nbsp;Convention - 2015</h2>
-                            <p>
-                                <ul>
-                                  <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
-                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
-                                    
-                                    <li><p><b class="time_title">KEYNOTE SPEAKER :</b> Er. Kulbir Singh (Guest Of Honour), CMD, Roger Group, Roger Industries Ltd. Agra</p></li> 
-                                    <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button style="color: #25374f;" class="btn timebutton" data-toggle="modal" data-target="#conv2015"  ><strong>View Sponsors</strong></button></strong></div></div>
-                                </ul>
-
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
-                        <div class="cbp_tmlabel">
-                            <h2 style="font-size: 20px" >&nbsp;&nbsp;Convention - 2014</h2>
-                            <p>
-                                <ul>
-                                    <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
-                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
-                                   <li><p><b class="time_title">KEYNOTE SPEAKER :</b> Er. Pradeep Srivastava, (Chief Guest), Chancellor, Baddi University, Solan, Himachal Pradesh</p></li> 
-                                   <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button data-toggle="modal" data-target="#conv2014" style="color: #25374f;" class="btn timebutton"><strong>View Sponsors</strong></button></strong></div></div>
-                                </ul>
-                                
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cbp_tmicon cbp_tmicon-earth"></div>
-                        <div class="cbp_tmlabel">
-                            <h2 style="font-size: 20px">&nbsp;&nbsp;Convention - 2013</h2>
-                            <p>
-                                <ul>
-                                    <!--  <li><p><b>VENUE :</b> Motilal Nehru National Institute of Technology, Allahabad</p></li>-->
-                                    <li><p><b class="time_title">DURATION :</b> 2 Days</p></li>
-                                    <li><p><b class="time_title">KEYNOTE SPEAKER :</b>Prof. Bharat Raj Singh, Director, School Of Management Services, Lucknow</p></li> 
-                                   <div class="row"><div class="past_conv col-sm-2 col-sm-offset-4"><strong><button style="color: #25374f;" class="btn timebutton" data-toggle="modal" data-target="#conv2013"><strong>View Sponsors</strong></button></strong></div></div>
-                                </ul>
-                                
-                            </p>
-                        </div>
-                    </li>
-                    
-                    
-                </ul>
-        </div>
-    </div>
-    </div>
+    
 
 
     <div class="col-sm-12" id="gallery" ></div>
@@ -530,22 +555,15 @@
                 </section><!-- // slideshow -->
             </div><!-- // grid-gallery -->
         </div>
-
-        
     </div>
-
-
-
 </div>
 
 <script type="text/javascript">
-
     $( document ).ready(function() {
         new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
     });
-    
-
 </script>
+
  <!-- MODAL BODY STARTING -->
            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="conv2015">
                  <input type="hidden" id="invisible" value="">
@@ -1054,728 +1072,713 @@
                       </div>
 <!--MODAL BODY ENDING -->
 
-
-
-
-
-
-
-
-<!-- Modal End for 2012 -->
-
-
-
-<!-- MOdal for 2014 -->
-
-
-
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="conv2014">
-                 <input type="hidden" id="invisible" value="">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Sponsors - Convocation 2014</h4>
-                      </div>
-                      <div class="modal-body" id="wholemodal">
+     <input type="hidden" id="invisible" value="">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Sponsors - Convocation 2014</h4>
+          </div>
+        <div class="modal-body" id="wholemodal">
 
 
-                       <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                         <strong>Sponsorer</strong>
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         <strong>Amount</strong>
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         <strong>Type</strong>
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         <strong>Sponsored By</strong>
-                       </div>
-                       </div>
-                       <hr>
-   
-
-
-                      
+           <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+             <strong>Sponsorer</strong>
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             <strong>Amount</strong>
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             <strong>Type</strong>
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             <strong>Sponsored By</strong>
+           </div>
+           </div>
+           <hr>
 
 
 
-                       <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                       Er. Narayan Prasad<br>Sharma, (1989 Mech)
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        40,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Tea & <br>Breakfast
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Er. Narayan Prasad <br>Sharma, (1989 Mech)
-                       </div>
-                       </div>
-                        <br>
-  
+          
 
 
 
-
-
-                       
-                       <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                      M/s Kapsi Electrical Power Products<br>Pvt. Ltd. (Bangalore)
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         
-                       </div>
-                       </div>
-                        <br>
-  
+           <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+           Er. Narayan Prasad<br>Sharma, (1989 Mech)
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            40,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Tea & <br>Breakfast
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Er. Narayan Prasad <br>Sharma, (1989 Mech)
+           </div>
+           </div>
+            <br>
 
 
 
 
 
 
-
-                       <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                    M/s Pitti Laminations<br>Ltd.(Mr. Jayaram <br>(GM Marketing)
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        72,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Tea & <br>Breakfast
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         
-                       </div>
-                       </div>
-                        <br>
-
-
+           
+           <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+          M/s Kapsi Electrical Power Products<br>Pvt. Ltd. (Bangalore)
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            15,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Advertisement
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             
+           </div>
+           </div>
+            <br>
 
 
 
-                      <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                   M/s Mahendra Industries<br>(Bangalore)
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        
-                       </div>
-                       </div>
-                        <br>
-  
+
+
+
+
+
+           <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+            M/s Pitti Laminations<br>Ltd.(Mr. Jayaram <br>(GM Marketing)
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            72,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Tea & <br>Breakfast
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             
+           </div>
+           </div>
+            <br>
+
+
+
+
+
+          <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+            M/s Mahendra Industries<br>(Bangalore)
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+           15,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Advertisement
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            
+           </div>
+           </div>
+            <br>
+
+
+            <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+             M/s R. B. Singh<br>(Govt. Contractor)
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            8,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            Advertisement
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+              
+           </div>
+           </div>
+            <br>
+
+
+
+
 
              <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                   M/s R. B. Singh<br>(Govt. Contractor)
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        8,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                          
-                       </div>
-                       </div>
-                        <br>
+           <div class="col-sm-2 col-sm-offset-1">
+                M/s L & T <br>Constructions Chennai
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            50,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+             Lunch
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+              Er. G. C. Dubey<br>(1982-CE)
+           </div>
+           </div>
+            <br>
+
+
+
+         <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+            M/s Amit Construction Company
+           </div>
+          <div class="col-sm-2 col-sm-offset-1">
+            8,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            Advertisement
+           </div>
+            <div class="col-sm-2 col-sm-offset-1">
+              Er. G. C. Dubey<br>(1982-CE)
+           </div>
+           </div>
+            <br>
+
+
+
+
+          <div class="row">
+           <div class="col-sm-2 col-sm-offset-1">
+            M/s Prayag Engineers Associate <br>Allahabad
+           </div>
+          <div class="col-sm-2 col-sm-offset-1">
+            8,000
+           </div>
+           <div class="col-sm-2 col-sm-offset-1">
+            Advertisement
+           </div>
+            <div class="col-sm-2 col-sm-offset-1">
+              Er. G. C. Dubey<br>(1982-CE)
+           </div>
+           </div>
+            <br>
+
+
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Ghana Ram Infra 
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                25,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                
+               </div>
+               </div>
+                <br>
 
 
 
 
 
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                    M/s L & T <br>Constructions Chennai
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        50,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Lunch
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                          Er. G. C. Dubey<br>(1982-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                     <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Amit Construction Company
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        8,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                          Er. G. C. Dubey<br>(1982-CE)
-                       </div>
-                       </div>
-                        <br>
+          <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Xoom Corporation Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                10,007
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                Advertisement
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                
+               </div>
+               </div>
+                <br>
 
 
 
 
-                      <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Prayag Engineers Associate <br>Allahabad
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        8,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                          Er. G. C. Dubey<br>(1982-CE)
-                       </div>
-                       </div>
-                        <br>
- 
-
- 
-                    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                   M/s Ghana Ram Infra 
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        25,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        
-                       </div>
-                       </div>
-                        <br>
- 
+             <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Ajay Construction
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                25,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Er. Rajesh Yadav
+               </div>
+               </div>
+                <br>
 
 
-  
+
+
+             <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Dev Yash Enterprises
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               45,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+              <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Raja Infra Constructions
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               25,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+             
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Sunil Garg & Constructions
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                35,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Nand Lal & Sons
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+               <div class="row">
+                   <div class="col-sm-2 col-sm-offset-1">
+                    M/s Sakhichand Yadav
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+                15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Lucky Traders
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Maha Laxmi Constructions
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                 <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Naveen Kumar Jain
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Descon Greentech Pvt. Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Chola Ply Home
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+
+
 
                   <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                   M/s Xoom Corporation Ltd.
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        10,007
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                        
-                       </div>
-                       </div>
-                        <br>
-
-
-
-
-                     <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Ajay Construction
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        25,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Er. Rajesh Yadav
-                       </div>
-                       </div>
-                        <br>
-
-
-
-
-                     <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                 M/s Dev Yash Enterprises
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       45,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                      <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                 M/s Raja Infra Constructions
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       25,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-                     
-
-                    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Sunil Garg & Constructions
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        35,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-                    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                 M/s Nand Lal & Sons
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                       <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                M/s Sakhichand Yadav
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                        15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                        <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Lucky Traders
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-                        <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Maha Laxmi Constructions
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Naveen Kumar Jain
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-     <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Descon Greentech Pvt. Ltd.
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-
-                        <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Chola Ply Home
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-
-
-
-                          <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Jain Enterprises
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                          <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Evergreen Infrabuild Pvt. Ltd.
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                          <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Ashok Kumar Singh
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                        <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Parvez Enterprises
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                 M/s Interior Today
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Prime Cleaning Services
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Maha Laxmi Enterprises
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-                         <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                  M/s Ashok Singh
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                            M/s Yaduvansi Builders
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-
-    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                        M/s Jyoti Builders Pvt. Ltd.
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-    <div class="row">
-                       <div class="col-sm-2 col-sm-offset-1">
-                            M/s Technocrate Constructions
-                       </div>
-                      <div class="col-sm-2 col-sm-offset-1">
-                       15,000
-                       </div>
-                       <div class="col-sm-2 col-sm-offset-1">
-                         Advertisement
-                       </div>
-                        <div class="col-sm-2 col-sm-offset-1">
-                         Er. Satyavir Yadav<br>(1989-CE)
-                       </div>
-                       </div>
-                        <br>
-
-
-    <div class="row">
-       <div class="col-sm-2 col-sm-offset-1">
-         M/s Lindsay International Pvt. Ltd.
-       </div>
-      <div class="col-sm-2 col-sm-offset-1">
-       8,000
-       </div>
-       <div class="col-sm-2 col-sm-offset-1">
-         Advertisement
-       </div>
-        <div class="col-sm-2 col-sm-offset-1">
-         Er. Satyavir Yadav<br>(1989-CE)
-       </div>
-       </div>
-        <br>
-
-
-    <div class="row">
-       <div class="col-sm-2 col-sm-offset-1">
-        M/s Siraj Construction Co.
-       </div>
-      <div class="col-sm-2 col-sm-offset-1">
-       8,000
-       </div>
-       <div class="col-sm-2 col-sm-offset-1">
-         Advertisement
-       </div>
-        <div class="col-sm-2 col-sm-offset-1">
-         Er. Satyavir Yadav<br>(1989-CE)
-       </div>
-       </div>
-        <br>
-
-    <div class="row">
-       <div class="col-sm-2 col-sm-offset-1">
-        M/s Nav Bharat Trading Co.
-       </div>
-      <div class="col-sm-2 col-sm-offset-1">
-       8,000
-       </div>
-       <div class="col-sm-2 col-sm-offset-1">
-         Advertisement
-       </div>
-        <div class="col-sm-2 col-sm-offset-1">
-         Er. Satyavir Yadav<br>(1989-CE)
-       </div>
-       </div>
-        <br>
-
-    <div class="row">
-       <div class="col-sm-2 col-sm-offset-1">
-             M/s A. K. Constructions Co.
-       </div>
-      <div class="col-sm-2 col-sm-offset-1">
-       8,000
-       </div>
-       <div class="col-sm-2 col-sm-offset-1">
-         Advertisement
-       </div>
-        <div class="col-sm-2 col-sm-offset-1">
-         Er. Satyavir Yadav<br>(1989-CE)
-       </div>
-       </div>
-        <br>
-
-
-    <div class="row">
-        <div class="col-sm-2 col-sm-offset-1">
-         M/s SAHARA STAR  Ltd.
-       </div>
-      <div class="col-sm-2 col-sm-offset-1">
-       44,100
-       </div>
-       <div class="col-sm-2 col-sm-offset-1">
-         Advertisement
-       </div>
-        <div class="col-sm-2 col-sm-offset-1">
-         
-       </div>
-       </div>
-        <br>
-
-      </div><!-- end of modal body -->
-      </div>
-      </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Jain Enterprises
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                  <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Evergreen Infrabuild Pvt. Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                  <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Ashok Kumar Singh
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Parvez Enterprises
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                 <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Interior Today
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                 <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Prime Cleaning Services
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                 <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Maha Laxmi Enterprises
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+                 <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Ashok Singh
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                    M/s Yaduvansi Builders
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Jyoti Builders Pvt. Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+                <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                    M/s Technocrate Constructions
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               15,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                 M/s Lindsay International Pvt. Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               8,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Siraj Construction Co.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               8,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                M/s Nav Bharat Trading Co.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               8,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+            <div class="row">
+               <div class="col-sm-2 col-sm-offset-1">
+                     M/s A. K. Constructions Co.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               8,000
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 Er. Satyavir Yadav<br>(1989-CE)
+               </div>
+               </div>
+                <br>
+
+
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1">
+                 M/s SAHARA STAR  Ltd.
+               </div>
+              <div class="col-sm-2 col-sm-offset-1">
+               44,100
+               </div>
+               <div class="col-sm-2 col-sm-offset-1">
+                 Advertisement
+               </div>
+                <div class="col-sm-2 col-sm-offset-1">
+                 
+               </div>
+           </div>
+            <br>
+
+        </div><!-- end of modal body -->
+        </div>
+    </div>
 </div>
                 <!--MODAL BODY ENDING -->

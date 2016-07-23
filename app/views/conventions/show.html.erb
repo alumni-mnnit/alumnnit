@@ -1,96 +1,94 @@
 <nav class="side-menu">
-        <ul>
-          <li class="hidden active">
-              <a class="page-scroll" href="#page-top"></a>
-          </li>
-          <li>
-              <a href="#home" class="page-scroll">
-                <span class="menu-title">Convention <%= @convention.year.year %></span>
-                <span class="dot"></span>
-              </a>
-          </li>
-          <li>
-              <a href="#organisers" class="page-scroll">
-                <span class="menu-title">Organisers</span>
-                <span class="dot"></span>
-              </a>
-          </li>
-           
-          <li>
-              <a href="#schedule" class="page-scroll">
-                <span class="menu-title">Schedule</span>
-                <span class="dot"></span>
-              </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="container-fluid">
-        <!-- Start: Header -->
-        <div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
-          <div class="col-md-7 text-center">
-            <h1>Alumni Convention of <%= @convention.year.year %></h1>
-            <h3>Get connected back to your batch-mates and college.</h3>
-            <h4> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: #DD5138">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h4>
-            <% if !current_user.convention_request.nil? %>
-              <% if !(current_user.convention_request.convention == Convention.last) %>
-                <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" , style: "margin-top: -20px" %> OR
-                <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow", style: "margin-top: -20px" %>
-                
-              <% else %> 
-                <p style="margin-top: -10px;">You have already Registered.</p>
-                <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow ", style: "margin-top: -10px"%> 
-              <% end %>
-            <% else %> 
-              <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red", style: "margin-top: -20px" %> OR
-              <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" , style: "margin-top: -20px"%>
+  <ul>
+    <li class="hidden active">
+        <a class="page-scroll" href="#page-top"></a>
+    </li>
+    <li>
+        <a href="#home" class="page-scroll">
+          <span class="menu-title">Convention <%= @convention.year.year %></span>
+          <span class="dot"></span>
+        </a>
+    </li>
+    <li>
+        <a href="#organisers" class="page-scroll">
+          <span class="menu-title">Organisers</span>
+          <span class="dot"></span>
+        </a>
+    </li>
+     
+    <li>
+        <a href="#schedule" class="page-scroll">
+          <span class="menu-title">Schedule</span>
+          <span class="dot"></span>
+        </a>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+<!-- Start: Header -->
+<div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
+  <div class="col-md-7 text-center">
+    <h1>Alumni Convention of <%= @convention.year.year %></h1>
+    <h3>Get connected back to your batch-mates and college.</h3>
+    <h4> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: #DD5138">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h4>
+    <% if !current_user.convention_request.nil? %>
+      <% if !(current_user.convention_request.convention == Convention.last) %>
+        <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" , style: "margin-top: -20px" %> OR
+        <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow", style: "margin-top: -20px" %>
+        
+      <% else %> 
+        <p style="margin-top: -10px;">You have already Registered.</p>
+        <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow ", style: "margin-top: -10px"%> 
+      <% end %>
+    <% else %> 
+      <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red", style: "margin-top: -20px" %> OR
+      <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" , style: "margin-top: -20px"%>
 
-            <% end %>
-          </div>
-          <div class="modal fade " id="forms">
-            <div class="modal-dialog login animated">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body text-center" >  
-                        <div class="box" >
-                             <div class="content">
-                                    <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif; margin-top: -30px;"><b>Registration Forms</b></h2>
-                              <div class="text-center">
-                                <table border="1" style="color: black;" height="300px" width="100%">
-                                  <tr>
-                                    <th class="text-center">S.No.</th>
-                                    <th class="text-center">Forms</th>
-                                    <th class="text-center">Link</th>
-                                  </tr>
-                                  <tr>
-                                    <td>1</td>
-                                          <td>Invitation Card</td>
-                                    <td><%= link_to "Download", "/assets/pdfs/invitation.pdf" %></td>
-                                  </tr>
-                                  <tr>
-                                    <td>2</td>
-                                          <td>Silver Jubilee Form</td>
-                                    <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for  Silver Jubilee batch only).pdf" %></td>
-                                  </tr>
-                                  <tr>
-                                    <td>3</td>
-                                          <td>All Batches (except for Silver Jubilee)</td>
-                                    <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf" %></td>
-                                  </tr>
-                                    
-                                </table>
-                              </div>
-                             </div>
-                        </div>
-                    </div>
+    <% end %>
+  </div>
+  <div class="modal fade " id="forms">
+    <div class="modal-dialog login animated">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center" >  
+                <div class="box" >
+                     <div class="content">
+                            <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif; margin-top: -30px;"><b>Registration Forms</b></h2>
+                      <div class="text-center">
+                        <table border="1" style="color: black;" height="300px" width="100%">
+                          <tr>
+                            <th class="text-center">S.No.</th>
+                            <th class="text-center">Forms</th>
+                            <th class="text-center">Link</th>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                                  <td>Invitation Card</td>
+                            <td><%= link_to "Download", "/assets/pdfs/invitation.pdf" %></td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                                  <td>Silver Jubilee Form</td>
+                            <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for  Silver Jubilee batch only).pdf" %></td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                                  <td>All Batches (except for Silver Jubilee)</td>
+                            <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf" %></td>
+                          </tr>
+                            
+                        </table>
+                      </div>
+                     </div>
                 </div>
             </div>
-          </div>
-          <div class="col-md-5 hidden-xs">
- 	    <%= image_tag 'rocket.png', class: "rocket animated bounce" %>
-          </div>
         </div>
+    </div>
+  </div>
+  
+</div>
         <!-- End: Header -->
       </div>
       <div class="container">
@@ -189,7 +187,7 @@
       <!-- Start: Schedule -->
       <div class="container" style="background-color: white">
         <div class="row me-row schedule" id="schedule">
-          <h2 class="row-title content-ct">Event Schedule</h2>
+          <h2 class="row-title content-ct">Program Highlights</h2>
           <p class="content-ct">Venue: M.P. Hall, MNNIT</p>
           <div class="col-md-12">
             <!-- Nav tabs -->

@@ -15,9 +15,9 @@
             <!--left col-->
             <ul class="list-group">
                 <li class="list-group-item text-muted" contenteditable="false"><h1 class="text-center">Profile Info</h1></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span>
-                  <% if @user.fname  %>
-          					<% if @user.lname %>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">User Name</strong></span>
+                  <% if !@user.fname.blank?  %>
+          					<% if !@user.lname.blank? %>
           						 <%= "#{@user.fname} #{@user.lname}"  %>
           					<% else %>
           						 <%= @user.fname %>
@@ -41,11 +41,11 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.last_sign_in_at.to_date %></li>
                 <li class="list-group-item text-muted" contenteditable="false"><h1 class="text-center">Academics Info</h1></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of passing: </strong></span> <%= @user.year_of_passing.year if @user.year_of_passing %>
-                  <%= "Not Set" if !@user.year_of_passing %>
+                  <%= "Not Set" if @user.year_of_passing.blank? %>
                 </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Program</strong></span> <%= @user.degree if @user.degree %>
-                <%= "Not Set" if @user.degree.empty? %></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if @user.branch.empty? %></li>
+                <%= "Not Set" if @user.degree.blank? %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if @user.branch.blank? %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role</strong></span> <%= @user.role.humanize if @user.role %>
 
 

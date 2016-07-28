@@ -1,50 +1,217 @@
-<nav class="side-menu">
-  <ul>
-    <li class="hidden active">
-        <a class="page-scroll" href="#page-top"></a>
-    </li>
-    <li>
-        <a href="#home" class="page-scroll">
-          <span class="menu-title">Convention <%= @convention.year.year %></span>
-          <span class="dot"></span>
-        </a>
-    </li>
-    <li>
-        <a href="#organisers" class="page-scroll">
-          <span class="menu-title">Organisers</span>
-          <span class="dot"></span>
-        </a>
-    </li>
-     
-    <li>
-        <a href="#schedule" class="page-scroll">
-          <span class="menu-title">Schedule</span>
-          <span class="dot"></span>
-        </a>
-    </li>
-  </ul>
-</nav>
+<%= javascript_include_tag "jquery.countTo" %>
+<style type="text/css">
+  .hero-header{
+    padding: .2em;
+  }
+  .hero-header h1{
+    margin-top:.2em;
+  }
+  .mainnav li{
+    letter-spacing: 0;  
+    margin-left: 3%;
+  }
+  .mainnav > .nav{
+    background-color: white;
+  }
+  .mainnav > .nav-tabs > li > a{
+    color: #46535e;
+    text-transform: uppercase;
+  }
+  .mainnav > .nav-tabs > li > a:hover,.nav > li > a:focus{
+    color: #4c9cdf;
+    border: none;
+    background-color: white;
+  }
+  
+  .mainnav > .nav-tabs > li.active > a,.nav-tabs > li.active > a:hover{
+    color: #4c9cdf ;
+    border:none;
+    border-bottom: 7px solid #4c9cdf;
+  }
+  .subnav li{
+    letter-spacing: 0;  
+    margin-left: 3%;
+  }
+  .subnav > .nav{
+    background-color: white;
+  }
+  .subnav > .nav-tabs > li > a{
+    color: #dd5138;
+    text-transform: uppercase;
+  }
+  .subnav > .nav-tabs > li > a:hover,.nav > li > a:focus{
+    color: #dd5138;
+    border: none;
+    background-color: white;
+  }
+  
+  .subnav > .nav-tabs > li.active > a,.nav-tabs > li.active > a:hover{
+    color: #dd5138 ;
+    border:none;
+    border-bottom: 7px solid #dd5138;
+  }
+  .schedule .media{
+    margin-top:1.2em;
+  }
+  .media-heading{
+    color: #4c9cdf;
+  }
+  /* custom inclusion of right, left and below tabs */
+  .tbl > .tabs-left > .nav-tabs > li{
+    margin-left: 0;
+    border-color:#CECECE;
+  border-style: solid;
+  border-width: 1px;
+  }
+/*.tbl > .tabs-left > .nav-tabs{
+  border-color:#CECECE;
+  border-style: solid;
+  border-width: 1px;
+}*/
+.tbl > .tabs-below > .nav-tabs,
+.tbl >.tabs-right > .nav-tabs,
+.tbl >.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+.tbl >.tab-content > .tab-pane,
+.tbl >.pill-content > .pill-pane {
+  display: none;
+}
+
+.tbl >.tab-content > .active,
+.tbl >.pill-content > .active {
+  display: block;
+}
+
+.tbl >.tabs-below > .nav-tabs {
+  border-top: 1px solid #ddd;
+}
+
+.tbl >.tabs-below > .nav-tabs > li {
+  margin-top: -1px;
+  margin-bottom: 0;
+}
+
+.tbl >.tabs-below > .nav-tabs > li > a {
+ 
+
+}
+.tbl >.tabs-below > .nav-tabs > li.active > a {
+    box-shadow: inset 0px 0px 1.143em 0px rgba(0, 0, 0, 0.13);
+    background: #F3F3F3;
+}
+
+.tbl >.tabs-below > .nav-tabs > li > a:hover,
+.tbl >.tabs-below > .nav-tabs > li > a:focus {
+  /*border-top-color: #ddd;*/
+  /*border-bottom-color: transparent;*/
+}
+
+.tbl >.tabs-below > .nav-tabs > .active > a,
+.tbl >.tabs-below > .nav-tabs > .active > a:hover,
+.tbl >.tabs-below > .nav-tabs > .active > a:focus {
+ /* border-color: transparent #ddd #ddd #ddd;*/
+}
+
+.tbl >.tabs-left > .nav-tabs > li,
+.tbl >.tabs-right > .nav-tabs > li {
+  float: none;
+}
+
+.tbl >.tabs-left > .nav-tabs > li > a,
+.tbl >.tabs-right > .nav-tabs > li > a {
+  min-width: 200px;
+  margin-right: 0;
+}
+
+.tbl >.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+
+.tbl >.tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+
+ 
+}
+
+.tbl >.tabs-left > .nav-tabs > li > a:hover,
+.tbl >.tabs-left > .nav-tabs > li > a:focus {
+  border-bottom: none;
+}
+
+.tbl >.tabs-left > .nav-tabs .active > a,
+.tbl >.tabs-left > .nav-tabs .active > a:hover,
+.tbl >.tabs-left > .nav-tabs .active > a:focus {
+  box-shadow: inset 0px 0px 1.143em 0px rgba(0, 0, 0, 0.13);
+  background: #F3F3F3;
+  border-left: 5px solid #D13636;
+  border-radius: 0;
+}
+
+.tbl >.tabs-right > .nav-tabs {
+  float: right;
+  margin-left: 19px;
+  border-left: 1px solid #ddd;
+}
+
+.tbl >.tabs-right > .nav-tabs > li > a {
+  margin-left: -1px;
+
+}
+
+.tbl >.tabs-right > .nav-tabs > li > a:hover,
+.tbl >.tabs-right > .nav-tabs > li > a:focus {
+ /* border-color: #eeeeee #eeeeee #eeeeee #dddddd;*/
+}
+
+.tbl >.tabs-right > .nav-tabs .active > a,
+.tbl >.tabs-right > .nav-tabs .active > a:hover,
+.tbl >.tabs-right > .nav-tabs .active > a:focus {
+  /*border-color: #ddd #ddd #ddd transparent;
+  border-left-color: #ffffff;*/
+  border-bottom: none;
+}
+
+.tbl .nav-tabs > li.active > a{
+  border: none;
+  font-weight: bolder;
+}
+
+.tabc{
+  padding: 2%;
+  margin-left: 4%;
+  max-width: 700px;
+  float: left;
+}
+.tabc ul{
+  list-style: inherit;
+}
+.tabc h3{
+  color: #DD5138;
+  font-family: 'Dosis', sans-serif; 
+  font-size: 30px;
+  font-weight: bolder;
+}
+.pfix{
+  margin-top: 3%;
+  font-weight: 700;
+  font-size: 24px;   
+}
+</style>
+
+
 <div class="container-fluid">
 <!-- Start: Header -->
-<div class="row hero-header" id="home" style="background: #016cc7; margin-top: -20px;">
-  <div class="col-md-7 text-center">
-    <h1>Alumni Convention of <%= @convention.year.year %></h1>
-    <h3>Get connected back to your batch-mates and college.</h3>
-    <h4> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: #DD5138">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h4>
-    <% if !current_user.convention_request.nil? %>
-      <% if !(current_user.convention_request.convention == Convention.last) %>
-        <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red" , style: "margin-top: -20px" %> OR
-        <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow", style: "margin-top: -20px" %>
-        
-      <% else %> 
-        <p style="margin-top: -10px;">You have already Registered.</p>
-        <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow ", style: "margin-top: -10px"%> 
-      <% end %>
-    <% else %> 
-      <%= link_to "Register Now", new_convention_request_path, class: "btn btn-lg btn-red", style: "margin-top: -20px" %> OR
-      <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" , style: "margin-top: -20px"%>
-
-    <% end %>
+<div class="row hero-header" id="home" style="background-image: url(<%= asset_path 'bg.jpeg' %>); margin-top: -20px;">
+  <div class="col-md-12 text-center fill" >
+    <h1 style="color: red">Alumni Convention of <%= @convention.year.year %></h1>
+    <h3 style="color: yellow; text-shadow: 4px 4px 4px black;">Get connected back to Alma Mater.</h3>
+    <h3 style="color: blue; font-weight: 600 !important; font-size: 30px;text-shadow: 2px 2px 2px black;"> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: blue">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h3>
+    
+    <div class="col-md-6 col-md-offset-3"><div class="col-md-5" ><span class="timer" data-from="0" data-to="20123" data-speed="2000" style="font-size: 35px;color: #fcd93b;padding-left: 45%;font-weight: 700;text-shadow: 4px 4px 4px black;"></span></div><div class="col-md-7" style="vertical-align: center;"><p class="pfix" style="text-shadow: 2px 2px 2px black;margin-left:-55%; color: blue;">Alumni Registered</p></div></div>
   </div>
   <div class="modal fade " id="forms">
     <div class="modal-dialog login animated">
@@ -91,12 +258,248 @@
 </div>
         <!-- End: Header -->
       </div>
-      <div class="container">
-        <!-- Start: Desc -->
+      <div class="container-fluid">
+        <div class="col-md-12 col-xs-12 mainnav">
+
+          <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#reg" aria-controls="home" role="tab" data-toggle="tab" class="taba">Register</a></li>
+              <li role="presentation"><a href="#orgcom" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Organising Committee</a></li>  
+              <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Events</a></li>   
+              <li role="presentation"><a href="#proudspons" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Proud Sponsors</a></li> 
+              <li role="presentation"><a href="#sponsorhip" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Sponsorship</a></li> 
+              <li role="presentation"><a href="#mem" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Memorables</a></li> 
+          </ul>
+
+
+            <div class="tab-content" style="background-color: white;margin-top: 1%;padding: 1em">
+
+                <div role="tabpanel" class="tab-pane fade in active" id="reg">
+                    <div class="container text-center">
+                      <p>Some buildings, Some playgrounds, Some friends, Some teachers,
+                      A river nearby, An ashram besides, A tea shop selling bread pakoras,
+                      A messy room, Birthday treats, A broken guitar, Poster of movie star,
+                      Oh! Tech. geniuses, unite again to live back the time and have a few
+                      more samosas.</p>
+                      <div class="text-center">
+                        <% if !current_user.convention_request.nil? %>
+                          <% if !(current_user.convention_request.convention == Convention.last) %>
+                            <%= link_to "Online", "#reg_form", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-red" %> OR
+                            <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openRegModal()", class: "btn btn-lg btn-yellow" %>
+                            
+                          <% else %> 
+                            <p style="margin-bottom: 20px;">You have already Registered.</p>
+                            <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%> 
+                          <% end %>
+                        <% else %> 
+                          <p style="margin-bottom: 20px;"> You can either register online or offline. For offline registration download the registration form and fill the details and then mail it to MNNIT. </p>
+                          <%= link_to "Online", new_convention_request_path, class: "btn btn-lg btn-red" %> OR
+                          <%= link_to "Offline", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" %>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade tbl" id="orgcom">
+                    <div class="container tbl" style="background-color: white"> 
+                           <div class="tabbable tabs-left">
+                            <ul class="nav nav-tabs">
+                              <li class="active"><a href="#a" data-toggle="tab">Patron</a></li>
+                              <li><a href="#b" data-toggle="tab">Vice President</a></li>
+                              <li><a href="#c" data-toggle="tab">Secretary</a></li>
+                              <li><a href="#d" data-toggle="tab">Treasurer</a></li>
+                              <li><a href="#e" data-toggle="tab">Dean(RG & IA)</a></li>
+                              <li><a href="#f" data-toggle="tab">Members</a></li>
+                            </ul>
+                            <div class="tab-content col-md-offset-6" style="background-color: rgba(0,0,0,0.5); " >
+                             <div class="tab-pane active tabc" id="a" >
+                               <h3>Patron</h3>
+                               <ul>
+                                  <li><p>Prof. S.K. Duggal</p></li>
+                               </ul>
+                             </div>
+                             <div class="tab-pane tabc" id="b">
+                               <h3>Vice President</h3>
+                               <ul>
+                                <li><p>Dr. Avanish Kumar Dubey</p></li>
+                                <li><p>Er. Anurag Srivastav</p></li>
+                               </ul>
+                             </div>
+                             <div class="tab-pane tabc" id="c">
+                              <h3>Secretary</h3>
+                               <ul>
+                                <li><p>Dr. Ramesh Pandey (Secretary)</p></li>
+                                <li><p>Dr. Mohd. Siraj Alam (Joint Secretary-I)</p></li>
+                                <li><p>Rajesh Kumar Singh (Joint Secretary-II)</p></li>
+                               </ul>
+                             </div>
+                             <div class="tab-pane tabc" id="d">
+                              <h3>Treasurer</h3>
+                               <ul>
+                                <li><p>Dr. Praveen Kumar Agarwal</p></li>
+                               </ul>
+                             </div>
+                             <div class="tab-pane tabc" id="e">
+                              <h3>Dean (R G & IA) Ex-Officio</h3>
+                               <ul>
+                                <li><p>Prof. N.D Pandey</p></li>
+                               </ul>
+                             </div>
+                             <div class="tab-pane tabc" id="f">
+                              <h3>Members</h3>
+                               <ul>
+                                <li><p>Er. H.P Shukla</p></li>
+                                <li><p>Er. G.P Singh</p></li>
+                                <li><p>Dr. Shailesh Kumar Trivedi</p></li>
+                                <li><p>Er. Rajendra Pratap Giri</p></li>
+                                <li><p>Prof. R.N Sahi</p></li>
+                                <li><p>Er. R.C Maurya</p></li>
+                                <li><p>Er. Y.K Gupta</p></li>
+                                <li><p>Er. J.P Agarwal</p></li>
+                                <li><p>Er. S.C Chugh</p></li>
+                                <li><p>Er. Ravindra Kumar Pandey</p></li>
+                               </ul>
+                             </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>  
+
+                <div role="tabpanel" class="tab-pane fade" id="events">
+                    <div class="container" style="background-color: white">
+                        <div class="row me-row schedule" id="schedule" style="padding: 0"> 
+                          <h2 class="row-title content-ct">Program Highlights</h2>
+                          <p class="content-ct">Venue: M.P. Hall, MNNIT</p>
+                          <div class="col-md-12 subnav">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                              <li role="presentation" class="active"><a href="#day-1" aria-controls="home" role="tab" data-toggle="tab">Day 01 <small class="hidden-xs">(12<sup>th</sup>, November)</small></a></li>
+                              <li role="presentation"><a href="#day-2" aria-controls="profile" role="tab" data-toggle="tab">Day 02 <small class="hidden-xs">(13<sup>th</sup>, November)</small></a></li>
+                            </ul>
+
+                  
+                            <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade in active" id="day-1">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">9:00 am to 10:00 am</h4>
+                                        <h5>Registration & Breakfast</h5>
+                                        <h5>Inaugural Function</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">11:00 am to 12:00 pm</h4>
+                                        <h5>Felicitation of Faculty members retired after Convention-2015</h5>
+                                        <h5>Felicitation of '1966 Golden Jubilee' Batch</h5>
+                                        <h5>felicitation of 'Dosti ke Pachas Varsh' Batch</h5>
+                                        <h5>felicitation of '1981 Coral Anniversary' Batch</h5>
+                                        <h5>Felicitation of '1991 Silver Jubilee' Batch</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">12:30pm to 02:30pm</h4>
+                                        <h5>Annual general meeting/ parallel session for spouse</h5>
+                                        <h5>Alumni interaction with Heads/ Deans/ Key Office Bearers</h5>
+                                        <h5>Lunch (1 :30 pm)</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">4:10pm to 08:30pm</h4>
+                                        <h5>Alumni Interaction with departments</h5>
+                                        <h5>Alumni Interaction with students</h5>
+                                        <h5>tea / snacks</h5>
+                                        <h5>cultural program</h5>
+                                        <h5>dinner</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="day-2">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">8:30am to 9:30 am</h4>
+                                        <h5>Assembly at sac, breakfast in hostel mess</h5>
+                                        <h5>visit to hostel</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="media">
+                                      
+                                      <div class="media-body">
+                                        <h4 class="media-heading">10:30am to 01:00pm</h4>
+                                        <h5>sangam visit and local tour</h5>
+                                        <h5>lunch</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div> 
+
+                <div role="tabpanel" class="tab-pane fade" id="proudspons">
+          
+                </div> 
+
+                <div role="tabpanel" class="tab-pane fade" id="sponsorhip">
+                  <div class="container">
+                    <h2 class="row-title content-ct">Why become a Sponsor?</h2><hr>
+                    <p>There are many benifits of being a Sponsor.
+                      There are five basic categories of Sponsorship :
+                      <ol >
+                        <li>Platinum</li>
+                        <li>Diamond</li>
+                        <li>Gold</li>
+                        <li>Silver</li>
+                        <li>Bronze</li>
+                      </ol>
+                    </p>
+                    <p>To know more about the Sponsorship, you can read the PDF linked to the button below.</p>
+                    <p class="text-center"><%= link_to "Sponsor", "/assets/pdfs/2Sponsorship Category and Benefits - Alumni Convention 2016.pdf", class: "btn btn-lg btn-red" %></p>
+                  </div>
+                </div> 
+
+                <div role="tabpanel" class="tab-pane fade" id="mem">
+          
+                </div> 
+
+            </div>
+
+
+        </div>
+      </div>
+
+
+      <!--<div class="container">
+        
         <div class="row me-row content-ct speaker" id="organisers">
           <h2 class="row-title">Organising Committee</h2>
           <div class="col-md-4 col-sm-6 feature">
-	    <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+      <%= image_tag 'speaker-1.png', class: "speaker-img" %>
             <h3>Prof. S.K. Duggal</h3>
             <p>Patron (President, Alumni Association)</p>
           </div>
@@ -107,19 +510,19 @@
             <p>Advisor (Dean, Rg & IA)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
             
             <h3>Dr. Avinash Kumar Dubey</h3>
             <p>Chairman (Vice President - I)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	          <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+            <%= image_tag 'speaker-3.png', class: "speaker-img" %>
            
             <h3>Er. Anurag Srivastava </h3>
             <p>Co-Chairman (Vice President - II)</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	           <%= image_tag 'speaker-1.png', class: "speaker-img" %>
+             <%= image_tag 'speaker-1.png', class: "speaker-img" %>
            
             <h3>Dr. Praveen Kumar Agarwal</h3>
             <p>Treasurer, Alumni Association</p>
@@ -131,13 +534,13 @@
             <p>Org. Secretary, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	           <%= image_tag 'speaker-2.png', class: "speaker-img" %>
+             <%= image_tag 'speaker-2.png', class: "speaker-img" %>
          
             <h3>Dr. Mohd. Siraj Alam, Faculty</h3>
             <p>Joint Org. Secretary - I, Alumni Association</p>
           </div>
           <div class="col-md-4 col-sm-6 feature">
-	         <%= image_tag 'speaker-3.png', class: "speaker-img" %>
+           <%= image_tag 'speaker-3.png', class: "speaker-img" %>
           
             <h3>Rajesh Kumar Singh</h3>
             <p>Joint Org. Secretary - II, Alumni Association</p>
@@ -180,24 +583,24 @@
             <p>Member - VI, Alumni Association</p>
           </div>
         </div>
-        <!-- End: Speakers -->
-      </div>
+        
+      </div>-->
 
      
       <!-- Start: Schedule -->
-      <div class="container" style="background-color: white">
+      <!--<div class="container" style="background-color: white">
         <div class="row me-row schedule" id="schedule">
           <h2 class="row-title content-ct">Program Highlights</h2>
           <p class="content-ct">Venue: M.P. Hall, MNNIT</p>
           <div class="col-md-12">
-            <!-- Nav tabs -->
+
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#day-1" aria-controls="home" role="tab" data-toggle="tab">Day 01 <small class="hidden-xs">(12<sup>th</sup>, November)</small></a></li>
               <li role="presentation"><a href="#day-2" aria-controls="profile" role="tab" data-toggle="tab">Day 02 <small class="hidden-xs">(13<sup>th</sup>, November)</small></a></li>
               
             </ul>
 
-            <!-- Tab panes -->
+  
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="day-1">
                 <div class="row">
@@ -279,18 +682,35 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
-      <script >
-        function showForm(){
-          $('#forms').fadeOut('fast',function(){
-              $('.loginBox').fadeIn('fast');
-          });       
-      }
+      
+      
+<script >
+  function showForm(){
+    $('#forms').fadeOut('fast',function(){
+        $('.loginBox').fadeIn('fast');
+    });  
+         
+}
+function showRegForm(){
+     
+    $('#reg_form').fadeOut('fast',function(){
+        $('.loginBox').fadeIn('fast');
+    });      
+}
 
-      function openFormModal(){
-          showForm();
-          setTimeout(function(){
-              $('#forms').modal('show');    
-          }, 230);
-      </script>
+function openFormModal(){
+    showForm();
+    setTimeout(function(){
+        $('#forms').modal('show');    
+    }, 230);
+}    
+function openRegModal(){
+    showRegForm();
+    setTimeout(function(){
+        $('#reg_form').modal('show');    
+    }, 230);
+}     
+$('.timer').countTo();   
+</script>

@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row" style="margin-top: 10px;">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="modal-dialog login animated"  style="width: 100%">
+          <div class="modal-content">
+            <div class="modal-header">
+                    
+                  <h2 class="modal-title text-center">Register</h2>
+            </div>
+            <div class="modal-body">  
+              <div class="box">
+                <div class="content">
+                  <div class="division">
+                      <div class="line l"></div>
+                      <div class="line r"></div>
+                  </div>
+                  <div class="error"></div>
+                  <div class="form">
+                    
+                      <%= form_for @convention_request do |f| %>
+                         
+                        <br>
+
+                        <div class="form-group">
+                          <%= f.label :name %><br />
+                          <%= f.text_field :name,required: false, autofocus: true, error: 'Name is mandatory, please specify one',style: "border: 1px solid rgb(177, 177, 177);", input_html: { class: 'form-control' } %>
+                        </div>  
+                          <br>
+                        <div class="row">  
+                          <div class="form-group col-sm-3">
+                            <%= f.label :degree %><br />
+                            <%= f.select(:degree, [['B.Tech','BT'], ['M.Tech','MT'], ['MCA','MC'], ['MBA','MB'], ['MSW','MW'], ['PHD','PD'], ['MSc.','MS']], {}, {include_blank: true, class: "form-control", style: "width: 130px; color: black;"}) %>
+                          </div> 
+                        
+                          <div class="form-group col-sm-3" >
+                            <%= f.label :branch %><br />
+                            <%= f.select(:branch,[['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']], {}, {include_blank: true, class: "form-control", style: "width: 330px; color: black;"})%>
+                          </div>
+
+                          <div class=" form-group col-sm-3 col-sm-offset-3">
+                            <%= f.label :year_of_passing, "Graduation Year" %><br />
+                            <div class='input-group date'>
+                              <%= f.date_select :year_of_passing, {:start_year => Time.now.year + 4, :end_year => Time.now.year - 95, :discard_day => true, :discard_month => true}, { class: "form-control", style: "color:black;" } %>
+                            </div>
+                            
+                          </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                          <%= f.label :designation, "Designation" %><br />
+                          <%= f.text_field :designation, style: "border: 1px solid rgb(177, 177, 177);", input_html: { class: 'form-control' }%>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <%= f.label :address, "Corresponding/Permanent Address" %><br />
+                          <%= f.text_area :address,  class: 'form-control' %>
+                        </div>                            
+
+                          <br>
+                        <div class="form-group">
+                          <%= f.label :is_attending, "Attending" %><br />
+                          <%= f.label :is_attending, "Yes", value: "Yes" %>
+                          <%= f.radio_button(:is_attending, "Yes") %> 
+                          <%= f.label :is_attending, "No", value: "No" %>
+                          <%= f.radio_button(:is_attending, "No") %> 
+                        </div> 
+                        <br>
+                        <div class="form-group">
+                          <%= f.label :accompanions , "No. of Accompanying person(s)"%><br />
+                          <%= f.text_field :accompanions, style: "border: 1px solid rgb(177, 177, 177);", input_html: { class: 'form-control' }  %>
+                        </div>
+                          <br>
+                        <div class="form-group">
+                          <%= f.label :payment, "Payment Details" %><br />
+                          <%= f.text_area :payment,  class: 'form-control' %>
+                        </div> 
+                        <br>  
+                        <div class="form-actions">
+                          <%= f.submit "Register", class: 'btn btn-login btn-info' %>
+                        </div>
+                      <% end %> 
+                  </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+      </div>        
+      </div>    
+  </div>
+</div>

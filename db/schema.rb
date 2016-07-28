@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625165346) do
+ActiveRecord::Schema.define(version: 20160728152321) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -23,11 +23,20 @@ ActiveRecord::Schema.define(version: 20160625165346) do
   end
 
   create_table "convention_requests", force: :cascade do |t|
-    t.boolean  "status",        default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "status",          default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id"
     t.integer  "convention_id"
+    t.string   "name"
+    t.string   "degree"
+    t.string   "branch"
+    t.date     "year_of_passing"
+    t.string   "designation"
+    t.text     "address"
+    t.string   "is_attending"
+    t.text     "payment"
+    t.integer  "accompanions"
   end
 
   add_index "convention_requests", ["convention_id"], name: "index_convention_requests_on_convention_id"

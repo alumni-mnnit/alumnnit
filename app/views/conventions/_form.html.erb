@@ -24,15 +24,14 @@
 			</div>
 		<% end %>			
 		<div class="form-group">
-			<%= f.date_select :year, {:start_year => Time.now.year , :end_year => Time.now.year + 10, :discard_day => true, :discard_month => true} %>
+			<%= f.label :year, "Year" %>
+			<%= f.date_select :year, {:start_year => Time.now.year , :end_year => Time.now.year + 10, :discard_day => true, :discard_month => true}, { class: "form-control" } %>
 		</div>
-		<div class=" form-group">
+		
+        <div class=" form-group">
             <%= f.label :start_date, "Start Date" %><br />
-			<div class='input-group date' id='datetimepicker3'>
-              <%= f.text_field :start_date, label: false, placeholder: "YYYY-MM-DD", class: "form-control" %>
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+            <div class=' date' >
+              <span class="datetime"><%= f.date_select  :start_date,{:start_year => Time.now.year , :end_year => Time.now.year + 15 }, { class: "form-control" } %></span>
             </div>
         </div>
 		<%= f.submit "Create", class: "btn btn-lg btn-red" %>

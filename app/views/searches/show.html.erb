@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 3%;">
     <div class="row text-center">
         <div class="col-lg-12">
             <h2 class="page-header"> Result <%= @search.search_users.count %> Alumni </h2>
@@ -8,7 +8,7 @@
         <% else %>    
             <% @search.search_users.each do |user| %>
                 <div class="col-md-4 text-center" >
-                    <div class="thumbnail" style="margin-top: 30px;">
+                    <div class="thumbnail" style="margin-top: 30px; height: 250px !important;">
                         <div class="caption">
                             <h3>
                                 <% if user.fname and user.lname %>
@@ -17,8 +17,8 @@
                                     <%= user.email %>
                                 <% end %>
                                 <br>
-                                <small><%= user.degree %><br>
-                                <%= user.branch %><br>
+                                <small><%= "Degree : " + user.degree if user.degree %><br>
+                                <%= "Branch : " + user.branch if user.branch %><br>
                                 <%- if user.year_of_passing %>
                                     Passed out : <%= user.year_of_passing.year %>
                                 <% end %>

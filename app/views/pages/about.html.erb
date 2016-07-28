@@ -1,63 +1,119 @@
 <style type="text/css">
     .thumbnail{
-        min-height: 260px;
+        min-height: 300px;
     }
+    .mainnav li{
+    letter-spacing: 0;  
+    margin-left: 3%;
+  }
+  .mainnav .nav{
+    background-color: white;
+  }
+  .mainnav .nav-tabs > li > a{
+    color: #46535e;
+    text-transform: uppercase;
+  }
+  .mainnav .nav-tabs > li > a:hover,.nav > li > a:focus{
+    color: #4c9cdf;
+    border: none;
+    background-color: white;
+  }
+  
+  .mainnav .nav-tabs > li.active > a,.nav-tabs > li.active > a:hover{
+    color: #4c9cdf ;
+    border:none;
+    border-bottom: 7px solid #4c9cdf;
+  }
+  /*.subnav li{
+    letter-spacing: 0;  
+    margin-left: 3%;
+  }
+  .subnav .nav{
+    background-color: white;
+  }
+  .subnav .nav-tabs > li > a{
+    color: #dd5138;
+    text-transform: uppercase;
+  }
+  .subnav .nav-tabs > li > a:hover,.nav > li > a:focus{
+    color: #dd5138;
+    border: none;
+    background-color: white;
+  }
+  
+  .subnav .nav-tabs > li.active > a,.nav-tabs > li.active > a:hover{
+    color: #dd5138 ;
+    border:none;
+    border-bottom: 7px solid #dd5138;
+  }
+  .schedule .media{
+    margin-top:1.2em;
+  }
+  .media-heading{
+    color: #4c9cdf;
+  }*/
 </style>
 <!-- Page Content -->
-<div class="container">
+<div class="container mainnav">
 
     <!-- Page Heading/Breadcrumbs -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">About
-                <small>MAA</small>
+            <h1 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>About</b>
+                <small style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>MAA</b></small>
             </h1>
-            <ol class="breadcrumb">
+            <!--<ol class="breadcrumb">
                 <li><%= link_to 'Home', root_path %>
                 </li>
                 <li class="active">About</li>
-            </ol>
+            </ol>-->
         </div>
     </div>
     <!-- /.row -->
 
     <!-- Intro Content -->
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 3%;">
+        <div class="row" style="margin-left: 22%;">
             <%= image_tag("6.jpg", alt: "MNNIT Alumni Association", class: "img-responsive img-hover") %>
             
         </div>
-        <div class="col-md-6">
-            <h2 style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>MNNIT Alumni Association.</b></h2>
-            <p>The world of alumni is the world of friends. Most people these days search friends on Facebook, Google Plus or Linked In. This social networking world is too personal in nature.</p>
-            <p> MNNIT Alumni Management System provides a neat way of finding co-learners, based on various search criterias. Since it provides a complete database search approach, it can even be used to send mass mailers, bulk SMS to everyone in the database or a group based on a specific search criteria.
-            This helps in organising alumni events and ensure maximum participation.</p>
-            <p> On request the database can also be extended to mark more flags, so that alumni of a specific zone, or some other custom criterias can be easily traced. The system is unique in terms of its multi filter and sort capability. It also provides a way to control the number of records shown on the page. Hope all of you will enjoy.</p>
+        <div class="row" style="margin-left: 20px; margin-right: 20px;">
+            <h2 class="text-center" style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>MNNIT Alumni Association.</b></h2>
+            <p>The MNNIT Alumni Association (MAA) is a registered body under Uttar Pradesh Society Registration Act (Amended), 1860 with the Registration No. 182/2014-2015. MAA is aimed towards the welfare of alumni as well as the institute. It is operated by the funds contributed / donated by alumni, membership fee and Sponsorships. MAA is working as a bridge between Alumni and the Institute. The main objectives of MAA are:</p>
+            <ol>
+                <li>To promote and encourage the friendly relations between all members of the Association.</li>
+                <li>To promote and encourage the members to take active interest in the activities and progress of the Institute in academics, research and innovation, and to do all they can to promote its welfare.</li>
+                <li>To create an esprit de corps amongst the Alumni of the Institute.</li>
+                <li>To help students of the Institute in their academic, research and innovative activities.</li>
+                <li>To work for social welfare activities within its capacity.</li>
+            </ol>
         </div>
     </div>
     <!-- /.row -->
 
+    <div style="margin-top: 6%">
+        
+    </div>
+
     <!-- Team Members -->
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#home" style="color: #DD5138;font-family: 'Dosis', sans-serif;">Executive Committee</a></li>
-      <li><a data-toggle="tab" href="#menu2" style="color: #DD5138;font-family: 'Dosis', sans-serif;">Development Team</a></li>
-      <li><a data-toggle="tab" href="#menu1" style="color: #DD5138;font-family: 'Dosis', sans-serif;">Mentors</a></li>
-
+      <li class="active"><a data-toggle="tab" href="#home" style="color: #4c9cdf;font-family: 'Dosis', sans-serif;">Executive Committee</a></li>
+      <li><a data-toggle="tab" href="#menu2" style="color: #4c9cdf;font-family: 'Dosis', sans-serif;">Development Team</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 3%;margin-top:1%">
       <div id="home" class="tab-pane fade in active">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h2 class="page-header" style="color: #016cc7;font-family: 'Dosis', sans-serif;"><b>Executive Committee</b></h2>
+                <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>Executive Committee</b></h2>
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3>Prof. P. Chakrabarti<br>
+                        <h3>Prof. S. K. Duggal<br>
                             <small>President (Patron) Ex-Officio, Director-MNNIT</small>
                         </h3>
-                        <p>Director's Residence, Staff Colony, MNNIT Allahabad<br>Phone no. : 0532-2271102 </p>
+                        <p>Director's Residence, Staff Colony, MNNIT Allahabad<br>Phone no. : 0532 2271102</p>
                         <ul class="list-inline">
                             <li><a href="mailto:director@mnnit.ac.in"><i class="fa fa-2x fa-envelope-square"></i></a>
                             </li>
@@ -98,7 +154,7 @@
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3>Ramesh Pandey 1992, Civil<br>
+                        <h3>Dr. Ramesh Pandey 1992, Civil<br>
                             <small>Secretary</small>
                         </h3>
                         <p>Assistant Professor, Applied Mechanics Deptt. MNNIT Allahabad <br> Phone no. : 9415351358</p>
@@ -199,7 +255,7 @@
                         <h3>Dr. Shailesh Kr Trivedi 1990, Mech<br>
                             <small>Member - III</small>
                         </h3>
-                        <p>Dy. Director (Tech Education)<br>Directorate of Training and Technical Education (DTTE) Government of Delhi Pitampura, Delhi<br> Phone no. : 9868470275 </p>
+                        <p>Dy. Director (Tech Education)<br>Directorate of Training and Technical Education Pitampura, Delhi<br> Phone no. : 9868470275 </p>
                         <ul class="list-inline">
                             <li><a href="mailto:shailesh_trivedis@yahoo.com"><i class="fa fa-2x fa-envelope-square"></i></a>
                             </li>
@@ -319,9 +375,37 @@
       <div id="menu2" class="tab-pane fade">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h2 class="page-header" style="color: #016cc7;font-family: 'Dosis', sans-serif;"><b>Development Team</b></h2>
+                <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif;"><b>Development Team</b></h2>
             </div>
-            <div class="col-md-4 col-md-offset-2 text-center">
+            <div class="col-md-4 col-md-offset-0 text-center">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Rajat Chakraborty (Mentor)<br>
+                            <small>Operations Lead</small>
+                        </h3>
+                        <p>ECE'16 MNNIT Allahabad<br> Phone no. : +91-9643563198 </p>
+                        <ul class="list-inline">
+                            <li><a href="mailto:codebreaker2009@gmail.com"><i class="fa fa-2x fa-envelope-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Prashant Baisla (Mentor)<br>
+                            <small>Tech Lead</small>
+                        </h3>
+                        <p>CSE'16 MNNIT Allahabad<br> Phone no. : +91-9565067200 </p>
+                        <ul class="list-inline">
+                            <li><a href="mailto:prashantbaisla@gmail.com "><i class="fa fa-2x fa-envelope-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-0 text-center">
                 <div class="thumbnail">
                     <div class="caption">
                         <h3>Gaurav Dhanuka<br>
@@ -349,9 +433,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">    
-            <div class="col-md-4 col-md-offset-2 text-center">
+          
+            <div class="col-md-4 col-md-offset-0 text-center">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Urjit Patel<br>
+                            <small>Designer</small>
+                        </h3>
+                        <p>Third Year, IT, MNNIT Allahabad</p>
+                        
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-4 col-md-offset-0 text-center">
                 <div class="thumbnail">
                     <div class="caption">
                         <h3>Harshit Shah<br>
@@ -374,17 +468,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-md-offset-2 text-center">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3>Urjit Patel<br>
-                            <small>Designer</small>
-                        </h3>
-                        <p>Third Year, IT, MNNIT Allahabad</p>
-                        
-                    </div>
-                </div>
-            </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
                     <div class="caption">
@@ -398,42 +481,6 @@
             </div>
         </div>
       </div>
-      <div id="menu1" class="tab-pane fade">
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <h2 class="page-header" style="color: #016cc7;font-family: 'Dosis', sans-serif;"><b>Mentors</b></h2>
-            </div>
-            <div class="col-md-4 col-md-offset-2 text-center">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3>Rajat Chakraborty<br>
-                            <small>Operations Lead</small>
-                        </h3>
-                        <p>ECE'16 MNNIT Allahabad<br> Phone no. : +91-9643563198 </p>
-                        <ul class="list-inline">
-                            <li><a href="mailto:codebreaker2009@gmail.com"><i class="fa fa-2x fa-envelope-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3>Prashant Baisla<br>
-                            <small>Tech Lead</small>
-                        </h3>
-                        <p>CSE'16 MNNIT Allahabad<br> Phone no. : +91-9565067200 </p>
-                        <ul class="list-inline">
-                            <li><a href="mailto:prashantbaisla@gmail.com "><i class="fa fa-2x fa-envelope-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      
     </div>
    
 </div>

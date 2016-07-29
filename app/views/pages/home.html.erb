@@ -21,34 +21,34 @@
             <div class="row me-row content-ct" style="margin-bottom:-35px;margin-top:-35px;">
               <h1 class="row-title"><span style="color: #DD5138; font-size: 30px;margin:0 ">Features...</span></h1>
               <div class="col-md-2 feature" style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-world" style="font-size:30px"></span>
+                <%= link_to '<span class="ti-world" style="font-size:30px"></span>'.html_safe, new_search_path %>
                 <h4><b>Alumni around the globe!</b></h4>
                 <p style="font-size:13px">The best opportunity to search alumni.</p>
               </div>
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-gift" style="font-size:30px"></span>
+                <%= link_to '<span class="ti-gift" style="font-size:30px"></span>'.html_safe, fund_path %>
                 <h4><b>Give back to College</b></h4>
                 <p style="font-size:13px">Help your college and juniors to progress & prosper. </p>
               </div>
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-id-badge" style="font-size:30px"></span>
-                <h4><b>Profiles</b></h4>
-                <p style="font-size:13px">View the profiles of all students and alumni.</p>
+                <%= link_to '<span class="ti-briefcase" style="font-size:30px"></span>'.html_safe, "#" %>
+                <h4><b>Jobs</b></h4>
+                <p style="font-size:13px">View the latest job openings.</p>
               </div>
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-announcement" style="font-size:30px"></span>
+                <%= link_to '<span class="ti-announcement" style="font-size:30px"></span>'.html_safe, "#" %>
                 <h4><b>News</b></h4>
                 <p style="font-size:13px">View the latest news related to the institute.</p>
               </div>
               
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-comment" style="font-size:30px"></span>
+                <%= link_to '<span class="ti-comment" style="font-size:30px"></span>'.html_safe, new_feedback_path %>
                 <h4><b>Feedback</b></h4>
                 <p style="font-size:13px">Your feedback is invaluable to us.</p>
               </div>
 
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <span class="ti-more" style="font-size:30px"></span>
+                <%= link_to '<span class="ti-more" style="font-size:30px"></span>'.html_safe, coming_soon_path %>
                 <h4><b>More to explore..</b></h4>
                 <p style="font-size:13px">More features yet to come.</p>
               </div>

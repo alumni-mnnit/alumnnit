@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :require_user , except: [:home, :about, :contact, :chapters, :downloads, :fund]
+  before_filter :require_user , except: [:home, :about, :contact, :chapters, :downloads, :fund, :coming_soon]
   before_filter :confirm_user, only:[:home, :about, :contact, :fund]
   def home
     @newses = News.order('created_at DESC').page params[:news]
@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   def about
   end
 
-  def comming_soon
+  def coming_soon
   end
 
   def fund

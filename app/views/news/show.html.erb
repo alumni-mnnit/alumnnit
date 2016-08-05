@@ -1,26 +1,16 @@
 <div class="container">
-<div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">News
-            </h1>
-            <ol class="breadcrumb">
-                <li><%= link_to 'Home', root_path %>
-                </li>
-                <li class="active">News</li>
-            </ol>
-        </div>
-</div>
+
 </div>
 <div style="height: auto; margin-top: 30px; ">
 	
 	<div class="text-center" style= "margin-bottom: 40px;">	
-		<h1 style="font-family:Dosis;color:grey;">
+		<h1 style="font-family:Dosis;color:black;">
 			<%= @news.title %>
 		</h1>
                 <span ><%=  @news.created_at.strftime("%B %-d, %Y") %></span>
 		<hr style="width:1100px">
 	</div>	
-		<div id="headline container" style="margin-left:40px;margin-right:40px;background-color: rgba(251, 206, 4, 0.28);box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7), -1px 0px 0px rgba(0, 0, 0, 0.09), 2px 0px 2px rgba(0, 0, 0, 0.09), 0px 2px 0px rgba(0, 0, 0, 0.12);padding-bottom:40px;position: relative;">
+		<div id="headline container" style="margin-left:40px;margin-right:40px;padding-bottom:40px;position: relative;background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);">
       <div style="position: absolute;z-index: 999;top: -8%;left: 48%;"><center><i class="fa-4x fa fa-paperclip" style="height:20px"></i></center></div> <!--<img src="images/headline.png" width="75" height="21" class="clearfloat" alt="" />-->
       <div class="row">
         <% if !@news.photo_file_name.nil? %>

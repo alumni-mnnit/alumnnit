@@ -65,7 +65,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            	<ul class="nav navbar-nav" style="margin-left: 2%">
+            	<ul class="nav navbar-nav" style="margin-left: 1%">
     			        <li style="margin-top: 10px; margin-left: -10px;"><%= link_to '<i class="fa fa-home fa-fw" aria-hidden="true"></i> Home'.html_safe, root_path %></li>
                   <li class="dropdown" style="margin-top: 10px; margin-left: -10px;">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -73,7 +73,6 @@
                       <span class="caret"></span>
                     </a>  
                     <ul class="dropdown-menu" role="menu">
-                      <li><%= link_to '<i class="fa fa-download fa-fw" aria-hidden="true"></i> Downloads'.html_safe, downloads_path %></li>
                         <li ><%= link_to '<i class="fa fa-book fa-fw" aria-hidden="true"></i> Chapters'.html_safe, chapters_path %></li>
                       <li ><%= link_to '<i class="fa fa-photo fa-fw" aria-hidden="true"></i> Gallery'.html_safe, 'http://mnnit.ac.in/index.php/institute/photo-gallery' %></li>
                     </ul>
@@ -92,7 +91,8 @@
                   <li style="margin-top: 10px;margin-left: -10px;"><%= link_to '<i class="fa fa-rocket fa-fw" aria-hidden="true"></i> Convention'.html_safe, conventions_path %></li>
                   <li style="margin-top: 10px;margin-left: -10px;"><%= link_to '<i class="fa fa-gift fa-fw" aria-hidden="true"></i> Give Back'.html_safe, fund_path %></li>
                   <li style="margin-top: 10px;margin-left: -10px;"><%= link_to '<i class="fa fa-search fa-fw" aria-hidden="true"></i>Search Alumni'.html_safe, new_search_path %></li>
-                  
+                  <li style="margin-top: 10px;margin-left: -10px;"><%= link_to '<i class="fa fa-download fa-fw" aria-hidden="true"></i>Downloads'.html_safe, downloads_path %></li>
+
     			    </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-right: -40px;">
               <% if user_signed_in? %>

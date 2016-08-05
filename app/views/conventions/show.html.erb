@@ -1,4 +1,22 @@
 <%= javascript_include_tag "jquery.countTo" %>
+<link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+    function doBlink() {
+ 
+    var blink = document.getElementById('typed1');
+    console.log("enfk");
+    blink.style.visibility = blink.style.visibility == "" ? "hidden" : "" ; 
+}
+
+function startBlink() {
+
+    setInterval("doBlink()",900) ;
+
+}
+setTimeout("startBlink()",800);
+  
+</script>
+
 <style type="text/css">
   .hero-header{
     padding: .2em;
@@ -8,13 +26,14 @@
   }
   .mainnav li{
     letter-spacing: 0;  
-    margin-left: 3%;
+    margin-left: 7%;
   }
   .mainnav > .nav{
     background-color: white;
   }
   .mainnav > .nav-tabs > li > a{
     color: #46535e;
+    font-weight: 500;
     text-transform: uppercase;
   }
   .mainnav > .nav-tabs > li > a:hover,.nav > li > a:focus{
@@ -223,6 +242,7 @@
                 <div class="box" >
                      <div class="content">
                             <h2 class="page-header" style="color: #DD5138;font-family: 'Dosis', sans-serif; margin-top: -30px;"><b>Registration Forms</b></h2>
+                            <p style="color: black"> For offline registration download the registration form, fill the details and then mail it to MNNIT Alumni Office as mentioned in the form. </p>
                       <div class="text-center">
                         <table border="1" style="color: black;" height="300px" width="100%">
                           <tr>
@@ -231,19 +251,19 @@
                             <th class="text-center">Link</th>
                           </tr>
                           <tr>
-                            <td>1</td>
+                            <!--<td>1</td>
                                   <td>Invitation Card</td>
                             <td><%= link_to "Download", "/assets/pdfs/invitation.pdf" %></td>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                                  <td>Silver Jubilee Form</td>
-                            <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for  Silver Jubilee batch only).pdf" %></td>
+                          <tr>-->
+                            <td>1</td>
+                                  <td>For Silver Jubilee Batch</td>
+                            <td><%= link_to "pdf", "/assets/REGISTRATION FORM (for  Silver Jubilee batch only).pdf" %><br><%= link_to "word", "/assets/REGISTRATION FORM (for  Silver Jubilee batch only).docx" %></td>
                           </tr>
                           <tr>
-                            <td>3</td>
-                                  <td>All Batches (except for Silver Jubilee)</td>
-                            <td><%= link_to "Download", "/assets/pdfs/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf" %></td>
+                            <td>2</td>
+                                  <td>For other Batches</td>
+                            <td><%= link_to "pdf", "/assets/REGISTRATION FORM (for all batches except Silver Jubilee batch).pdf" %><br><%= link_to "word", "/assets/REGISTRATION FORM (for all batches except Silver Jubilee batch).docx" %></td>
                           </tr>
                             
                         </table>
@@ -264,10 +284,10 @@
           <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#reg" aria-controls="home" role="tab" data-toggle="tab" class="taba">Register</a></li>
               <li role="presentation"><a href="#orgcom" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Organising Committee</a></li>  
-              <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Events</a></li>   
+              <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Program Highlights</a></li>   
               <!--<li role="presentation"><a href="#proudspons" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Proud Sponsors</a></li> -->
               <li role="presentation"><a href="#sponsorhip" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Proud Sponsors</a></li> 
-              <li role="presentation"><a href="#mem" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Memorables</a></li> 
+              <!--<li role="presentation"><a href="#mem" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Memorables</a></li> -->
           </ul>
 
 
@@ -275,26 +295,32 @@
 
                 <div role="tabpanel" class="tab-pane fade in active" id="reg">
                     <div class="container text-center">
-                      <p>Some buildings, Some playgrounds, Some friends, Some teachers,
-                      A river nearby, An ashram besides, A tea shop selling bread pakoras,
-                      A messy room, Birthday treats, A broken guitar, Poster of movie star,
+                      <p style="font-family: 'Tangerine', cursive;font-weight: 900;font-size: 30px;">Some buildings, Some playgrounds, Some friends, Some teachers,<br>
+                      A river nearby, An ashram besides, A tea shop selling bread pakoras,<br>
+                      A messy room, Birthday treats, A broken guitar, Poster of movie star,<br>
                       Oh! Tech. geniuses, unite again to live back the time and have a few
                       more samosas.</p>
                       <div class="text-center">
-                        <% if !current_user.convention_request.nil? %>
-                          <% if !(current_user.convention_request.convention == Convention.last) %>
-                            <%= link_to "Online", "#reg_form", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-red" %> OR
-                            <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openRegModal()", class: "btn btn-lg btn-yellow" %>
-                            
-                          <% else %> 
-                            <p style="margin-bottom: 20px;">You have already Registered.</p>
-                            <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%> 
-                          <% end %>
-                        <% else %> 
-                          <p style="margin-bottom: 20px;"> You can either register online or offline. For offline registration download the registration form and fill the details and then mail it to MNNIT. </p>
-                          <%= link_to "Online", new_convention_request_path, class: "btn btn-lg btn-red" %> OR
-                          <%= link_to "Offline", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" %>
-                        <% end %>
+                        <button data-toggle="collapse" data-target="#registercollapse" aria-expanded="false" aria-controls="registercollapse" class="btn btn-primary"><span id="typed1">Register for Alumni Convention-2016</span></button>
+                        <div class="collapse" id="registercollapse">
+                          
+                                <% if !current_user.convention_request.nil? %>
+                              <% if !(current_user.convention_request.convention == Convention.last) %>
+                                <%= link_to "Online", "#reg_form", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-red" %> OR
+                                <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openRegModal()", class: "btn btn-lg btn-yellow" %>
+                                
+                              <% else %> 
+                                <p style="margin-bottom: 20px;">You have already Registered.</p>
+                                <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%> 
+                              <% end %>
+                            <% else %> 
+                              <p style="margin-bottom: 20px;"></p>
+                              <%= link_to "Online", new_convention_request_path, class: "btn btn-lg btn-red" %> OR
+                              <%= link_to "Offline", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" %>
+                            <% end %>
+                          
+                        </div>
+                        
                       </div>
                     </div>
                 </div>
@@ -368,12 +394,29 @@
                     <div class="container" style="background-color: white">
                         <div class="row me-row schedule" id="schedule" style="padding: 0"> 
                           <h2 class="row-title content-ct">Program Highlights</h2>
-                          <p class="content-ct">Venue: M.P. Hall, MNNIT</p>
+                          <p class="content-ct" style="font-size: 18px;">Venue: M.P. Hall, MNNIT Allahabad</p>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                                <center><h3><b>Chief Guest</b></h3>
+                                <p><b>Er. R.N Misra, 1970 Civil<br>CMD, SJVN Limited<br>Shimla H.P</b></p>  
+                                </center>
+                            </div>
+                            <div class="col-md-6">
+                              <center><h3><b>Guest of Honor</b></h3>
+                                <p><b>Er. S.D Dubey, 1977 Mechanical <br>Chairperson, Central Electricity Authority<br>New Delhi</b></p>  
+                                </center>
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                          <center><p style="font-size: 24px;">Get Together of All Batches</p></center>
+                          </div>
                           <div class="col-md-12 subnav">
 
                             <ul class="nav nav-tabs" role="tablist">
-                              <li role="presentation" class="active"><a href="#day-1" aria-controls="home" role="tab" data-toggle="tab">Day 01 <small class="hidden-xs">(12<sup>th</sup>, November)</small></a></li>
-                              <li role="presentation"><a href="#day-2" aria-controls="profile" role="tab" data-toggle="tab">Day 02 <small class="hidden-xs">(13<sup>th</sup>, November)</small></a></li>
+                              <li role="presentation" class="active"><a href="#day-1" aria-controls="home" role="tab" data-toggle="tab">Day 01 <small class="hidden-xs">(12<sup>th</sup>, November, Saturday)</small></a></li>
+                              <li role="presentation"><a href="#day-2" aria-controls="profile" role="tab" data-toggle="tab">Day 02 <small class="hidden-xs">(13<sup>th</sup>, November, Sunday)</small></a></li>
                             </ul>
 
                   
@@ -384,9 +427,9 @@
                                     <div class="media">
                                       
                                       <div class="media-body">
-                                        <h4 class="media-heading">9:00 am to 10:00 am</h4>
-                                        <h5>Registration & Breakfast</h5>
-                                        <h5>Inaugural Function</h5>
+                                        <h4 class="media-heading">9:00 am to 11:00 am</h4>
+                                        <h5><span style="color:rgb(221, 81, 56)">09.00 AM</span> Physical Registration & Breakfast</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">10.00 AM</span> Inaugural Function</h5>
                                       </div>
                                     </div>
                                   </div>
@@ -395,11 +438,11 @@
                                       
                                       <div class="media-body">
                                         <h4 class="media-heading">11:00 am to 12:00 pm</h4>
-                                        <h5>Felicitation of Faculty members retired after Convention-2015</h5>
-                                        <h5>Felicitation of '1966 Golden Jubilee' Batch</h5>
-                                        <h5>felicitation of 'Dosti ke Pachas Varsh' Batch</h5>
-                                        <h5>felicitation of '1981 Coral Anniversary' Batch</h5>
-                                        <h5>Felicitation of '1991 Silver Jubilee' Batch</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">11.00 AM</span> Felicitation of Faculty members retired after Convention-2015</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">11.10 AM</span> Felicitation of '1966 Golden Jubilee' Batch</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">11.20 AM</span> Felicitation of 'Dosti ke Pachas Varsh' Batch</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">11.30 AM</span> Felicitation of '1981 Coral Anniversary' Batch</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">11.50 AM</span> Felicitation of '1991 Silver Jubilee' Batch</h5>
                                       </div>
                                     </div>
                                   </div>
@@ -407,10 +450,10 @@
                                     <div class="media">
                                       
                                       <div class="media-body">
-                                        <h4 class="media-heading">12:30pm to 02:30pm</h4>
-                                        <h5>Annual general meeting/ parallel session for spouse</h5>
-                                        <h5>Alumni interaction with Heads/ Deans/ Key Office Bearers</h5>
-                                        <h5>Lunch (1 :30 pm)</h5>
+                                        <h4 class="media-heading">12:30pm to 03:00pm</h4>
+                                        <h5><span style="color:rgb(221, 81, 56)">12.30 PM</span> Annual general meeting/ parallel session for spouse</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">01.00 PM</span> Alumni interaction with Heads/ Deans/ Key Office Bearers</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">01.30 PM</span> Lunch</h5>
                                       </div>
                                     </div>
                                   </div>
@@ -418,12 +461,11 @@
                                     <div class="media">
                                       
                                       <div class="media-body">
-                                        <h4 class="media-heading">4:10pm to 08:30pm</h4>
-                                        <h5>Alumni Interaction with departments</h5>
-                                        <h5>Alumni Interaction with students</h5>
-                                        <h5>tea / snacks</h5>
-                                        <h5>cultural program</h5>
-                                        <h5>dinner</h5>
+                                        <h4 class="media-heading">3:00pm to 08:30pm</h4>
+                                        <h5><span style="color:rgb(221, 81, 56)">03.00 PM</span> Alumni Interaction with students</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">04.00 PM</span> tea / snacks</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">06.30 PM</span> cultural program</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">08.30 PM</span> dinner</h5>
                                       </div>
                                     </div>
                                   </div>
@@ -436,8 +478,8 @@
                                       
                                       <div class="media-body">
                                         <h4 class="media-heading">8:30am to 9:30 am</h4>
-                                        <h5>Assembly at sac, breakfast in hostel mess</h5>
-                                        <h5>visit to hostel</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">08.30 AM</span> Assembly at SAC, breakfast in hostel mess</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">09.30 AM</span> Visit to hostel/Departments</h5>
                                       </div>
                                     </div>
                                   </div>
@@ -446,8 +488,8 @@
                                       
                                       <div class="media-body">
                                         <h4 class="media-heading">10:30am to 01:00pm</h4>
-                                        <h5>sangam visit and local tour</h5>
-                                        <h5>lunch</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">10.30 AM</span> sangam visit and local tour</h5>
+                                        <h5><span style="color:rgb(221, 81, 56)">01.00 PM</span> lunch</h5>
                                       </div>
                                     </div>
                                   </div>

@@ -17,10 +17,6 @@
             <%= f.text_field :lname, class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.text_field :email, class: "form-control" %>
-          </div>
-          <div class="form-group">
             <%= f.label :degree %><br />
             <%= f.select :degree, options_for_select(@degrees),include_blank: true, class: "form-control" %>
           </div>
@@ -29,10 +25,14 @@
             <%= f.select :branch,options_for_select([['Bio-Tech.','BT'], ['Civil Engg.','CE'], ['Chemical Engg.','CHE'], ['Computer Science','CS'], ['Mechanical Engg.','ME'], ['Production and Industrial Engg.','PE'], ['Electrical Engg.','EE'], ['Electronics and Communication Engg.','ECE'], ['Information Tech.','IT'], ['Applied Mechanics','AM'], ['Bio Med. Engg.','BM'], ['Communication Sys.','COM'], ['Computer Aided Design and Manufacturing','CAD'], ['Control and Instrumentation/Power Sys.','CIS'], ['Control and Instrumentation (Part time)','CISP'], ['Design(ME)','DE'], ['Digital Sys.','DS'], ['Environmental Engg.','ENV'], ['Fluids Engg.','FE'], ['Geotechnical Engg.','GE'], ['GIS and Remote Sensing','GIS'], ['Information Security','IS'], ['Material Sci. and Engg.','MSE'], ['Micro-electronics and VLSI Design','MEV'], ['Power Electronics and ASIC Design (Part time)','PEDP'], ['Power Electronics and ASIC Design','PED'], ['Product Design and Development','PDD'], ['Bio-Tech. Dept.','BTD'], ['Chemistry Dept.','CHD'], ['Electrical Engg. Dept.','EED'], ['Electronics and Communication Dept.','ECD'], ['Humanities and Social Sci.','HSS'], ['Management Studies','MS'], ['Mathematics Dept.','MD'], ['Mechanical Engg. Dept.','MED'], ['Civil Engg. Dept.','CED'], ['Computer Sci. and Engg. Dept.','CSD'], ['Applied Mechanics Dept.','AMD']]),include_blank: true, class: "form-control" %>
           </div>
           <div class=" form-group">
-            <%= f.label :year_of_passing, "Year of Passing" %><br />
+            <%= f.label :year_of_passing, "Year of Degree" %><br />
             <div class='input-group date' id='datetimepicker2'>
-              <%= f.select :year_of_passing, (1940..2106), include_blank: true,  class: "form-control"  %>
+              <%= f.select :year_of_passing, (1965..2016), include_blank: true,  class: "form-control"  %>
             </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :country %><br />
+            <%= f.text_field :country, class: "form-control" %>
           </div> 
           <div class="form-group">
             <%= f.label :city, "City" %><br />

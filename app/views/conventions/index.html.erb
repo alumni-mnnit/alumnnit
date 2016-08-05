@@ -3,10 +3,34 @@
 <link href='https://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
 
 <script>
+
+
+  
+
+  function doBlink() {
+ 
+    var blink = document.getElementById('typed5');
+    if(blink)
+    blink.style.visibility = blink.style.visibility == "" ? "hidden" : "" ; 
+ 
+
+    blink = document.getElementById('typed7');
+    if(blink)
+    blink.style.visibility = blink.style.visibility == "" ? "hidden" : "" ; 
+}
+
+function startBlink() {
+
+    setInterval("doBlink()",900) ;
+
+}
+setTimeout("startBlink()",800);
+
+
   $(function(){
-      $("#typed").typed({
+      $("#typed6").typed({
             // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
-            stringsElement: $('#typed-strings'),
+            stringsElement: $('#typed-strings6'),
             typeSpeed: 200,
             backDelay: 1500,
             loop: false,
@@ -25,6 +49,54 @@
 
 
 
+
+ $(function(){
+      $("#typed7").typed({
+            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+            stringsElement: $('#typed-strings7'),
+            typeSpeed: 200,
+            backDelay: 1500,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
+    });
+
+
+
+
+
+ $(function(){
+      $("#typed8").typed({
+            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+            stringsElement: $('#typed-strings8'),
+            typeSpeed: 200,
+            backDelay: 1500,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
+    });
+
+
+
+
     $(function(){
       $("#typed1").typed({
             // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
@@ -39,7 +111,7 @@
             resetCallback: function() { newTyped(); }
         });
 
-        $(".reset").click(function(){
+        $(".reset").click(function(){ped
             $("#typed").typed('reset');
         });
 
@@ -69,9 +141,9 @@
 
 
     $(function(){
-      $("#typed3").typed({
+      $("#typed").typed({
             // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
-            stringsElement: $('#typed-strings3'),
+            stringsElement: $('#typed-strings'),
             typeSpeed: 1,
             backDelay: 1500,
             loop: false,
@@ -88,6 +160,27 @@
 
     });
 
+
+
+$(function(){
+      $("#typed5").typed({
+            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+            stringsElement: $('#typed-strings5'),
+            typeSpeed: 1,
+            backDelay: 1500,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
+    });
 
     $(function(){
       $("#typed4").typed({
@@ -204,11 +297,11 @@
                              <div class="type-wrap">
                                     <div class="col-sm-12" style="margin: 0;padding: 0;"> 
                                         <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
-                                            <div id="typed-strings3">
+                                            <div id="typed-strings1">
                                             <p>Connect <strong>Today</strong> Transform <strong>Tommorrow</strong></p>
                                             <!--<p><strong>CONVENTION</strong></p>-->
                                             </div>
-                                            <span id="typed3" class="quotes" style="white-space:pre;"></span>
+                                            <span id="typed1" class="quotes" style="white-space:pre;"></span>
                                         </div>
                                     </div>
                             </div>
@@ -217,11 +310,11 @@
                             <div class="type-wrap">
                                     <div class="col-sm-12" style="margin: 0;padding: 0;"> 
                                         <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
-                                            <div id="typed-strings4">
+                                            <div id="typed-strings2">
                                             <p>Back to the <strong>Past</strong> through <strong>Future</strong></p>
                                             <!--<p><strong>CONVENTION</strong></p>-->
                                             </div> 
-                                            <span id="typed4" class="quotes" style="white-space:pre;"></span>
+                                            <span id="typed2" class="quotes" style="white-space:pre;"></span>
                                         </div>
                                     </div>
                             </div>
@@ -253,29 +346,29 @@
                         <% if user_signed_in? and current_user.is_admin == true %>
                             <div class="col-sm-4 col-sm-offset-1" style="margin-left: -1%;">
                                  
-                                <div id="typed-strings1">
+                                <div id="typed-strings4">
                                     <p><span>Create Convention</span></p>
                                 </div>
-                                <center><a href="<%= new_convention_path %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
+                                <center><a href="<%= new_convention_path %>" class="btn btn-lg but"><span id="typed4" style="white-space:pre;"></span></a></center>
                             </div>
                             <% if Convention.any? %>
                                 <div class="col-sm-4 col-sm-offset-4 ">
                                      
-                                    <div id="typed-strings2">
+                                    <div id="typed-strings5">
                                         <p>Convention <span><%= Convention.last.year.year %></span></p>
                                     </div>
-                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed2" style="white-space:pre;"></span></a></center>
+                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed5" style="white-space:pre;"></span></a></center>
                                 </div>
                             <% else %>
                                 <div class="col-sm-2 col-sm-offset-4">
                                     <div class="type-wrap">
                                         <div class="col-sm-12" style="margin: 0;padding: 0;"> 
                                             <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
-                                                <div id="typed-strings2">
+                                                <div id="typed-strings6">
                                                 <p>Never Forget Your <strong>Roots</strong></p>
                                                 <!--<p><strong>CONVENTION</strong></p>-->
                                                 </div>
-                                                <span id="typed2" class="quotes" style="white-space:pre;"></span>
+                                                <span id="typed6" class="quotes" style="white-space:pre;"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -286,22 +379,22 @@
                             <% if Convention.any? %>
                                 <div class="col-sm-4 col-sm-offset-1" style="margin-left: -7%;">
                                      
-                                    <div id="typed-strings1">
+                                    <div id="typed-strings7">
                                         <p><span>Convention <%= Convention.last.year.year %></span></p>
                                     </div>
-                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed1" style="white-space:pre;"></span></a></center>
+                                    <center><a href="<%= convention_path(Convention.last.id) %>" class="btn btn-lg but"><span id="typed7" style="white-space:pre;"></span></a></center>
                                 </div> 
                             <% end %>     
 
                             <div class="col-sm-2 col-sm-offset-6">
                                 <div class="type-wrap">
                                     <div class="col-sm-12" style="margin: 0;padding: 0;"> 
-                                        <div class="col-sm-9" style="margin: 0;padding: 0;padding-left: 0%;">
-                                            <div id="typed-strings2">
+                                        <div class="col-sm-8" style="margin: 0;padding: 0;padding-left: 0%;">
+                                            <div id="typed-strings8">
                                             <p>Never Forget Your <strong>Roots</strong></p>
                                             <!--<p><strong>CONVENTION</strong></p>-->
                                             </div>
-                                            <span id="typed2" class="quotes" style="white-space:pre;"></span>
+                                            <span id="typed8" class="quotes" style="white-space:pre;"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -316,7 +409,7 @@
     <div class="container mainnav" >
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#home" style="color: #016cc7;font-family: 'Dosis', sans-serif;">About Convention</a></li>
-          <li><a data-toggle="tab" href="#menu2" style="color: #016cc7;font-family: 'Dosis', sans-serif;">Past Convention</a></li>
+          <li><a data-toggle="tab" href="#menu2" style="color: #016cc7;font-family: 'Dosis', sans-serif;">Past Conventions</a></li>
 
         </ul>
         <div class="tab-content">
@@ -1811,4 +1904,13 @@
         </div>
     </div>
 </div>
+
+
+<script type="javascript">
+
+
+
+
+
+</script>
                 <!--MODAL BODY ENDING -->

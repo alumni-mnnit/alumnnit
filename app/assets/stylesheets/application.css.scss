@@ -21,7 +21,7 @@
 @import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
-
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,500);
 
 
 html,
@@ -36,9 +36,10 @@ body {
     overflow-x: hidden;
     
 
-background: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSWcGr8A_AyqJUxyWdb3TaWzWAiLOhFqKlPCn22ST67fMAAsk_2FA");
+/*background: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSWcGr8A_AyqJUxyWdb3TaWzWAiLOhFqKlPCn22ST67fMAAsk_2FA");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
+  background-image:url('background.jpg');
   background-attachment: fixed;
         
 }

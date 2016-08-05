@@ -31,7 +31,7 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date of birth: </strong></span> <%= @user.date_of_birth if @user.date_of_birth %>
                 <%= "Not Set" if !@user.date_of_birth %>
                 </li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no if @user.phn_no %>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no.to_i if @user.phn_no %>
                   <%= "Not Set" if !@user.phn_no %>
                 </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address: </strong></span><%= "#{@user.city} " if @user.city %> <%=  "#{@user.country}" if @user.country %>
@@ -40,10 +40,10 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= @user.created_at.to_date %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.last_sign_in_at.to_date %></li>
                 <li class="list-group-item text-muted" contenteditable="false"><h1 class="text-center">Academics Info</h1></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of passing: </strong></span> <%= @user.year_of_passing.year if @user.year_of_passing %>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Year of Degree: </strong></span> <%= @user.year_of_passing.year if @user.year_of_passing %>
                   <%= "Not Set" if @user.year_of_passing.blank? %>
                 </li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Program</strong></span> <%= @user.degree if @user.degree %>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Programme</strong></span> <%= @user.degree if @user.degree %>
                 <%= "Not Set" if @user.degree.blank? %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Branch</strong></span> <%= @user.branch if @user.branch%><%= "Not Set" if @user.branch.blank? %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role</strong></span> <%= @user.role.humanize if @user.role %>

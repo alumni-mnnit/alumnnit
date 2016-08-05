@@ -4,7 +4,7 @@
         <!-- Start: Header -->
         <div class="row hero-header fill" style="background-image:url(<%= asset_path 'building-1.jpg' %>);">
           <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
-            <h1 ><span style="color:#DD5138">पुरा छात्र संगठन<br>MNNIT Alumni Association</span></h1>
+            <h1 ><span style="color:rgb(252, 217, 59)">पुरा छात्र संगठन<br>MNNIT Alumni Association</span></h1>
             <!--<h3 style="font-size: 35px ">पुरा छात्र संगठन</h3>-->
                 
             
@@ -31,12 +31,12 @@
                 <p style="font-size:13px">Help your college and juniors to progress & prosper. </p>
               </div>
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <%= link_to '<span class="ti-briefcase" style="font-size:30px"></span>'.html_safe, "#" %>
+                <%= link_to '<span class="ti-briefcase" style="font-size:30px"></span>'.html_safe, "#jobs" %>
                 <h4><b>Jobs</b></h4>
                 <p style="font-size:13px">View the latest job openings.</p>
               </div>
               <div class="col-md-2 feature"  style="margin-bottom:-15px;margin-top:-15px;">
-                <%= link_to '<span class="ti-announcement" style="font-size:30px"></span>'.html_safe, "#" %>
+                <%= link_to '<span class="ti-announcement" style="font-size:30px"></span>'.html_safe, "#news" %>
                 <h4><b>News</b></h4>
                 <p style="font-size:13px">View the latest news related to the institute.</p>
               </div>
@@ -67,7 +67,7 @@
                 <div id="t3-content" class="t3-content col-xs-12 col-md-12 " style="margin-top: 20px; background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;">
                 <!-- CONTENT MASS TOP -->
                         <div class="content-mass-top ">
-                            <div class="t3-module module " id="Mod98">
+                            <div class="t3-module module " id="news">
                                 <div class="module-inner">
                                     <h3 class="module-title "><span><span class="fa fa-newspaper-o"></span> News and Announcements</span><hr></h3>
                                     <div class="module-ct">
@@ -151,7 +151,7 @@
                     </div>
                 </div>-->
                 <div class="t3-sidebar col-xs-12 col-sm-12" style="background: white;box-shadow: 0 0 3px rgba(0,0,0,0.25),-1px 0 0 rgba(0,0,0,0.09),2px 0 2px rgba(0,0,0,0.09),0 2px 0 rgba(0,0,0,0.12);padding: 20px;margin-top: 20px;">
-                    <div class="t3-module module search-course " id="Mod119">
+                    <div class="t3-module module search-course " id="jobs">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
                             <div class="col-sm-12">
@@ -167,6 +167,7 @@
                                         <%= render 'jobs/index' %>
                                     </div>
                                 <% end %>   
+                                <p>To post a Job/Internship, contact administration team.<a href="mailto:mnnitalumni@mnnit.ac.in">email us</a>.
                                 <% if user_signed_in? %>
                                     <div class="text-center">
                                         <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>

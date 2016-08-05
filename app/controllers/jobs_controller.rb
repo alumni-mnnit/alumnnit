@@ -44,6 +44,9 @@ class JobsController < ApplicationController
       flash[:alert] = "You need to Login/Signup to enjoy all facilities."
       redirect_to "/" and return
     end
+    if current_user.is_active == false
+      redirect_to "/" and return
+    end
   end
 
   def job_params

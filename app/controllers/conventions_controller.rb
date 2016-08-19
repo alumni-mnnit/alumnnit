@@ -8,10 +8,10 @@ class ConventionsController < ApplicationController
 	end
 
 	def show
-
+		@registered_users = ConventionRequest.where(status: true).count
 	end
 
-	def new
+	def new 
 		@convention = Convention.new
 	end
 

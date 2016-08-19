@@ -2,14 +2,10 @@
 <% if !user_signed_in? %>
     <div class="container-fluid" style="margin-top: -20px;">
         <!-- Start: Header -->
-        <div class="row hero-header fill" style="background-image:url(<%= asset_path 'building-1.jpg' %>);">
-          <div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
+        <div class="row hero-header fill" style="background-image:url(<%= asset_path 'head.png' %>);min-height: 382px;">
+          <!--<div class="col-md-12 text-center " style="margin-top: -80px; padding-top: -50px;">
             <h1 ><span style="color:rgb(252, 217, 59)">पुरा छात्र संगठन<br>MNNIT Alumni Association</span></h1>
-            <!--<h3 style="font-size: 35px ">पुरा छात्र संगठन</h3>-->
-                
-            
-          </div>
-          
+          </div>-->
         </div>
         
         <!-- End: Header -->
@@ -154,6 +150,21 @@
                     <div class="t3-module module search-course " id="jobs">
                         <div class="module-inner">
                             <h3 class="module-title "><span><span class="fa fa-briefcase"></span> Jobs and Internships<hr></span></h3>
+                            <% if !user_signed_in? or current_user.is_active == false %>
+                                <div class="col-sm-12" style="background-image: url(<%= asset_path 'jobbg.png' %>);height: 200px;background-size: cover">
+                                    <div class="col-sm-12" style="margin-top:10%;">
+                                        <center><h2 style="color: #DD5138;font-weight: bolder;">
+                                            <%if !user_signed_in? %>
+                                                Login to view Job Postings.
+                                            <% else %>
+                                                <% if current_user.is_active==false and user_signed_in?%>
+                                                    Activate your account to view Job postings.
+                                                <%end%>
+                                            <%end%>
+                                        </h2></center>
+                                    </div>
+                                </div>
+                            <%else%>
                             <div class="col-sm-12">
 
                                 <% if @jobs.empty? %>
@@ -172,8 +183,11 @@
                                     <div class="text-center">
                                         <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
                                     </div>
-                                <% end %>       
+                                <%end%>
+                                
+                                     
                             </div>
+                            <% end %>
                         </div>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160805043307) do
     t.string   "designation"
     t.text     "address"
     t.string   "is_attending"
-    t.text     "payment"
+    t.string   "payment"
     t.integer  "accompanions"
   end
 

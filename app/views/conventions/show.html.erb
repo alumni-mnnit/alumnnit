@@ -26,7 +26,7 @@ setTimeout("startBlink()",800);
   }
   .mainnav li{
     letter-spacing: 0;  
-    margin-left: 7%;
+    margin-left: 5%;
   }
   .mainnav > .nav{
     background-color: white;
@@ -219,6 +219,18 @@ setTimeout("startBlink()",800);
   font-weight: 700;
   font-size: 24px;   
 }
+.list{
+  padding-left: 5%;
+}
+.list ul{
+  list-style: inherit;
+}
+.list h3{
+  color: #DD5138;
+  font-family: 'Dosis', sans-serif; 
+  font-size: 30px;
+  font-weight: bolder;
+}
 </style>
 
 
@@ -230,7 +242,7 @@ setTimeout("startBlink()",800);
     <h3 style="color: yellow; text-shadow: 4px 4px 4px black;">Get connected back to Alma Mater.</h3>
     <h3 style="color: blue; font-weight: 600 !important; font-size: 30px;text-shadow: 2px 2px 2px black;"> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: blue">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h3>
     
-    <div class="col-md-6 col-md-offset-3"><div class="col-md-5" ><span class="timer" data-from="0" data-to="20123" data-speed="2000" style="font-size: 35px;color: #fcd93b;padding-left: 45%;font-weight: 700;text-shadow: 4px 4px 4px black;"></span></div><div class="col-md-7" style="vertical-align: center;"><p class="pfix" style="text-shadow: 2px 2px 2px black;margin-left:-55%; color: blue;">Alumni Registered</p></div></div>
+    <div class="col-md-6 col-md-offset-3"><div class="col-md-5" ><span class="timer" data-from="0" data-to="<%= @registered_users %>" data-speed="2000" style="font-size: 35px;color: #fcd93b;padding-left: 45%;font-weight: 700;text-shadow: 4px 4px 4px black;"></span></div><div class="col-md-7" style="vertical-align: center;"><p class="pfix" style="text-shadow: 2px 2px 2px black;margin-left:-55%; color: blue;">Alumni Registered</p></div></div>
   </div>
   <div class="modal fade " id="forms">
     <div class="modal-dialog login animated">
@@ -287,6 +299,7 @@ setTimeout("startBlink()",800);
               <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Program Highlights</a></li>   
               <!--<li role="presentation"><a href="#proudspons" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Proud Sponsors</a></li> -->
               <li role="presentation"><a href="#sponsorhip" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Proud Sponsors</a></li> 
+              <li role="presentation"><a href="#invitation" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Invitation</a></li>
               <!--<li role="presentation"><a href="#mem" aria-controls="profile" role="tab" data-toggle="tab" class="taba">Memorables</a></li> -->
           </ul>
 
@@ -309,8 +322,10 @@ setTimeout("startBlink()",800);
                                 <%= link_to "Online", "#reg_form", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-red" %> OR
                                 <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openRegModal()", class: "btn btn-lg btn-yellow" %>
                                 
-                              <% else %> 
-                                <p style="margin-bottom: 20px;">You have already Registered.</p>
+                              <% elsif current_user.convention_request.convention == Convention.last and current_user.convention_request.status == true %> 
+                                <p style="margin-bottom: 20px;"> Thank you! You have registered for the Convention.</p>
+                              <% else %>
+                                <p style="margin-bottom: 20px;"> Your Payment Id : (<%= current_user.convention_request.payment %>) is being verified.</p>
                                 <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%> 
                               <% end %>
                             <% else %> 
@@ -327,7 +342,47 @@ setTimeout("startBlink()",800);
 
                 <div role="tabpanel" class="tab-pane fade tbl" id="orgcom">
                     <div class="container tbl" style="background-color: white"> 
-                           <div class="tabbable tabs-left">
+                           <div class="col-md-6 list">
+                             <h3>Patron</h3>
+                               <ul>
+                                  <li><p>Prof. S.K. Duggal</p></li>
+                               </ul>
+                                 <h3>Vice President</h3>
+                               <ul>
+                                <li><p>Dr. Avanish Kumar Dubey</p></li>
+                                <li><p>Er. Anurag Srivastav</p></li>
+                               </ul>
+                               <h3>Secretary</h3>
+                               <ul>
+                                <li><p>Dr. Ramesh Pandey (Secretary)</p></li>
+                                <li><p>Dr. Mohd. Siraj Alam (Joint Secretary-I)</p></li>
+                                <li><p>Rajesh Kumar Singh (Joint Secretary-II)</p></li>
+                               </ul>
+                               <h3>Treasurer</h3>
+                               <ul>
+                                <li><p>Dr. Praveen Kumar Agarwal</p></li>
+                               </ul>
+                               <h3>Dean (R G & IA) Ex-Officio</h3>
+                               <ul>
+                                <li><p>Prof. N.D Pandey</p></li>
+                               </ul>
+                          </div>
+                          <div class="col-md-6 list">
+                              <h3>Members</h3>
+                               <ul>
+                                <li><p>Er. H.P Shukla</p></li>
+                                <li><p>Er. G.P Singh</p></li>
+                                <li><p>Dr. Shailesh Kumar Trivedi</p></li>
+                                <li><p>Er. Rajendra Pratap Giri</p></li>
+                                <li><p>Prof. R.N Sahi</p></li>
+                                <li><p>Er. R.C Maurya</p></li>
+                                <li><p>Er. Y.K Gupta</p></li>
+                                <li><p>Er. J.P Agarwal</p></li>
+                                <li><p>Er. S.C Chugh</p></li>
+                                <li><p>Er. Ravindra Kumar Pandey</p></li>
+                               </ul>
+                          </div>
+                           <!--<div class="tabbable tabs-left">
                             <ul class="nav nav-tabs">
                               <li class="active"><a href="#a" data-toggle="tab">Patron</a></li>
                               <li><a href="#b" data-toggle="tab">Vice President</a></li>
@@ -386,7 +441,7 @@ setTimeout("startBlink()",800);
                                </ul>
                              </div>
                             </div>
-                          </div>
+                          </div>-->
                     </div>
                 </div>  
 
@@ -525,9 +580,14 @@ setTimeout("startBlink()",800);
                   </div>
                 </div> 
 
-                <div role="tabpanel" class="tab-pane fade" id="mem">
-          
-                </div> 
+               <div role="tabpanel" class="tab-pane fade" id="invitation">
+                  <div class="container">
+                    
+                    <%= image_tag 'inv2.jpg', style: "",class:"img-responsive "%>
+                    <%= image_tag 'inv1.jpg', style: "",class:"img-responsive "%>
+                    <div style="margin-top: 2%;"><center><%= link_to "Download Invitation", "/assets/invitation.pdf",class:"btn btn-lg btn-red" %></center></div>
+                  </div>
+                </div>  
 
             </div>
 

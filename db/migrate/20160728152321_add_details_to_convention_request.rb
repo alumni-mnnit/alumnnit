@@ -7,7 +7,7 @@ class AddDetailsToConventionRequest < ActiveRecord::Migration
     add_column :convention_requests, :designation, :string  
     add_column :convention_requests, :address, :text 
     add_column :convention_requests, :is_attending, :string  
-	  add_column :convention_requests, :payment, :text
+	  add_column :convention_requests, :payment, :string
     add_column :convention_requests, :accompanions, :integer
   end
 end

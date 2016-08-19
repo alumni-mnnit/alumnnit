@@ -1,7 +1,8 @@
 class ConventionRequestsController < ApplicationController
 	before_action :require_user
 	before_action :check_user
-
+	#api = Instamojo::API.new("65fced5aa4dd50eeaf57f7679c1520a4", "a1c5e4cf827e058ef2a938b6bd41bbd7", "https://test.instamojo.com/api/1.1/")
+	#client = api.client
 	def new
 		@convention_request = current_user.build_convention_request
 	end
@@ -10,13 +11,30 @@ class ConventionRequestsController < ApplicationController
 		@convention_request = current_user.build_convention_request(convention_params)
 		@convention_request.convention = Convention.last
 		if @convention_request.save
-			@convention_request.convention = Convention.last
-			flash[:notice] = "You are successfully registered for this Convention."
-			redirect_to conventions_payment_path
+			#@convention_request.convention = Convention.last
+			@response = INSTA_CLIENT.payment_detail(@convention_request.payment).to_h
+			if @response["status"] == "Credit" and @response["buyer_email"] == current_user.email
+				#@convention_request.update status: true
+				flash[:notice] = "Thank You very much! You are successfully registered."
+			else
+				flash[:notice] = "Your registraion request for the Convention-#{Convention.last.year.year} is received. It is being processed."
+			end
+			redirect_to convention_path(Convention.last.id)
 		else
 			render 'new'
 		end
 	end
+	
+	#	def create_payment_sj
+	#		@response = INSTA_CLIENT.payment_request({amount: 5000.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: current_user.email, redirect_url: "#{convention_path(Convention.last.id)}"})
+	#		redirect_to @response.longurl
+	#	end
+
+	#	def create_payment_ot
+	#		@response = INSTA_CLIENT.payment_request({amount: 1500.00, purpose: 'Convention Registration', currency: 'INR',send_email: true, email: current_user.email, redirect_url: "#{convention_path(Convention.last.id)}"})
+	#		redirect_to @response.longurl
+	#	end
+	
 
 	private
 		def require_user

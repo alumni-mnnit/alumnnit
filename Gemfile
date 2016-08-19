@@ -28,7 +28,7 @@ gem "rest-client"
 gem 'mysql2', '~> 0.3.18'
 gem 'kaminari'
 gem "cancancan"
-
+gem 'Instamojo-rb', '~> 1.1'
 group :development do
   gem 'web-console', '~> 2.0'
 

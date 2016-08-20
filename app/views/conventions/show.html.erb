@@ -279,6 +279,8 @@ setTimeout("startBlink()",800);
                           </tr>
                             
                         </table>
+                        <br>
+                        <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%>     
                       </div>
                      </div>
                 </div>
@@ -326,7 +328,7 @@ setTimeout("startBlink()",800);
                                 <p style="margin-bottom: 20px;"> Thank you! You have registered for the Convention.</p>
                               <% else %>
                                 <p style="margin-bottom: 20px;"> Your Payment Id : (<%= current_user.convention_request.payment %>) is being verified.</p>
-                                <%= link_to "Payment", conventions_payment_path, class: "btn btn-lg btn-yellow "%> 
+                                
                               <% end %>
                             <% else %> 
                               <p style="margin-bottom: 20px;"></p>

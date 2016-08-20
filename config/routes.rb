@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   get '/idcard/register' => 'id_card#register'
   get '/idcard/payment' => 'id_card#id_payment'
   get '/conventions/payment' => 'conventions#convention_payment'
-  #get '/create_payment_sj' => 'convention_request#create_payment_sj'
-  #get '/create_payment_ot' => 'convention_request#create_payment_ot'
+  get '/create_payment_sj' => 'convention_requests#create_payment_sj'
+  #post '/create_payment_ot' => 'convention_request#create_payment_ot'
   	resources :requests 
 
   	resources :contacts

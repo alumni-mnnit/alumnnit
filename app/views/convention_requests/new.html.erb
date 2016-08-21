@@ -5,7 +5,7 @@
           <div class="modal-content">
             <div class="modal-header">
                     
-                  <h2 class="modal-title text-center">Register</h2>
+                  <h2 class="modal-title text-center" style="color:#dd5138">Register</h2>
             </div>
             <div class="modal-body">  
               <div class="box">
@@ -32,12 +32,12 @@
                           </div>
                         <% end %> 
                          
-                        <br>
+                       
                         <div>
                         <% if @payment_id.nil? %>
                           <div class="text-center">
-                            <p>Please pay the required fees for registering to the Convention.</p>
-                            <br>
+                            <p>Please pay the required fees for registering to the Convention.<br>You will have to fill the form after payment<br></p>
+                      
                           
                             <% if current_user.year_of_passing.year == Convention.last.year.year - 25 %>
                               <!--<a href="https://test.instamojo.com/@prodroid/lf2d2ffb6b6a2459fa296ccef604ada37/" rel="im-checkout" data-behaviour="link" data-style="flat" data-text="Silver Jubilee Payment"></a>-->
@@ -52,14 +52,14 @@
                         <% else %>  
                           <p> You have successfully completed the transaction. Please wait 3-4 working days for confirmation mail from the association.</p>
                           <div class="form-group">
-                            <%= "Payment ID" %><br />
-                              <p><%= @payment_id %></p>
+                            <div class="col-md-12"><center><h3 style="color:green"><%= "Payment ID" %></h3></center></div>
+                              <div class="col-md-12"><center><p><%= @payment_id %></p></center></div>
                           </div> 
                           <br>  
                         <% end %>  
                         </div> 
 
-                        <br> 
+
                         <% if !@payment_id.nil? %>
                           <div class="form-group">
                             <%= f.label :name %><br />

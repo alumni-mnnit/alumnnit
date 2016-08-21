@@ -32,14 +32,15 @@ class ConventionRequestsController < ApplicationController
 	
 		def create_payment_sj
 			email = current_user.email
-			@payment = INSTA_CLIENT.payment_request({amount: 5000.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://127.0.0.1:3000/convention_requests/new" })
+			@payment = INSTA_CLIENT.payment_request({amount: 5113.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/convention_requests/new" ,buyer_phone:""})
 			redirect_to @payment.longurl
 			
 		end
 
 		def create_payment_ot
-			@response = INSTA_CLIENT.payment_request({amount: 1500.00, purpose: 'Convention Registration', currency: 'INR',send_email: true, email: "#{email}", redirect_url: "http://127.0.0.1:3000/convention_requests/new"})
-			redirect_to @response.longurl
+			email = current_user.email
+			@payment = INSTA_CLIENT.payment_request({amount: 1537.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/convention_requests/new",buyer_phone:"" })
+			redirect_to @payment.longurl
 		end
 	
 

@@ -1,1 +1,49 @@
-<h1><%= @payment %> </h1>
+<div class="container">
+  <div class="row" style="margin-top: 10px;">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="modal-dialog login animated"  style="width: 100%">
+          <div class="modal-content">
+            <div class="modal-header">
+                    
+                  <h2 class="modal-title text-center" style="color:#dd5138">Your Registration for Alumni Convention 2016 is provisional subjected to receiving of your Registration Fee amount in MNNIT Alumni Association Account.</h2>
+            </div>
+            <div class="modal-body">  
+              <div class="box">
+                <div class="content">
+                  <div class="division">
+                      <div class="line l"></div>
+                      <div class="line r"></div>
+                  </div>
+                  <% if @payment_id.nil? %>
+                      <div class="text-center">
+                        <p>Sorry! Something went wrong with the payment. Try again!</p>
+                      	  
+                        <br>
+                        <%= link_to "Back", edit_convention_request_path, class: "btn btn-lg btn-red" %>
+                      </div>	
+	                    
+                    <% else %>
+                    	<div class="text-center">  
+                          <p> You have successfully completed the transaction. Please wait 3-4 working days for confirmation mail from the association.</p>
+                          <p>Your total fee : <br> Registration Fee : <%= @convention_request.pay_amount %><br>Tax : <!--<%= @tax_amount %>--></p>
+                          <div class="form-group">
+                            <div class="col-md-12"><center><h3 style="color:green"><%= "Payment ID" %></h3></center></div>
+                              <div class="col-md-12"><center><p><%= @payment_id %></p></center></div>
+                          </div> 
+                          <br>  
+                          <%= link_to "Back", convention_path(@convention_request.convention.id), class: "btn btn-lg btn-red" %>
+                         
+                        </div> 
+
+
+                              
+                    <% end %> 
+                  
+                </div>
+              </div>
+            </div>  
+          </div>
+      </div>        
+      </div>    
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805043307) do
+ActiveRecord::Schema.define(version: 20160821144239) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160805043307) do
     t.string   "is_attending"
     t.string   "payment"
     t.integer  "accompanions"
+    t.float    "pay_amount"
   end
 
   add_index "convention_requests", ["convention_id"], name: "index_convention_requests_on_convention_id"

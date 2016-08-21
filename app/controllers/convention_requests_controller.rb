@@ -1,48 +1,103 @@
 class ConventionRequestsController < ApplicationController
 	before_action :require_user
 	before_action :check_user
-	before_filter :request_check
-	#api = Instamojo::API.new("65fced5aa4dd50eeaf57f7679c1520a4", "a1c5e4cf827e058ef2a938b6bd41bbd7", "https://test.instamojo.com/api/1.1/")
-	#client = api.client
+	before_action :find_convention_request, only: [:edit, :update]
+
+	#before_filter :request_check
+	
 	def new
 		@convention_request = current_user.build_convention_request
-		session[:payment] = @payment_id = params[:payment_id]
 	end
 
 	def create
-		#params[:payment] = @payment_id
 		@convention_request = current_user.build_convention_request(convention_params)
 		@convention_request.convention = Convention.last
-		@payment_id = session[:payment]
+		@convention_request.user = current_user
 		if @convention_request.save
-			#@convention_request.convention = Convention.last
-			@convention_request.update payment: @payment_id.to_s
-			@response = INSTA_CLIENT.payment_detail(@convention_request.payment).to_h
-			if @response["status"] == "Credit" and @response["buyer_email"] == current_user.email
-				#@convention_request.update status: true
-				flash[:notice] = "Thank You very much! You are successfully registered."
+			flash[:notice] = "Thank you for registration."
+			if current_user.year_of_passing.year == @convention_request.convention.year.year - 25
+				redirect_to create_payment_sj_path
 			else
-				flash[:notice] = "Your registration request for the Convention-#{Convention.last.year.year} is received. It is being processed."
+				redirect_to create_payment_ot_path
 			end
-			redirect_to convention_path(Convention.last.id)
 		else
 			render 'new'
 		end
 	end
-	
-		def create_payment_sj
-			email = current_user.email
-			@payment = INSTA_CLIENT.payment_request({amount: 5113.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/convention_requests/new" ,buyer_phone:""})
-			redirect_to @payment.longurl
-			
-		end
 
-		def create_payment_ot
-			email = current_user.email
-			@payment = INSTA_CLIENT.payment_request({amount: 1537.00, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/convention_requests/new",buyer_phone:"" })
-			redirect_to @payment.longurl
-		end
+	def edit
+
+	end
 	
+	def update
+		if @convention_request.update(convention_params)
+			flash[:notice] = "Changes Updated"
+			redirect_to create_payment_sj_path
+		else
+			render 'edit'
+		end
+	end
+	
+	def create_payment_sj
+		email = current_user.email
+		@convention_request = ConventionRequest.last
+		@pay_amount = @convention_request.pay_amount
+		#if @convention_request.address.include?("India") or @convention_request.address.include?("india")
+			#@tax_amount = ?
+		#else
+			#@tax_amount = ?
+		#end	
+		#@total_amount = @pay_amount + @tax_amount
+		@payment_id = params[:payment_id]
+		if @payment_id.nil?
+			if @convention_request.pay_amount >= 5113.00
+				@payment = INSTA_CLIENT.payment_request({amount: @pay_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_sj"})
+				redirect_to @payment.longurl
+			else
+				flash[:notice] = "Minimum Registration Fees allowed is Rs.5000"
+				render 'edit'
+			end
+		else
+			@convention_request.update payment: @payment_id.to_s
+			@response = INSTA_CLIENT.payment_detail(@convention_request.payment).to_h
+			if @response["status"] == "Credit" and @response["buyer_email"] == current_user.email
+				flash[:notice] = "Thank you for the payment."
+			else
+				flash[:notice] = "Your registration request for the Convention-#{@convention_request.convention.year.year} is received. It is being processed."
+			end
+		end	
+			
+	end
+
+	def create_payment_ot
+		email = current_user.email
+		@convention_request = ConventionRequest.last
+		@pay_amount = @convention_request.pay_amount
+		#if @convention_request.address.include?("India") or @convention_request.address.include?("india")
+			#@tax_amount = ?
+		#else
+			#@tax_amount = ?
+		#end
+		#@total_amount = @pay_amount + @tax_amount
+		@payment_id = params[:payment_id]
+		if @payment_id.nil?
+			if @convention_request.pay_amount >= 1537
+				@payment = INSTA_CLIENT.payment_request({amount: @pay_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_ot"})
+				redirect_to @payment.longurl
+			else
+				flash[:notice] = "Minimum Registration Fees allowed is Rs.1500"
+				render 'edit'
+			end	
+		else
+			@convention_request.update payment: @payment_id.to_s
+			@response = INSTA_CLIENT.payment_detail(@convention_request.payment).to_h
+			if @response["status"] == "Credit" and @response["buyer_email"] == current_user.email
+				flash[:notice] = "Thank you for the payment."
+			else
+				flash[:notice] = "Your registration request for the Convention-#{@convention_request.convention.year.year} is received. It is being processed."
+			end
+		end			
+	end
 
 	private
 		def require_user
@@ -76,6 +131,10 @@ class ConventionRequestsController < ApplicationController
         end
 
         def convention_params
-        	params.require(:convention_request).permit(:name,:degree, :branch, :year_of_passing, :designation, :address, :is_attending, :accompanions)
+        	params.require(:convention_request).permit(:name,:degree, :branch, :year_of_passing, :designation, :address, :is_attending, :accompanions, :pay_amount)
+        end
+
+        def find_convention_request
+        	@convention_request = ConventionRequest.find(params[:id])
         end
 end

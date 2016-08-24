@@ -42,16 +42,28 @@ class ConventionRequestsController < ApplicationController
 		email = current_user.email
 		@convention_request = ConventionRequest.last
 		@pay_amount = @convention_request.pay_amount
-		#if @convention_request.address.include?("India") or @convention_request.address.include?("india")
-			#@tax_amount = ?
-		#else
-			#@tax_amount = ?
-		#end	
+		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
+			#@tax_amount = (@pay_amount*1.9)/100 + 3
+			#@tax_amount = @tax_amount*1.15
+			#@tax_amount = @tax_amount.ceil
+			@total_amount = (@pay_amount*1.02234).ceil
+			@tax_amount = @total_amount - @pay_amount
+		else
+			
+			@total_amount = (@pay_amount*1.036).ceil
+			@tax_amount = @total_amount-@pay_amount
+			#var = 1.02234
+			#@total_amount = ((@pay_amount+3.45)*var).to_f
+			#@tax_amount = (@total_amount-@pay_amount).to_f
+			#@tax_amount = (@pay_amount*3)/100 + 3
+			#@tax_amount = @tax_amount*1.15
+			#@tax_amount = @tax_amount.ceil
+		end	
 		#@total_amount = @pay_amount + @tax_amount
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
-			if @convention_request.pay_amount >= 5113.00
-				@payment = INSTA_CLIENT.payment_request({amount: @pay_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_sj"})
+			if @convention_request.pay_amount >= 5000
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_sj"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.5000"
@@ -73,16 +85,18 @@ class ConventionRequestsController < ApplicationController
 		email = current_user.email
 		@convention_request = ConventionRequest.last
 		@pay_amount = @convention_request.pay_amount
-		#if @convention_request.address.include?("India") or @convention_request.address.include?("india")
-			#@tax_amount = ?
-		#else
-			#@tax_amount = ?
-		#end
+		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
+			@total_amount = (@pay_amount*1.02234).ceil
+			@tax_amount = @total_amount-@pay_amount
+		else
+			@total_amount = (@pay_amount*1.036).ceil
+			@tax_amount = @total_amount-@pay_amount
+		end	
 		#@total_amount = @pay_amount + @tax_amount
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
-			if @convention_request.pay_amount >= 1537
-				@payment = INSTA_CLIENT.payment_request({amount: @pay_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_ot"})
+			if @convention_request.pay_amount >= 1500
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_ot"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.1500"

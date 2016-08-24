@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row" style="margin-top: 10px;">
     <div class="col-md-8 col-md-offset-2">
@@ -64,8 +65,9 @@
                       </div>
                       <br>
                       <div class="form-group">
-                        <%= f.label :address, "Corresponding/Permanent Address" %><br />
-                        <%= f.text_area :address, input_html: {class: 'form-control'} %>
+                        <%= f.label :address, "Current Address" %><br />
+                        <%= f.text_area :address, input_html: {class: 'form-control'} ,id:'addr'%>
+                        <div><p style="color: red">Please do mention country of your current address</p></div>
                       </div>                            
 
                         <br>
@@ -86,26 +88,93 @@
                       <% if current_user.year_of_passing.year == Convention.last.year.year - 25%>
                         <div class="form-group">
                           <%= f.label :pay_amount , "Registration Fees"%><br />
-                          <%= f.text_field :pay_amount, value: 5000, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control' %>
+                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid1'%>
                           <p>Minimum Fee Rs.5000</p>
                         </div>
                       <% else %>
                           <%= f.label :pay_amount , "Registration Fees"%><br />
-                          <%= f.text_field :pay_amount, value: 1500, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control' %>
+                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid2' %>
                           <p>Minimum Fee Rs.1500</p>
                       <% end %>  
+                      <div id="extradiv"><p style="font-size: 14px">You will have to pay Rs.<span id="extrafeesid" style="color:#dd5138"></span> as online transaction fees.<br>Your total fees will be Rs.Rs.<span id="totalfeesid" style="color:#dd5138"></span></p></div>
                       <br>
-                      <div class="form-actions">
-                        <%= f.submit "Register", class: 'btn btn-login btn-info' %>
+                       <div>
+                        <p><span style="color:red">Disclaimer:-</span>Alumni Association wont be responsible for any failure of transaction.</p>
                       </div>
+                      <div class="form-actions">
+                        <%= f.submit "Register", class: 'btn btn-login btn-info' ,id: 'registerid' %>
+                      </div>
+
                     <% end %> 
                 </div>
               </div>
             </div>
           </div>  
         </div>
+
       </div>        
     </div>    
   </div>
 </div>
 
+<script type="text/javascript">
+  document.getElementById("registerid").disabled = true;
+  $("#extradiv").css("display","none");
+  
+  $("#feesid1").change(function(){
+      var str = $('#addr').val();
+      var fees = $("#feesid1").val();
+      var extra;
+      if(fees >= 5000)
+      {
+        document.getElementById("registerid").disabled = false;
+        fees = parseInt(fees);
+        if(str.search('India') >= 0 || str.search('india') >= 0)
+          var total = fees*1.02234;
+        else
+          var total = fees*1.036;
+        total = Math.ceil(total);
+        extra = total - fees;
+        //extra = parseInt(extra);
+        
+        document.getElementById("extrafeesid").innerHTML = extra;
+        document.getElementById("totalfeesid").innerHTML = total;
+        $("#extradiv").css("display","block");
+        //$("#feesid1").val(fees+extra+1);
+        //console.log(fees+extra + 1);
+      }
+      else
+      {
+        document.getElementById("registerid").disabled = true;
+        $("#extradiv").css("display","none");
+      }
+  });
+  $("#feesid2").change(function(){
+      var str = $('#addr').val();
+      var fees = $("#feesid2").val();
+      var extra;
+      if(fees >= 1500)
+      {
+        document.getElementById("registerid").disabled = false;
+        fees = parseInt(fees);
+        if(str.search('India') >= 0 || str.search('india') >= 0)
+          var total = fees*1.02234;
+        else
+          var total = fees*1.036;
+        total = Math.ceil(total);
+        extra = total - fees;
+        //extra = parseInt(extra);
+        
+        document.getElementById("extrafeesid").innerHTML = extra;
+        document.getElementById("totalfeesid").innerHTML = total;
+        $("#extradiv").css("display","block");
+        //$("#feesid1").val(fees+extra+1);
+        //console.log(fees+extra + 1);
+      }
+      else
+      {
+        document.getElementById("registerid").disabled = true;
+        $("#extradiv").css("display","none");
+      }
+  });
+</script>

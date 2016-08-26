@@ -63,7 +63,7 @@ class ConventionRequestsController < ApplicationController
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
 			if @convention_request.pay_amount >= 5000
-				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_sj"})
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/create_payment_sj"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.5000"
@@ -96,7 +96,7 @@ class ConventionRequestsController < ApplicationController
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
 			if @convention_request.pay_amount >= 1500
-				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_ot"})
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/create_payment_ot"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.1500"

@@ -9,6 +9,8 @@ class ConventionsController < ApplicationController
 
 	def show
 		@registered_users = ConventionRequest.where(status: true).count
+		@convention_request = current_user.convention_request
+		@convention_request = @convention_request[0]
 	end
 
 	def new 

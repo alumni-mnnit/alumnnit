@@ -26,6 +26,6 @@ production:
   database: alumni_mnnit
   username: root
   password: <%= ENV['DATABASE_PASSWD'] %>
-  host: 127.0.0.1
+  host: localhost
   port: 3306
 

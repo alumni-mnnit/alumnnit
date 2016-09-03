@@ -14,7 +14,7 @@ class ConventionRequestsController < ApplicationController
 		@convention_request.convention = Convention.last
 		@convention_request.user = current_user
 		if @convention_request.save
-			flash[:notice] = "Thank you for registration."
+			#flash[:notice] = "Thank you for registration."
 			if current_user.year_of_passing.year == @convention_request.convention.year.year - 25
 				redirect_to create_payment_sj_path
 			else
@@ -32,7 +32,11 @@ class ConventionRequestsController < ApplicationController
 	def update
 		if @convention_request.update(convention_params)
 			flash[:notice] = "Changes Updated"
-			redirect_to create_payment_sj_path
+			 if current_user.year_of_passing.year == @convention_request.convention.year.year - 25
+                                redirect_to create_payment_sj_path
+                        else
+                                redirect_to create_payment_ot_path
+                        end
 		else
 			render 'edit'
 		end
@@ -149,6 +153,6 @@ class ConventionRequestsController < ApplicationController
         end
 
         def find_convention_request
-        	@convention_request = ConventionRequest.find(params[:id])
+        	@convention_request = ConventionRequest.where(user: current_user).first
         end
 end

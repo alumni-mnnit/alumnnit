@@ -17,13 +17,13 @@
                   <% if @payment_id.nil? %>
                       <div class="text-center">
                         <p>Sorry! Something went wrong with the payment. Try again!</p>
-                      	  
+                          
                         <br>
                         <%= link_to "Back", edit_convention_request_path, class: "btn btn-lg btn-red" %>
-                      </div>	
-	                    
+                      </div>  
+                      
                     <% else %>
-                    	<div class="text-center">  
+                      <div class="text-center">  
                           <p> You have successfully completed the transaction. Please wait 3-4 working days for confirmation mail from the association.</p>
                           <p>Your total fee : <%= @total_amount %> <br> Registration Fee : <%= @convention_request.pay_amount %><br>Tax : <%= @tax_amount %></p>
                           <div class="form-group">

@@ -320,21 +320,22 @@ setTimeout("startBlink()",800);
                         <div class="collapse" id="registercollapse">
                           
                              <% if !current_user.convention_request.nil? %>
-                              <% if !(@convention_request.convention == Convention.last) %>
+                              <% if !(current_user.convention_request.convention == Convention.last) %>
                                 <%= link_to "Online", "#reg_form", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-red" %> OR
                                 <%= link_to "Download Forms", "#forms", "data-toggle" => "modal" , onclick: "openRegModal()", class: "btn btn-lg btn-yellow" %>
                                 
                               <% elsif current_user.convention_request.convention == Convention.last and current_user.convention_request.status == true %> 
                                 <p style="margin-bottom: 20px;"> Thank you! You have registered for the Convention.</p>
                               <% else %>
-				<% if current_user.convention_request.payment.nil? %>
-					<p style="margin-bottom: 20px;">Your Transaction was not successful, Please try again.</p>
+                        				<% if current_user.convention_request.payment.nil? %>
+                        					<p style="margin-bottom: 20px;">Your Transaction was not successful, Please try again.</p>
 	                                <%= link_to "Edit", edit_convention_request_path, class: "btn btn-lg btn-red" %> OR
           	                        <%= link_to "Offline", "#forms", "data-toggle" => "modal" , onclick: "openFormModal()", class: "btn btn-lg btn-yellow" %>
-
-                                <p style="margin-bottom: 20px;"> Your Payment Id : (<%= current_user.convention_request.payment %>) is being verified.</p>
-                                <br>
-                              <% end %>
+                                <% else %>
+                                  <p style="margin-bottom: 20px;"> Your Payment Id : (<%= current_user.convention_request.payment %>) is being verified.</p>
+                                  <br>
+                                <% end %>
+                              <% end %>  
                             <% else %> 
                               <p style="margin-bottom: 20px;"></p>
                               <%= link_to "Online", new_convention_request_path, class: "btn btn-lg btn-red" %> OR

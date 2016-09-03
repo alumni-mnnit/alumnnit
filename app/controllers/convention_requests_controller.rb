@@ -44,7 +44,7 @@ class ConventionRequestsController < ApplicationController
 	
 	def create_payment_sj
 		email = current_user.email
-		@convention_request = ConventionRequest.last
+		@convention_request = current_user.convention_request
 		@pay_amount = @convention_request.pay_amount
 		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
 			#@tax_amount = (@pay_amount*1.9)/100 + 3
@@ -67,7 +67,7 @@ class ConventionRequestsController < ApplicationController
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
 			if @convention_request.pay_amount >= 5000
-				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/create_payment_sj"})
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_sj"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.5000"
@@ -87,7 +87,7 @@ class ConventionRequestsController < ApplicationController
 
 	def create_payment_ot
 		email = current_user.email
-		@convention_request = ConventionRequest.last
+		@convention_request = current_user.convention_request
 		@pay_amount = @convention_request.pay_amount
 		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
 			@total_amount = (@pay_amount*1.02234).ceil
@@ -100,7 +100,7 @@ class ConventionRequestsController < ApplicationController
 		@payment_id = params[:payment_id]
 		if @payment_id.nil?
 			if @convention_request.pay_amount >= 1500
-				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://210.212.49.29/create_payment_ot"})
+				@payment = INSTA_CLIENT.payment_request({amount: @total_amount, purpose: 'Convention Registration', currency: 'INR', send_email: true, email: "#{email}", redirect_url: "http://localhost:3000/create_payment_ot"})
 				redirect_to @payment.longurl
 			else
 				flash[:notice] = "Minimum Registration Fees allowed is Rs.1500"
@@ -153,6 +153,6 @@ class ConventionRequestsController < ApplicationController
         end
 
         def find_convention_request
-        	@convention_request = ConventionRequest.where(user: current_user).first
+        	@convention_request = current_user.convention_request
         end
 end

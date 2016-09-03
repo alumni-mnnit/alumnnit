@@ -1,7 +1,7 @@
 class ConventionRequestsController < ApplicationController
 	before_action :require_user
 	before_action :check_user
-	before_action :find_convention_request, only: [:edit, :update]
+	before_action :find_convention_request, only: [:edit, :update, :create_payment_sj, :create_payment_ot]
 
 	#before_filter :request_check
 	
@@ -44,7 +44,7 @@ class ConventionRequestsController < ApplicationController
 	
 	def create_payment_sj
 		email = current_user.email
-		@convention_request = current_user.convention_request
+		#@convention_request = current_user.convention_request
 		@pay_amount = @convention_request.pay_amount
 		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
 			#@tax_amount = (@pay_amount*1.9)/100 + 3
@@ -87,7 +87,7 @@ class ConventionRequestsController < ApplicationController
 
 	def create_payment_ot
 		email = current_user.email
-		@convention_request = current_user.convention_request
+		#@convention_request = current_user.convention_request
 		@pay_amount = @convention_request.pay_amount
 		if @convention_request.address.include?("India") or @convention_request.address.include?("india")
 			@total_amount = (@pay_amount*1.02234).ceil

@@ -108,4 +108,65 @@
     </div>    
   </div>
 </div>
+<script type="text/javascript">
+  document.getElementById("registerid").disabled = true;
+  $("#extradiv").css("display","none");
+  
+  $("#feesid1").change(function(){
+      var str = $('#addr').val();
+      var fees = $("#feesid1").val();
+      var extra;
+      if(fees >= 5000)
+      {
+        document.getElementById("registerid").disabled = false;
+        fees = parseInt(fees);
+        if(str.search('India') >= 0 || str.search('india') >= 0)
+          var total = fees*1.02234;
+        else
+          var total = fees*1.036;
+        total = Math.ceil(total);
+        extra = total - fees;
+        //extra = parseInt(extra);
+        
+        document.getElementById("extrafeesid").innerHTML = extra;
+        document.getElementById("totalfeesid").innerHTML = total;
+        $("#extradiv").css("display","block");
+        //$("#feesid1").val(fees+extra+1);
+        //console.log(fees+extra + 1);
+      }
+      else
+      {
+        document.getElementById("registerid").disabled = true;
+        $("#extradiv").css("display","none");
+      }
+  });
+  $("#feesid2").change(function(){
+      var str = $('#addr').val();
+      var fees = $("#feesid2").val();
+      var extra;
+      if(fees >= 1500)
+      {
+        document.getElementById("registerid").disabled = false;
+        fees = parseInt(fees);
+        if(str.search('India') >= 0 || str.search('india') >= 0)
+          var total = fees*1.02234;
+        else
+          var total = fees*1.036;
+        total = Math.ceil(total);
+        extra = total - fees;
+        //extra = parseInt(extra);
+        
+        document.getElementById("extrafeesid").innerHTML = extra;
+        document.getElementById("totalfeesid").innerHTML = total;
+        $("#extradiv").css("display","block");
+        //$("#feesid1").val(fees+extra+1);
+        //console.log(fees+extra + 1);
+      }
+      else
+      {
+        document.getElementById("registerid").disabled = true;
+        $("#extradiv").css("display","none");
+      }
+  });
+</script>
 

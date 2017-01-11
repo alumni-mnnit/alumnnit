@@ -2,7 +2,7 @@
 <% @newses.each do |news| %>
     <div class="ja-slidenews-item">
         <%= link_to news.title, news, class: "ja-title" %>
-        <span class="ja-createdate"><%= news.created_at.strftime("%b %-d, %Y") %> </span> 
+        <span class="ja-createdate" style="display:none"><%= news.created_at.strftime("%b %-d, %Y") %> </span> 
        <%= news.description.truncate_words(10) %>
     </div>
 <% end %>

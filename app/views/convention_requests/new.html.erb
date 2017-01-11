@@ -88,13 +88,13 @@
                       <% if current_user.year_of_passing.year == Convention.last.year.year - 25%>
                         <div class="form-group">
                           <%= f.label :pay_amount , "Registration Fees"%><br />
-                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid1'%>
-                          <p>Minimum Fee Rs.5000</p>
+                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid1'%><p style="color:red">Click here to after you have entered your fees to show extra charges.</p>
+                          <p>Minimum Fee Rs.10000</p>
                         </div>
                       <% else %>
                           <%= f.label :pay_amount , "Registration Fees"%><br />
-                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid2' %>
-                          <p>Minimum Fee Rs.1500</p>
+                          <%= f.text_field :pay_amount, value: 0, style: "border: 1px solid rgb(177, 177, 177);color:black; background-color: white;",  class: 'form-control',id: 'feesid2' %><p style="color:red">Click here to after you have entered your fees to show extra charges.</p>
+                          <p>Minimum Fee Rs.3000</p>
                       <% end %>  
                       <div id="extradiv"><p style="font-size: 14px">You will have to pay Rs.<span id="extrafeesid" style="color:#dd5138"></span> as online transaction fees.<br>Your total fees will be Rs.Rs.<span id="totalfeesid" style="color:#dd5138"></span></p></div>
                       <br>
@@ -125,7 +125,7 @@
       var str = $('#addr').val();
       var fees = $("#feesid1").val();
       var extra;
-      if(fees >= 5000)
+      if(fees >= 10000)
       {
         document.getElementById("registerid").disabled = false;
         fees = parseInt(fees);
@@ -153,7 +153,7 @@
       var str = $('#addr').val();
       var fees = $("#feesid2").val();
       var extra;
-      if(fees >= 1500)
+      if(fees >= 3000)
       {
         document.getElementById("registerid").disabled = false;
         fees = parseInt(fees);

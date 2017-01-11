@@ -33,7 +33,30 @@
     
   </header>-->
 	    <!-- Navigation -->
-    <nav class="navbar navbar-ct-black " role="navigation">
+<script>
+	$(document).ready(function(){
+		var str = $('#nickname').val();
+        console.log(str);
+        if(str.length > 19)
+        {
+                str = str.substring(0,19);
+                str += "..";
+        }
+        console.log(str);
+        document.getElementById('nickname').value = str;
+	});
+       /* var str = $('#nickname').val();
+        console.log(str);
+        if(str.length > 19)
+        {
+                str = str.substring(0,19);
+                str += "..";
+        }
+        console.log(str);
+        document.getElementById('nickname').value = str;
+	*/
+</script>   
+ <nav class="navbar navbar-ct-black " role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -102,7 +125,7 @@
                   <li class="round-image-50"><%= image_tag 'speaker-1.png' %></li>
                 <% end %>
 			          <li class="dropdown" style="margin-top: 10px;">
-			            <a class="dropdown-toggle" data-toggle="dropdown" href="#">  
+			            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="nickname">  
 			              <% if current_user.nick_name? %>		
 			              	<%= current_user.nick_name %>
 			              <% else %>
@@ -198,4 +221,15 @@
 
     </nav>
 
-  
+  <script>
+	/*var str = $('#nickname').val();
+	console.log(str);
+	if(str.length > 19)
+	{
+		str = str.substring(0,19);
+		str += "..";
+	}
+	console.log(str);
+	document.getElementById('nickname').value = str;
+	*/
+ </script>

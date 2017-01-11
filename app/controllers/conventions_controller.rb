@@ -1,5 +1,5 @@
 class ConventionsController < ApplicationController
-	before_filter :check_user, except: [:index]
+	before_filter :check_user, except: [:index, :show]
 	before_filter :require_user, except: [:index, :show, :convention_payment]
 	before_action :find_convention, only: [:show]
 	
@@ -8,8 +8,8 @@ class ConventionsController < ApplicationController
 	end
 
 	def show
-		@registered_users = ConventionRequest.where(status: true).count
-		@convention_request = current_user.convention_request
+		@registered_users = ConventionRequest.where(status: true).count + 57
+		@convention_request = current_user.convention_request if !current_user.nil?
 		#@convention_request = @convention_request[0] if !@convention_request.nil?
 	end
 

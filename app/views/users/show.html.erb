@@ -33,7 +33,7 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date of birth: </strong></span> <%= @user.date_of_birth if @user.date_of_birth %>
                 <%= "Not Set" if !@user.date_of_birth %>
                 </li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no.to_i if @user.phn_no %>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone number: </strong></span> <%= @user.phn_no.to_s if @user.phn_no %>
                   <%= "Not Set" if !@user.phn_no %>
                 </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address: </strong></span><%= "#{@user.city} " if @user.city %> <%=  "#{@user.country}" if @user.country %>

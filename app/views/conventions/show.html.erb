@@ -1,4 +1,4 @@
-<%= javascript_include_tag "jquery.countTo" %>
+
 <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
     function doBlink() {
@@ -240,9 +240,9 @@ setTimeout("startBlink()",800);
   <div class="col-md-12 text-center fill" >
     <h1 style="color: red">Alumni Convention of <%= @convention.year.year %></h1>
     <h3 style="color: yellow; text-shadow: 4px 4px 4px black;">Get connected back to Alma Mater.</h3>
-    <h3 style="color: blue; font-weight: 600 !important; font-size: 30px;text-shadow: 2px 2px 2px black;"> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: blue">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h3>
+    <h3 style="color: yellow; font-weight: 600 !important; font-size: 30px;text-shadow: 2px 2px 2px black;"> <%= @convention.start_date.strftime("%-dth %b, %Y") %> <span style= "font-size: 25px;color: yellow">to</span> <%= @convention.start_date.day+1 %>th <%= @convention.start_date.strftime("%b, %Y") %></h3>
     
-    <div class="col-md-6 col-md-offset-3"><div class="col-md-5" ><span class="timer" data-from="0" data-to="<%= @registered_users %>" data-speed="2000" style="font-size: 35px;color: #fcd93b;padding-left: 45%;font-weight: 700;text-shadow: 4px 4px 4px black;"></span></div><div class="col-md-7" style="vertical-align: center;"><p class="pfix" style="text-shadow: 2px 2px 2px black;margin-left:-55%; color: blue;">Alumni Registered</p></div></div>
+    <div class="col-md-6 col-md-offset-3"><div class="col-md-5" ><span class="timer" data-from="0" data-to="<%= @registered_users %>" data-speed="2000" style="font-size: 35px;color: #fcd93b;padding-left: 45%;font-weight: 700;text-shadow: 4px 4px 4px black;"></span></div><div class="col-md-7" style="vertical-align: center;"><p class="pfix" style="text-shadow: 2px 2px 2px black;margin-left:-55%; color: yellow;">Alumni Registered</p></div></div>
   </div>
   <div class="modal fade " id="forms">
     <div class="modal-dialog login animated">
@@ -353,26 +353,33 @@ setTimeout("startBlink()",800);
                            <div class="col-md-6 list">
                              <h3>Patron</h3>
                                <ul>
-                                  <li><p>Prof. S.K. Duggal</p></li>
+                                  <li><p>Prof. Rajiv Tripathi</p></li>
                                </ul>
-                                 <h3>Vice President</h3>
+                                 <h3>Advisor</h3>
+                               <ul>
+                                <li><p>Prof. M.M. Gore</p></li>
+                      
+                               </ul>
+                               <h3>Chairmain</h3>
                                <ul>
                                 <li><p>Dr. Avanish Kumar Dubey</p></li>
-                                <li><p>Er. Anurag Srivastav</p></li>
                                </ul>
-                               <h3>Secretary</h3>
+                               <h3>Co-Chairman</h3>
                                <ul>
-                                <li><p>Dr. Ramesh Pandey (Secretary)</p></li>
-                                <li><p>Dr. Mohd. Siraj Alam (Joint Secretary-I)</p></li>
-                                <li><p>Rajesh Kumar Singh (Joint Secretary-II)</p></li>
+                                <li><p>Er. Anurag Srivastava</p></li>
                                </ul>
-                               <h3>Treasurer</h3>
+                               <h3>Organising Secretary</h3>
+                               <ul>
+                                <li><p>Dr. Ramesh Pandey</p></li>
+                               </ul>
+				<h3>Treasurer</h3>
                                <ul>
                                 <li><p>Dr. Praveen Kumar Agarwal</p></li>
                                </ul>
-                               <h3>Dean (R G & IA) Ex-Officio</h3>
+				<h3>Joint Org. Secretaries</h3>
                                <ul>
-                                <li><p>Prof. M.M. Gore</p></li>
+                                <li><p>Dr. Mohd. Siraj Alam</p></li>
+				<li><p>Er. Rajesh Kumar Singh</p></li>
                                </ul>
                           </div>
                           <div class="col-md-6 list">
@@ -461,8 +468,8 @@ setTimeout("startBlink()",800);
 
                           <div class="row">
                             <div class="col-md-6">
-                                <center><h3><b>Chief Guest</b></h3>
-                                <p><b>Er. R.N Misra, 1970 Civil<br>CMD, SJVN Limited<br>Shimla H.P</b></p>  
+                                <center><h3><b>Guest of Honor</b></h3>
+                                <p><b>Er. R.N Misra, 1978 Civil<br>CMD, SJVN Limited<br>Shimla H.P</b></p>  
                                 </center>
                             </div>
                             <div class="col-md-6">
@@ -795,7 +802,145 @@ setTimeout("startBlink()",800);
       </div>-->
 
       
-      
+     
+   
+  <script>
+    
+    (function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+  var CountTo = function (element, options) {
+    this.$element = $(element);
+    this.options  = $.extend({}, CountTo.DEFAULTS, this.dataOptions(), options);
+    this.init();
+  };
+
+  CountTo.DEFAULTS = {
+    from: 0,               // the number the element should start at
+    to: 0,                 // the number the element should end at
+    speed: 1000,           // how long it should take to count between the target numbers
+    refreshInterval: 100,  // how often the element should be updated
+    decimals: 0,           // the number of decimal places to show
+    formatter: formatter,  // handler for formatting the value before rendering
+    onUpdate: null,        // callback method for every time the element is updated
+    onComplete: null       // callback method for when the element finishes updating
+  };
+
+  CountTo.prototype.init = function () {
+    this.value     = this.options.from;
+    this.loops     = Math.ceil(this.options.speed / this.options.refreshInterval);
+    this.loopCount = 0;
+    this.increment = (this.options.to - this.options.from) / this.loops;
+  };
+
+  CountTo.prototype.dataOptions = function () {
+    var options = {
+      from:            this.$element.data('from'),
+      to:              this.$element.data('to'),
+      speed:           this.$element.data('speed'),
+      refreshInterval: this.$element.data('refresh-interval'),
+      decimals:        this.$element.data('decimals')
+    };
+
+    var keys = Object.keys(options);
+
+    for (var i in keys) {
+      var key = keys[i];
+
+      if (typeof(options[key]) === 'undefined') {
+        delete options[key];
+      }
+    }
+
+    return options;
+  };
+
+  CountTo.prototype.update = function () {
+    this.value += this.increment;
+    this.loopCount++;
+
+    this.render();
+
+    if (typeof(this.options.onUpdate) == 'function') {
+      this.options.onUpdate.call(this.$element, this.value);
+    }
+
+    if (this.loopCount >= this.loops) {
+      clearInterval(this.interval);
+      this.value = this.options.to;
+
+      if (typeof(this.options.onComplete) == 'function') {
+        this.options.onComplete.call(this.$element, this.value);
+      }
+    }
+  };
+
+  CountTo.prototype.render = function () {
+    var formattedValue = this.options.formatter.call(this.$element, this.value, this.options);
+    this.$element.text(formattedValue);
+  };
+
+  CountTo.prototype.restart = function () {
+    this.stop();
+    this.init();
+    this.start();
+  };
+
+  CountTo.prototype.start = function () {
+    this.stop();
+    this.render();
+    this.interval = setInterval(this.update.bind(this), this.options.refreshInterval);
+  };
+
+  CountTo.prototype.stop = function () {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  };
+
+  CountTo.prototype.toggle = function () {
+    if (this.interval) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  };
+
+  function formatter(value, options) {
+    return value.toFixed(options.decimals);
+  }
+
+  $.fn.countTo = function (option) {
+    return this.each(function () {
+      var $this   = $(this);
+      var data    = $this.data('countTo');
+      var init    = !data || typeof(option) === 'object';
+      var options = typeof(option) === 'object' ? option : {};
+      var method  = typeof(option) === 'string' ? option : 'start';
+
+      if (init) {
+        if (data) data.stop();
+        $this.data('countTo', data = new CountTo(this, options));
+      }
+
+      data[method].call(data);
+    });
+  };
+}));
+
+
+
+
+  </script>
 <script >
   function showForm(){
     $('#forms').fadeOut('fast',function(){
@@ -822,5 +967,8 @@ function openRegModal(){
         $('#reg_form').modal('show');    
     }, 230);
 }     
-$('.timer').countTo();   
+$(document).ready(function(){
+  $('.timer').countTo();
+});
+   
 </script>

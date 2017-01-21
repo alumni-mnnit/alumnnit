@@ -120,7 +120,7 @@ class ConventionRequestsController < ApplicationController
 	private
 		def require_user
 			if !user_signed_in? 
-				flash[:notice] = "You must Login/Signup to use all the facilities!"
+				flash[:notice] = "Please! kindly Login/Signup to use all the facilities!"
 				redirect_to root_path
 			else
 				if current_user.is_active == false

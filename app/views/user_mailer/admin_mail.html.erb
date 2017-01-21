@@ -1,0 +1,24 @@
+<p>Hi Admin, </p>
+
+<p>There is a new <%= @purpose.class %> by <%= @purpose.user.email %></p>
+
+<blockquote>
+	<% if @purpose.class == Feedback %>
+		<p>Name : <%= @purpose.name %></p>
+		<p>Email : <%= @purpose.email %></p>
+		<p>Feedback : <%= @purpose.feedback %></p>
+	<% elsif @purpose.class == Contact %>
+		<p>Name : <%= @purpose.name %></p>
+		<p>Email : <%= @purpose.email %></p>
+		<p>Phn-No. : <%= @purpose.phn_no %></p>
+		<p><%= @purpose.message %></p>
+	<% elsif @purpose.class == Job %>
+		<p>Title : <%= @purpose.title %> by <%= @purpose.user.email %></p>
+		<p>Description : <%= @purpose.description %></p>
+		<p>Link : <%= @purpose.url %></p>
+	<% end %>	
+</blockquote>
+
+<p>Please check it.</p>
+
+<p>Thank you!</p>

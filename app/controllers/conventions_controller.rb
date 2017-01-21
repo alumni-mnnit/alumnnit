@@ -50,14 +50,14 @@ class ConventionsController < ApplicationController
 
 		def require_user
 			if current_user.is_admin == false
-				flash[:notice] = "You must be Admin to perform the task."
+				flash[:notice] = "Sorry! You must be Admin to perform the task."
 				redirect_to root_path
 			end
 		end
 
 		def check_user
 			if !user_signed_in?
-				flash[:notice] = "You must Login/Signup to use all the facilities!"
+				flash[:notice] = "Please! kindly Login/Signup to use all the facilities!"
 				redirect_to root_path
 			elsif current_user.is_active == false
 				flash[:notice] = "Please request for Account Activation!"

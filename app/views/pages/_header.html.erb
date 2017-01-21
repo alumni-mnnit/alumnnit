@@ -129,7 +129,7 @@
 			              <% if current_user.nick_name? %>		
 			              	<%= current_user.nick_name %>
 			              <% else %>
-			              	<%= current_user.email %>
+			              	<%= current_user.email.split('@')[0] %>
 			              <% end %>	
 			              <span class="caret"></span>
 			            </a>
@@ -137,6 +137,9 @@
 			              <li><%= link_to '<i class="fa fa-user fa-fw" aria-hidden="true"></i> Profile'.html_safe, current_user %></li>
 			              <li><%= link_to '<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Settings'.html_safe, edit_user_registration_path %></li>
 			              <li class="divider"></li>
+                    <% if current_user.is_admin == true %>
+                      <li><%= link_to '<i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Email'.html_safe, new_email_path %></li>
+                    <% end %>  
 			              <li><%= link_to '<i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Log out'.html_safe, destroy_user_session_path, method: :delete %></li>
 			            </ul>
 

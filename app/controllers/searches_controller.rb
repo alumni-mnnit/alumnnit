@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
 		end
 		def require_user
 		  unless current_user
-	      flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+	      flash[:alert] = "Please! kindly Login/Signup to enjoy all facilities."
 		    redirect_to "/" and return
 		  end
 		end

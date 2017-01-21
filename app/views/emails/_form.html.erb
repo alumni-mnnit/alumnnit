@@ -1,0 +1,30 @@
+<%= simple_form_for @email, html: { multipart: true} do |f| %>
+	<%- if @email.errors.any? %>
+		<div id="errors">
+			<h2>
+				<%= pluralize(@email.errors.count, "Error") %>
+				Prevented this email from submission.
+			</h2>	
+				<ul>
+					<%  @email.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>	
+				</ul>				
+		</div>
+	<% end %>	
+
+	<div class="form-group">
+		<%= f.label :batch, "Batch" %></br>
+		<%= f.select :batch, (1960..(Date.today.year+4)), include_blank: true,  class: "form-control"  %>
+	</div>	
+
+	<div class="form-group">
+		<%= f.input :subject, placeholder: "Subject",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.input :message, placeholder: "Message",required: true, input_html: { class: "form-control", style: "color: black;"} %>
+	</div>
+	
+	<%= f.button :submit, "Send Email", class: "btn btn-login btn-info" %>
+<% end %>	

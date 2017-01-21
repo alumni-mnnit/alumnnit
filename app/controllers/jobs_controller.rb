@@ -12,6 +12,7 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.build(job_params)
     if @job.save
+      UserMailer.admin_mail(@job).deliver!
       flash[:notice] = "Job added successfully!"
       redirect_to root_path
     else
@@ -41,7 +42,7 @@ class JobsController < ApplicationController
   private
   def require_user
     unless current_user 
-      flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+      flash[:alert] = "Please! kindly Login/Signup to enjoy all facilities."
       redirect_to "/" and return
     end
     if current_user.is_active == false

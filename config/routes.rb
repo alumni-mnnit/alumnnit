@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :searches
   resources :news
+  resources :emails
   resources :users, only: [:show]
   get '/about' => 'pages#about' 
   get '/fund'	=> 'pages#fund'

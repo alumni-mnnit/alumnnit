@@ -42,6 +42,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.4.0.3)
       execjs
+    awesome_print (1.7.0)
     bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
@@ -250,6 +251,7 @@ PLATFORMS
 
 DEPENDENCIES
   Instamojo-rb (~> 1.1)
+  awesome_print
   bootstrap-sass (~> 3.3, >= 3.3.6)
   bootstrap3-datetimepicker-rails (~> 4.17.37)
   byebug

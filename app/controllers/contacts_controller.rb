@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
   def create
   	@contact = Contact.new(contact_params)
   	if @contact.save
+      UserMailer.admin_mail(@contact).deliver!
   		flash[:notice] = "Query is Sent!!"
   		redirect_to root_path
   	else

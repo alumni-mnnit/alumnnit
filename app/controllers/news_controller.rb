@@ -17,6 +17,10 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params)
     if @news.save
+      @users = User.all
+      @users.each do |user|
+        UserMailer.news_mail(@news, user).deliver!
+      end  
       flash[:notice] = "News created successfully!"
       redirect_to root_path
     else
@@ -47,10 +51,10 @@ class NewsController < ApplicationController
 
     def require_user
       if !user_signed_in? 
-        flash[:notice] = "You must Login/Signup to use all the facilities!"
+        flash[:notice] = "Please! kindly Login/Signup to use all the facilities!"
         redirect_to root_path
       elsif current_user.is_admin == false 
-        flash[:notice] = "You must be admin!"
+        flash[:notice] = "Sorry! You are not admin!"
         redirect_to root_path
       end
     end

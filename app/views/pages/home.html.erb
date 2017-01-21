@@ -183,7 +183,7 @@
                                     </div>
                                 <% end %>   
                                 <p>To post a Job/Internship, contact administration team.<a href="mailto:mnnitalumni@mnnit.ac.in">email us</a>.
-                                <% if user_signed_in? and current_user.is_admin == true %>
+                                <% if user_signed_in? %>
                                     <div class="text-center">
                                         <%= link_to "Add Job", new_job_path , class: "btn btn-lg btn-red" %>
                                     </div>

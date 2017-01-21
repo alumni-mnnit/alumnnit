@@ -1,0 +1,24 @@
+Hi Admin,
+
+
+	<% if @purpose.class == Feedback %>
+		There is a new <%= @purpose.class %> by <%= @purpose.user.email %>
+		Name : <%= @purpose.name %>
+		Email : <%= @purpose.email %>
+		Feedback : <%= @purpose.feedback %>
+	<% elsif @purpose.class == Contact %>
+		There is a new <%= @purpose.class %>
+		Name : <%= @purpose.name %>
+		Email : <%= @purpose.email %>
+		Phn-No. : <%= @purpose.phn_no %>
+		Message : <%= @purpose.message %>
+	<% elsif @purpose.class == Job %>
+		There is a new request for <%= @purpose.class %> by <%= @purpose.user.email %>
+		Title : <%= @purpose.title %>
+		Description : <%= @purpose.description %>
+		Link : <%= @purpose.url %>
+	<% end %>	
+
+Please check it.
+
+Thank you!	

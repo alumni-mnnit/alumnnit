@@ -7,6 +7,7 @@ class FeedbacksController < ApplicationController
 	def create
 	  	@feedback = current_user.feedbacks.build(feedback_params)
 	  	if @feedback.save
+	  		UserMailer.admin_mail(@feedback).deliver!
 	  		flash[:notice] = "Feedback is Sent!!"
 	  		redirect_to root_path
 	  	else
@@ -25,7 +26,7 @@ class FeedbacksController < ApplicationController
 
 	  	def require_user
 	  	  unless current_user
-	        flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+	        flash[:alert] = "Please! kindly Login/Signup to enjoy all facilities."
 	  	    redirect_to "/" and return
 	  	  end
 	  	end

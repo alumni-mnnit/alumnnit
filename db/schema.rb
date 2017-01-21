@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821144239) do
+ActiveRecord::Schema.define(version: 20170114094941) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20160821144239) do
   create_table "conventions", force: :cascade do |t|
     t.date     "year"
     t.date     "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.string   "batch"
+    t.string   "subject"
+    t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,9 +98,10 @@ ActiveRecord::Schema.define(version: 20160821144239) do
     t.string   "title"
     t.text     "description"
     t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.boolean  "is_valid",    default: false
   end
 
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
@@ -152,7 +161,7 @@ ActiveRecord::Schema.define(version: 20160821144239) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "is_admin",               default: false
-    t.boolean  "is_active",              default: false
+    t.boolean  "is_active",              default: true
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "fname"
@@ -160,7 +169,7 @@ ActiveRecord::Schema.define(version: 20160821144239) do
     t.string   "nick_name"
     t.string   "gender"
     t.string   "reg_no"
-    t.float    "phn_no"
+    t.string   "phn_no"
     t.date     "date_of_birth"
     t.string   "degree"
     t.string   "branch"

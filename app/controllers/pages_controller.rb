@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   before_filter :confirm_user, only:[:home, :about, :contact, :fund]
   def home
     @newses = News.order('created_at DESC').page params[:news]
-    @jobs = Job.order('created_at DESC').page params[:jobs]
+    @jobs = Job.where(["is_valid LIKE ?", true])
+    @jobs = @jobs.order('created_at DESC').page params[:jobs]
   end
 
   def about
@@ -28,7 +29,7 @@ class PagesController < ApplicationController
   protected
   	def require_user
   	  unless current_user
-        flash[:alert] = "You need to Login/Signup to enjoy all facilities."
+        flash[:alert] = "Please! kindly Login/Signup to enjoy all facilities."
   	    redirect_to "/" and return
   	  end
   	end
